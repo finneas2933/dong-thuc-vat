@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DongThucVat
+{
+    public partial class Login : Form
+    {
+        SqlConnection conn;
+        string sql = "";
+        string id, name, is_admin;
+
+        public Login()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            conn = Connect.ConnectDB();
+            txtEmail.Focus();
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btLogin_Click(object sender, EventArgs e)
+        {
+            // Kiem tra du lieu nhap
+            if (txtEmail.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("Vui lòng điền email và password để đăng nhập.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtEmail.Focus();
+                return;
+            }
+
+            if (loginCheck() == false)
+            {
+                MessageBox.Show("Email hoặc password không chính xác.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtEmail.Focus();
+                return;
+            }
+            else
+            {
+                using (frmHome frm = new frmHome())
+                {
+                    frm.idHome = id;// Truyền vào thuộc tính idHome của form Home
+                    frm.name_Home = name;// Truyền vào thuộc tính first_name_Home
+                    frm.is_admin_Home = is_admin;// Truyền vào thuộc tính is_admin_Home
+
+                    frm.ShowDialog();
+                }
+                this.Dispose();
+            }
+        }
+
+        public bool loginCheck()
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            sql = "SELECT * FROM [user] WHERE email = '" + txtEmail.Text.Trim() + "' AND password = '" + txtPassword.Text.Trim() + "' and status = 1";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            cmd.Dispose();
+            conn.Close();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                // Lấy giá trị từ dòng đầu tiên của DataTable
+                id = dt.Rows[0]["id"].ToString();
+                name = dt.Rows[0]["name"].ToString();
+                is_admin = dt.Rows[0]["is_admin"].ToString();
+                return true;
+            }
+            else
+                return false;
+        }
+
+    }
+}

@@ -1,0 +1,17 @@
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Debug\DongThucVat.exe.config
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Debug\DongThucVat.exe
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Debug\DongThucVat.pdb
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.AssemblyReference.cache
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.Properties.Resources.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.GenerateResource.cache
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.CoreCompileInputs.cache
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.exe
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.pdb
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmHome.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucChon.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.Login.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmNganhUpdate.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucNganh.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmLopUpdate.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucLop.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucUser.resources
