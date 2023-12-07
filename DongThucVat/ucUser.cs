@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -141,22 +142,47 @@ namespace DongThucVat
                 txtEmail.Focus();
                 return;
             }
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
             if (ktThem == true)
             {
                 DateTime createdAt = DateTime.Now;
-                sql = "INSERT INTO [user] (address, name, password, email, phone, gender, dob, created_at, is_admin, status) VALUES (N'" + txtDiaChi.Text.Trim() + "', N'" + txtHoTen.Text.Trim() + "', N'" + txtPassword.Text.Trim() + "', N'" + txtEmail.Text.Trim() + "', N'" + txtSDT.Text.Trim() + "', " + cbGioiTinh.SelectedItem.ToString() + ", N'" + DateTime.Parse(dtpNgaySinh.Value.ToString("yyyy/MM/dd")) + "', N'" + createdAt + "', " + (rbtAdmin.Checked == true ? 1 : 0) + ", " + (rbtOn.Checked == true ? 1 : 0) + ")";
+                SqlCommand cmd = new SqlCommand("InsertUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@Address", SqlDbType.NVarChar).Value = txtDiaChi.Text.Trim();
+                cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = txtHoTen.Text.Trim();
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = txtPassword.Text.Trim();
+                cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtEmail.Text.Trim();
+                cmd.Parameters.Add("@Phone", SqlDbType.NVarChar).Value = txtSDT.Text.Trim();
+                cmd.Parameters.Add("@Gender", SqlDbType.NVarChar).Value = cbGioiTinh.SelectedIndex == 0 ? "" : cbGioiTinh.SelectedItem.ToString();
+                cmd.Parameters.Add("@Dob", SqlDbType.Date).Value = DateTime.Parse(dtpNgaySinh.Value.ToString("yyyy/MM/dd"));
+                cmd.Parameters.Add("@CreatedAt", SqlDbType.DateTime).Value = createdAt;
+                cmd.Parameters.Add("@IsAdmin", SqlDbType.Bit).Value = rbtAdmin.Checked ? 1 : 0;
+                cmd.Parameters.Add("@Status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
 
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
             }
             else
             {
                 DateTime updatedAt = DateTime.Now;
-                sql = "UPDATE [user] SET name = N'" + txtHoTen.Text.Trim() + "', password = N'" + txtPassword.Text.Trim() + "', email = N'" + txtEmail.Text.Trim() + "', phone = N'" + txtSDT.Text.Trim() + "', gender = N'" + cbGioiTinh.SelectedItem.ToString() + "', dob = '" + DateTime.Parse(dtpNgaySinh.Value.ToString("yyyy/MM/dd")) + "', updated_at = '" + updatedAt + "', is_admin = " + (rbtAdmin.Checked == true ? 1 : 0) + ", status = " + (rbtOn.Checked == true ? 1 : 0) + " WHERE id = " + Int32.Parse(macu);
+                SqlCommand cmd = new SqlCommand("UpdateUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = Int32.Parse(macu);
+                cmd.Parameters.Add("@Address", SqlDbType.NVarChar).Value = txtDiaChi.Text.Trim();
+                cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = txtHoTen.Text.Trim();
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = txtPassword.Text.Trim();
+                cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtEmail.Text.Trim();
+                cmd.Parameters.Add("@Phone", SqlDbType.NVarChar).Value = txtSDT.Text.Trim();
+                cmd.Parameters.Add("@Gender", SqlDbType.NVarChar).Value = cbGioiTinh.SelectedIndex == 0 ? "" : cbGioiTinh.SelectedItem.ToString();
+                cmd.Parameters.Add("@Dob", SqlDbType.Date).Value = DateTime.Parse(dtpNgaySinh.Value.ToString("yyyy/MM/dd"));
+                cmd.Parameters.Add("@UpdatedAt", SqlDbType.DateTime).Value = updatedAt;
+                cmd.Parameters.Add("@IsAdmin", SqlDbType.Bit).Value = rbtAdmin.Checked ? 1 : 0;
+                cmd.Parameters.Add("@Status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
             }
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
             conn.Close();
 
             xoaTrang();
@@ -195,12 +221,13 @@ namespace DongThucVat
             if (macu != "")
             {
                 if (MessageBox.Show("Bạn có muốn xóa người dùng " + txtHoTen.Text + " không?", "Thông báo",
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (conn.State != ConnectionState.Open)
                         conn.Open();
-                    sql = "DELETE FROM [user] WHERE id = " + Int32.Parse(macu.Trim());
-                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    SqlCommand cmd = new SqlCommand("DeleteUser", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int).Value = Int32.Parse(macu.Trim());
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                     conn.Close();
@@ -228,15 +255,15 @@ namespace DongThucVat
                         txtPassword.Text = row.Cells[3].Value.ToString();
                         txtEmail.Text = row.Cells[4].Value.ToString();
                         txtSDT.Text = row.Cells[5].Value.ToString();
-                        cbGioiTinh.SelectedItem = row.Cells[7].Value.ToString();
-                        dtpNgaySinh.Value = DateTime.Parse(row.Cells[8].Value.ToString());
-                        if (Boolean.Parse(row.Cells[12].Value.ToString()) == true)
+                        cbGioiTinh.SelectedItem = row.Cells[6].Value.ToString();
+                        dtpNgaySinh.Value = DateTime.Parse(row.Cells[7].Value.ToString());
+                        if (Boolean.Parse(row.Cells[11].Value.ToString()) == true)
                             rbtAdmin.Checked = true;
-                        if (Boolean.Parse(row.Cells[12].Value.ToString()) == false)
+                        if (Boolean.Parse(row.Cells[11].Value.ToString()) == false)
                             rbtNV.Checked = true;
-                        if (Boolean.Parse(row.Cells[13].Value.ToString()) == true)
+                        if (Boolean.Parse(row.Cells[12].Value.ToString()) == true)
                             rbtOn.Checked = true;
-                        if (Boolean.Parse(row.Cells[13].Value.ToString()) == false)
+                        if (Boolean.Parse(row.Cells[12].Value.ToString()) == false)
                             rbtOff.Checked = true;
                     }
                 }

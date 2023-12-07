@@ -157,6 +157,7 @@ namespace DongThucVat
             {
                 frm.ktThemNganhUpdate = true;
                 frm.idUserNganhUpdate = idUser;
+                frm.loaiNganhUpdate = loai;
                 frm.ShowDialog();
             }
             vitri = null;

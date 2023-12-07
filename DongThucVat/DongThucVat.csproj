@@ -47,6 +47,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connect.cs" />
+    <Compile Include="frmBoUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBoUpdate.Designer.cs">
+      <DependentUpon>frmBoUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoUpdate.Designer.cs">
+      <DependentUpon>frmHoUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoaiUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiUpdate.Designer.cs">
+      <DependentUpon>frmLoaiUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLopUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,11 +97,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucBo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBo.Designer.cs">
+      <DependentUpon>ucBo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucChon.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucChon.Designer.cs">
       <DependentUpon>ucChon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucHo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucHo.Designer.cs">
+      <DependentUpon>ucHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucHome.Designer.cs">
+      <DependentUpon>ucHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLoai.Designer.cs">
+      <DependentUpon>ucLoai.cs</DependentUpon>
     </Compile>
     <Compile Include="ucLop.cs">
       <SubType>UserControl</SubType>
@@ -91,12 +139,30 @@
     <Compile Include="ucNganh.Designer.cs">
       <DependentUpon>ucNganh.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSettings.Designer.cs">
+      <DependentUpon>ucSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucUser.Designer.cs">
       <DependentUpon>ucUser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmBoUpdate.resx">
+      <DependentUpon>frmBoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoUpdate.resx">
+      <DependentUpon>frmHoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiUpdate.resx">
+      <DependentUpon>frmLoaiUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLopUpdate.resx">
       <DependentUpon>frmLopUpdate.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,14 +184,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucBo.resx">
+      <DependentUpon>ucBo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucChon.resx">
       <DependentUpon>ucChon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucHo.resx">
+      <DependentUpon>ucHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucHome.resx">
+      <DependentUpon>ucHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLoai.resx">
+      <DependentUpon>ucLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucLop.resx">
       <DependentUpon>ucLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucNganh.resx">
       <DependentUpon>ucNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSettings.resx">
+      <DependentUpon>ucSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUser.resx">
       <DependentUpon>ucUser.cs</DependentUpon>

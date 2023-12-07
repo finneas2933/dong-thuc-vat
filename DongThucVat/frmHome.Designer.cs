@@ -47,13 +47,13 @@ namespace DongThucVat
             this.btHome = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.panelControl = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // lbRole
@@ -65,7 +65,7 @@ namespace DongThucVat
             this.lbRole.Location = new System.Drawing.Point(725, 50);
             this.lbRole.Name = "lbRole";
             this.lbRole.Size = new System.Drawing.Size(14, 21);
-            this.lbRole.TabIndex = 0;
+            this.lbRole.TabIndex = 6;
             this.lbRole.Text = ".";
             // 
             // label6
@@ -77,7 +77,7 @@ namespace DongThucVat
             this.label6.Location = new System.Drawing.Point(672, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 21);
-            this.label6.TabIndex = 0;
+            this.label6.TabIndex = 5;
             this.label6.Text = "Role:";
             // 
             // lbFirstName
@@ -89,7 +89,7 @@ namespace DongThucVat
             this.lbFirstName.Location = new System.Drawing.Point(725, 18);
             this.lbFirstName.Name = "lbFirstName";
             this.lbFirstName.Size = new System.Drawing.Size(14, 21);
-            this.lbFirstName.TabIndex = 0;
+            this.lbFirstName.TabIndex = 4;
             this.lbFirstName.Text = ".";
             // 
             // label1
@@ -101,7 +101,7 @@ namespace DongThucVat
             this.label1.Location = new System.Drawing.Point(636, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 21);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Welcome:";
             // 
             // panel2
@@ -131,7 +131,7 @@ namespace DongThucVat
             this.btBack.Location = new System.Drawing.Point(0, 0);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(107, 92);
-            this.btBack.TabIndex = 3;
+            this.btBack.TabIndex = 0;
             this.btBack.Text = "Trở lại";
             this.btBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btBack.UseVisualStyleBackColor = true;
@@ -150,22 +150,22 @@ namespace DongThucVat
             this.btClose.Location = new System.Drawing.Point(995, 3);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(39, 36);
-            this.btClose.TabIndex = 2;
+            this.btClose.TabIndex = 1;
             this.btClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btClose.UseVisualStyleBackColor = true;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // lbTime
             // 
-            this.lbTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbTime.AutoSize = true;
-            this.lbTime.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbTime.Location = new System.Drawing.Point(944, 51);
+            this.lbTime.Location = new System.Drawing.Point(888, 75);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(90, 21);
-            this.lbTime.TabIndex = 0;
-            this.lbTime.Text = "HH:MM:SS";
+            this.lbTime.Size = new System.Drawing.Size(149, 17);
+            this.lbTime.TabIndex = 2;
+            this.lbTime.Text = "dd/MM/yyy HH:mm:ss";
             // 
             // panelSide
             // 
@@ -173,7 +173,7 @@ namespace DongThucVat
             this.panelSide.Location = new System.Drawing.Point(2, 94);
             this.panelSide.Name = "panelSide";
             this.panelSide.Size = new System.Drawing.Size(7, 60);
-            this.panelSide.TabIndex = 1;
+            this.panelSide.TabIndex = 5;
             // 
             // btSettings
             // 
@@ -186,10 +186,11 @@ namespace DongThucVat
             this.btSettings.Location = new System.Drawing.Point(12, 355);
             this.btSettings.Name = "btSettings";
             this.btSettings.Size = new System.Drawing.Size(151, 60);
-            this.btSettings.TabIndex = 2;
+            this.btSettings.TabIndex = 4;
             this.btSettings.Text = "     Settings";
             this.btSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btSettings.UseVisualStyleBackColor = true;
+            this.btSettings.Click += new System.EventHandler(this.btSettings_Click);
             // 
             // btnUsers
             // 
@@ -202,7 +203,7 @@ namespace DongThucVat
             this.btnUsers.Location = new System.Drawing.Point(12, 289);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(151, 60);
-            this.btnUsers.TabIndex = 2;
+            this.btnUsers.TabIndex = 3;
             this.btnUsers.Text = "     Users";
             this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsers.UseVisualStyleBackColor = true;
@@ -236,7 +237,7 @@ namespace DongThucVat
             this.btDongVat.Location = new System.Drawing.Point(13, 157);
             this.btDongVat.Name = "btDongVat";
             this.btDongVat.Size = new System.Drawing.Size(151, 60);
-            this.btDongVat.TabIndex = 2;
+            this.btDongVat.TabIndex = 1;
             this.btDongVat.Text = "     Động vật";
             this.btDongVat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btDongVat.UseVisualStyleBackColor = true;
@@ -253,7 +254,7 @@ namespace DongThucVat
             this.btHome.Location = new System.Drawing.Point(12, 92);
             this.btHome.Name = "btHome";
             this.btHome.Size = new System.Drawing.Size(152, 60);
-            this.btHome.TabIndex = 2;
+            this.btHome.TabIndex = 0;
             this.btHome.Text = "     Home";
             this.btHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btHome.UseVisualStyleBackColor = true;
@@ -277,23 +278,23 @@ namespace DongThucVat
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.pbAvatar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(163, 92);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 6;
             // 
-            // pictureBox1
+            // pbAvatar
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 92);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbAvatar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
+            this.pbAvatar.Location = new System.Drawing.Point(0, 0);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(163, 92);
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAvatar.TabIndex = 0;
+            this.pbAvatar.TabStop = false;
             // 
             // timerTime
             // 
@@ -305,7 +306,7 @@ namespace DongThucVat
             this.panelControl.Location = new System.Drawing.Point(163, 92);
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(1037, 628);
-            this.panelControl.TabIndex = 7;
+            this.panelControl.TabIndex = 0;
             // 
             // frmHome
             // 
@@ -325,7 +326,7 @@ namespace DongThucVat
             this.panel2.PerformLayout();
             this.panelLeft.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,7 +349,7 @@ namespace DongThucVat
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.Panel panelControl;
         private System.Windows.Forms.Button btClose;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.Button btBack;
     }
 }

@@ -50,17 +50,47 @@ namespace DongThucVat
 
         private void btBo_Click(object sender, EventArgs e)
         {
-            
+            if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucBo"))
+            {
+                ucBo uc = new ucBo();
+                uc.IdUserBo = id;
+                uc.LoaiBo = loai;
+
+                uc.Dock = DockStyle.Fill;
+                frmHome.Instance.pnlControl.Controls.Add(uc);
+            }
+            frmHome.Instance.pnlControl.Controls["ucBo"].BringToFront();
+            frmHome.Instance.buttonBack.Visible = true;
         }
 
         private void btHo_Click(object sender, EventArgs e)
         {
+            if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucHo"))
+            {
+                ucHo uc = new ucHo();
+                uc.IdUserHo = id;
+                uc.LoaiHo = loai;
 
+                uc.Dock = DockStyle.Fill;
+                frmHome.Instance.pnlControl.Controls.Add(uc);
+            }
+            frmHome.Instance.pnlControl.Controls["ucHo"].BringToFront();
+            frmHome.Instance.buttonBack.Visible = true;
         }
 
         private void btLoai_Click(object sender, EventArgs e)
         {
+            if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucLoai"))
+            {
+                ucLoai uc = new ucLoai();
+                uc.idUserLoai = id;
+                uc.loaiLoai = loai;
 
+                uc.Dock = DockStyle.Fill;
+                frmHome.Instance.pnlControl.Controls.Add(uc);
+            }
+            frmHome.Instance.pnlControl.Controls["ucLoai"].BringToFront();
+            frmHome.Instance.buttonBack.Visible = true;
         }
 
         private void btNganh_Click(object sender, EventArgs e)
@@ -80,6 +110,22 @@ namespace DongThucVat
 
         private void ucChon_Load(object sender, EventArgs e)
         {
+            if (loai == 0)
+            {
+                btNganh.Text = "Ngành động vật";
+                btLop.Text = "Lớp động vật";
+                btBo.Text = "Bộ động vật";
+                btHo.Text = "Họ động vật";
+                btLoai.Text = "Loài động vật";
+            }
+            else
+            {
+                btNganh.Text = "Ngành thực vật";
+                btLop.Text = "Lớp thực vật";
+                btBo.Text = "Bộ thực vật";
+                btHo.Text = "Họ thực vật";
+                btLoai.Text = "Loài thực vật";
+            }
         }
     }
 }

@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace DongThucVat
 {
 
     public partial class frmHome : Form
     {
+        SqlConnection conn;
+        string sql;
         static frmHome _obj;
 
         private string id;
@@ -25,12 +28,12 @@ namespace DongThucVat
             get { return id; }
             set { id = value; }
         }
-        public string name_Home
+        public string nameHome
         {
             get { return name; }
             set { name = value; }
         }
-        public string is_admin_Home
+        public string is_adminHome
         {
             get { return is_admin; }
             set { is_admin = value; }
@@ -93,14 +96,15 @@ namespace DongThucVat
         private void timerTime_Tick(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            lbTime.Text = dt.ToString("HH:MM:ss");
+            lbTime.Text = dt.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             moveSidePanel(btHome);
-            //UC_Home uch = new UC_Home();
-            //AddControlsToPanel(uch);
+            //ucHome uc = new ucHome();
+            //AddControlsToPanel(uc);
+            btBack.Visible = false;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -125,16 +129,19 @@ namespace DongThucVat
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+            conn = Connect.ConnectDB();
+
             lbFirstName.Text = name + ".";
             if (Boolean.Parse(is_admin) == true)
                 lbRole.Text = "Admin.";
             if (Boolean.Parse(is_admin) == false)
+            {
                 lbRole.Text = "Nhân viên.";
-            
+                btSettings.Top = btThucVat.Bottom;
+            }
             
             btBack.Visible = false;
             _obj = this;
-
             //ucChon uc = new ucChon();
             //uc.Dock = DockStyle.Fill;
             //panelControl.Controls.Add(uc);
@@ -152,6 +159,15 @@ namespace DongThucVat
             ucChon uc = new ucChon();
             uc.idChon = id;
             uc.loaiChon = 1;// Truyền vào thuộc tính của form tiếp theo
+            AddControlsToPanel(uc);
+            btBack.Visible = false;
+        }
+
+        private void btSettings_Click(object sender, EventArgs e)
+        {
+            moveSidePanel(btSettings);
+            ucSettings uc = new ucSettings();
+            uc.Id = Int32.Parse(id);
             AddControlsToPanel(uc);
             btBack.Visible = false;
         }

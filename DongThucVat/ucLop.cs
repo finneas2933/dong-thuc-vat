@@ -15,7 +15,7 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
-        string tenTiengViet, tenLatinh, status, search;
+        string tenTiengViet, tenLatinh, status;
         int id, idFK;
         DataGridViewCellMouseEventArgs vitri;
 
@@ -43,6 +43,7 @@ namespace DongThucVat
             {
                 frm.ktThemLopUpdate = true;
                 frm.idUserLopUpdate = idUser;
+                frm.loaiLopUpdate = loai;
                 frm.ShowDialog();
             }
             vitri = null;
@@ -97,7 +98,6 @@ namespace DongThucVat
 
         private void btRefresh_Click(object sender, EventArgs e)
         {
-            txtSearch.Text = "";
             cbLoad();
             dgvLoad();
             vitri = null;
@@ -106,7 +106,6 @@ namespace DongThucVat
         private void ucLop_Load(object sender, EventArgs e)
         {
             conn = Connect.ConnectDB();
-            txtSearch.Text = "";
             cbLoad();
             dgvLoad();
             vitri = null;

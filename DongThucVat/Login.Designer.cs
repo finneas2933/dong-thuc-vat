@@ -56,7 +56,7 @@ namespace DongThucVat
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 112);
-            this.panel1.TabIndex = 5;
+            this.panel1.TabIndex = 4;
             // 
             // btClose
             // 
@@ -93,7 +93,7 @@ namespace DongThucVat
             this.label2.Location = new System.Drawing.Point(82, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(451, 60);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "BAN QUẢN LÝ KHU BẢO TỒN THIÊN NHIÊN\r\nBẮC HƯỚNG HOÁ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -108,7 +108,7 @@ namespace DongThucVat
             this.btLogin.Location = new System.Drawing.Point(340, 534);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(547, 39);
-            this.btLogin.TabIndex = 15;
+            this.btLogin.TabIndex = 3;
             this.btLogin.Text = "Login";
             this.btLogin.UseVisualStyleBackColor = false;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
@@ -120,7 +120,7 @@ namespace DongThucVat
             this.txtPassword.Location = new System.Drawing.Point(340, 444);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(547, 33);
-            this.txtPassword.TabIndex = 12;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtEmail
@@ -130,7 +130,7 @@ namespace DongThucVat
             this.txtEmail.Location = new System.Drawing.Point(340, 358);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(547, 33);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -152,7 +152,7 @@ namespace DongThucVat
             this.label4.Location = new System.Drawing.Point(336, 409);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 25);
-            this.label4.TabIndex = 7;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Password:";
             // 
             // label5
@@ -164,7 +164,7 @@ namespace DongThucVat
             this.label5.Location = new System.Drawing.Point(744, 478);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 21);
-            this.label5.TabIndex = 8;
+            this.label5.TabIndex = 2;
             this.label5.Text = "Forgot Password?";
             // 
             // label1
@@ -176,12 +176,13 @@ namespace DongThucVat
             this.label1.Location = new System.Drawing.Point(336, 323);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 25);
-            this.label1.TabIndex = 10;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Email:";
             // 
-            // Form1
+            // Login
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
             this.Controls.Add(this.panel1);
@@ -194,7 +195,7 @@ namespace DongThucVat
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

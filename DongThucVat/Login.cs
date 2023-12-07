@@ -56,8 +56,8 @@ namespace DongThucVat
                 using (frmHome frm = new frmHome())
                 {
                     frm.idHome = id;// Truyền vào thuộc tính idHome của form Home
-                    frm.name_Home = name;// Truyền vào thuộc tính first_name_Home
-                    frm.is_admin_Home = is_admin;// Truyền vào thuộc tính is_admin_Home
+                    frm.nameHome = name;// Truyền vào thuộc tính first_name_Home
+                    frm.is_adminHome = is_admin;// Truyền vào thuộc tính is_admin_Home
 
                     frm.ShowDialog();
                 }
@@ -69,8 +69,10 @@ namespace DongThucVat
         {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-            sql = "SELECT * FROM [user] WHERE email = '" + txtEmail.Text.Trim() + "' AND password = '" + txtPassword.Text.Trim() + "' and status = 1";
+            sql = "SELECT * FROM [user] WHERE email = @Email AND password = @Password AND status = 1";
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtEmail.Text.Trim();
+            cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = txtPassword.Text.Trim();
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
             cmd.Dispose();
@@ -90,6 +92,5 @@ namespace DongThucVat
             else
                 return false;
         }
-
     }
 }

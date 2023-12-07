@@ -31,14 +31,6 @@ namespace DongThucVat
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucLop));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btRefresh = new System.Windows.Forms.Button();
-            this.btXoa = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.cb = new System.Windows.Forms.ComboBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btSua = new System.Windows.Forms.Button();
-            this.btThem = new System.Windows.Forms.Button();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,9 +42,16 @@ namespace DongThucVat
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btRefresh = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cb = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btSua = new System.Windows.Forms.Button();
+            this.btThem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,121 +62,6 @@ namespace DongThucVat
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 503);
             this.panel1.TabIndex = 14;
-            // 
-            // btRefresh
-            // 
-            this.btRefresh.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btRefresh.FlatAppearance.BorderSize = 0;
-            this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRefresh.ForeColor = System.Drawing.Color.White;
-            this.btRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btRefresh.Image")));
-            this.btRefresh.Location = new System.Drawing.Point(450, 0);
-            this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(150, 67);
-            this.btRefresh.TabIndex = 7;
-            this.btRefresh.Text = "   Làm mới";
-            this.btRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btRefresh.UseVisualStyleBackColor = true;
-            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
-            // 
-            // btXoa
-            // 
-            this.btXoa.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btXoa.FlatAppearance.BorderSize = 0;
-            this.btXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXoa.ForeColor = System.Drawing.Color.White;
-            this.btXoa.Image = ((System.Drawing.Image)(resources.GetObject("btXoa.Image")));
-            this.btXoa.Location = new System.Drawing.Point(300, 0);
-            this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(150, 67);
-            this.btXoa.TabIndex = 6;
-            this.btXoa.Text = "   Xóa";
-            this.btXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btXoa.UseVisualStyleBackColor = true;
-            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.panel5.Controls.Add(this.cb);
-            this.panel5.Controls.Add(this.btRefresh);
-            this.panel5.Controls.Add(this.btXoa);
-            this.panel5.Controls.Add(this.txtSearch);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.btSua);
-            this.panel5.Controls.Add(this.btThem);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(5, 5);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(975, 67);
-            this.panel5.TabIndex = 13;
-            // 
-            // cb
-            // 
-            this.cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb.FormattingEnabled = true;
-            this.cb.Location = new System.Drawing.Point(522, 23);
-            this.cb.Name = "cb";
-            this.cb.Size = new System.Drawing.Size(179, 29);
-            this.cb.TabIndex = 8;
-            this.cb.SelectedIndexChanged += new System.EventHandler(this.cbSearch_SelectedIndexChanged);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(778, 23);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(179, 29);
-            this.txtSearch.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(707, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 21);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Search:";
-            // 
-            // btSua
-            // 
-            this.btSua.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btSua.FlatAppearance.BorderSize = 0;
-            this.btSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSua.ForeColor = System.Drawing.Color.White;
-            this.btSua.Image = ((System.Drawing.Image)(resources.GetObject("btSua.Image")));
-            this.btSua.Location = new System.Drawing.Point(150, 0);
-            this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(150, 67);
-            this.btSua.TabIndex = 1;
-            this.btSua.Text = "   Sửa";
-            this.btSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btSua.UseVisualStyleBackColor = true;
-            this.btSua.Click += new System.EventHandler(this.btSua_Click);
-            // 
-            // btThem
-            // 
-            this.btThem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btThem.FlatAppearance.BorderSize = 0;
-            this.btThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThem.ForeColor = System.Drawing.Color.White;
-            this.btThem.Image = ((System.Drawing.Image)(resources.GetObject("btThem.Image")));
-            this.btThem.Location = new System.Drawing.Point(0, 0);
-            this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(150, 67);
-            this.btThem.TabIndex = 0;
-            this.btThem.Text = "   Thêm";
-            this.btThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btThem.UseVisualStyleBackColor = true;
-            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // dgv
             // 
@@ -286,6 +170,112 @@ namespace DongThucVat
             this.Column10.ReadOnly = true;
             this.Column10.Visible = false;
             // 
+            // btRefresh
+            // 
+            this.btRefresh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btRefresh.FlatAppearance.BorderSize = 0;
+            this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRefresh.ForeColor = System.Drawing.Color.White;
+            this.btRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btRefresh.Image")));
+            this.btRefresh.Location = new System.Drawing.Point(450, 0);
+            this.btRefresh.Name = "btRefresh";
+            this.btRefresh.Size = new System.Drawing.Size(150, 67);
+            this.btRefresh.TabIndex = 7;
+            this.btRefresh.Text = "   Làm mới";
+            this.btRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btRefresh.UseVisualStyleBackColor = true;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
+            // 
+            // btXoa
+            // 
+            this.btXoa.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btXoa.FlatAppearance.BorderSize = 0;
+            this.btXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXoa.ForeColor = System.Drawing.Color.White;
+            this.btXoa.Image = ((System.Drawing.Image)(resources.GetObject("btXoa.Image")));
+            this.btXoa.Location = new System.Drawing.Point(300, 0);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(150, 67);
+            this.btXoa.TabIndex = 6;
+            this.btXoa.Text = "   Xóa";
+            this.btXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel5.Controls.Add(this.cb);
+            this.panel5.Controls.Add(this.btRefresh);
+            this.panel5.Controls.Add(this.btXoa);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.btSua);
+            this.panel5.Controls.Add(this.btThem);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(5, 5);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(975, 67);
+            this.panel5.TabIndex = 13;
+            // 
+            // cb
+            // 
+            this.cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb.FormattingEnabled = true;
+            this.cb.Location = new System.Drawing.Point(778, 23);
+            this.cb.Name = "cb";
+            this.cb.Size = new System.Drawing.Size(179, 29);
+            this.cb.TabIndex = 8;
+            this.cb.SelectedIndexChanged += new System.EventHandler(this.cbSearch_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(707, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 21);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Search:";
+            // 
+            // btSua
+            // 
+            this.btSua.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btSua.FlatAppearance.BorderSize = 0;
+            this.btSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSua.ForeColor = System.Drawing.Color.White;
+            this.btSua.Image = ((System.Drawing.Image)(resources.GetObject("btSua.Image")));
+            this.btSua.Location = new System.Drawing.Point(150, 0);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(150, 67);
+            this.btSua.TabIndex = 1;
+            this.btSua.Text = "   Sửa";
+            this.btSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
+            // 
+            // btThem
+            // 
+            this.btThem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btThem.FlatAppearance.BorderSize = 0;
+            this.btThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ForeColor = System.Drawing.Color.White;
+            this.btThem.Image = ((System.Drawing.Image)(resources.GetObject("btThem.Image")));
+            this.btThem.Location = new System.Drawing.Point(0, 0);
+            this.btThem.Name = "btThem";
+            this.btThem.Size = new System.Drawing.Size(150, 67);
+            this.btThem.TabIndex = 0;
+            this.btThem.Text = "   Thêm";
+            this.btThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
+            // 
             // ucLop
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -298,9 +288,9 @@ namespace DongThucVat
             this.Size = new System.Drawing.Size(985, 580);
             this.Load += new System.EventHandler(this.ucLop_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -311,7 +301,6 @@ namespace DongThucVat
         private System.Windows.Forms.Button btXoa;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox cb;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.Button btThem;

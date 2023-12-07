@@ -15,3 +15,12 @@ C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucNganh
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmLopUpdate.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucLop.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucUser.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmBoUpdate.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmHoUpdate.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucBo.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucHo.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmLoaiUpdate.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucHome.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucLoai.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucSettings.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmDoiMatKhau.resources

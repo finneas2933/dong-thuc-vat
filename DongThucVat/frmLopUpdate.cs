@@ -138,13 +138,27 @@ namespace DongThucVat
                 cb.Focus();
                 return;
             }
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
             if (ktThem == true)
             {
                 if (MessageBox.Show("Bạn có muốn thêm lớp " + txtTenTiengViet.Text + " không?", "Thông báo",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
                 DateTime createdAt = DateTime.Now;
-                sql = "INSERT INTO Lop (name, name_latinh, loai, id_dtv_nganh, status, created_at, created_by) VALUES (N'" + txtTenTiengViet.Text.Trim() + "', N'" + txtTenLatinh.Text.Trim() + "', " + loai + ", " + cb.SelectedValue + ", " + (rbtOn.Checked == true ? 1 : 0) + ", '" + createdAt + "', " + Int32.Parse(idUser) + ")";
+                SqlCommand cmd = new SqlCommand("InsertLop", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = txtTenTiengViet.Text.Trim();
+                cmd.Parameters.Add("@name_latinh", SqlDbType.NVarChar).Value = txtTenLatinh.Text.Trim();
+                cmd.Parameters.Add("@loai", SqlDbType.Bit).Value = loai;
+                cmd.Parameters.Add("@id_dtv_nganh", SqlDbType.Int).Value = cb.SelectedValue;
+                cmd.Parameters.Add("@status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
+                cmd.Parameters.Add("@created_at", SqlDbType.DateTime).Value = createdAt;
+                cmd.Parameters.Add("@created_by", SqlDbType.Int).Value = Int32.Parse(idUser);
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
             }
             else
             {
@@ -152,13 +166,20 @@ namespace DongThucVat
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
                 DateTime updatedAt = DateTime.Now;
-                sql = "UPDATE Lop SET name = N'" + txtTenTiengViet.Text.Trim() + "', name_latinh = N'" + txtTenLatinh.Text.Trim() + "', id_dtv_nganh = " + Int32.Parse(cb.SelectedValue.ToString()) + ", status = " + (rbtOn.Checked == true ? 1 : 0) + ", updated_at = '" + updatedAt + "', updated_by = " + Int32.Parse(idUser) + " WHERE id = " + id;
+                SqlCommand cmd = new SqlCommand("UpdateLop", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = txtTenTiengViet.Text.Trim();
+                cmd.Parameters.Add("@name_latinh", SqlDbType.NVarChar).Value = txtTenLatinh.Text.Trim();
+                cmd.Parameters.Add("@id_dtv_nganh", SqlDbType.Int).Value = Int32.Parse(cb.SelectedValue.ToString());
+                cmd.Parameters.Add("@status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
+                cmd.Parameters.Add("@updated_at", SqlDbType.DateTime).Value = updatedAt;
+                cmd.Parameters.Add("@updated_by", SqlDbType.Int).Value = Int32.Parse(idUser);
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
             }
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
             conn.Close();
 
             xoaTrang(true);
