@@ -1,7 +1,7 @@
 ﻿
 namespace DongThucVat
 {
-    partial class ucSettings
+    partial class ucUserInfo
     {
         /// <summary> 
         /// Required designer variable.
@@ -217,6 +217,7 @@ namespace DongThucVat
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(985, 580);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label10
             // 
@@ -277,14 +278,14 @@ namespace DongThucVat
             this.btDoiMatKhau.UseVisualStyleBackColor = false;
             this.btDoiMatKhau.Click += new System.EventHandler(this.btDoiMatKhau_Click);
             // 
-            // ucSettings
+            // ucUserInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ucSettings";
+            this.Name = "ucUserInfo";
             this.Size = new System.Drawing.Size(985, 580);
             this.Load += new System.EventHandler(this.ucSettings_Load);
             this.panel1.ResumeLayout(false);

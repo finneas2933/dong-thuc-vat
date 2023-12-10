@@ -59,6 +59,12 @@
     <Compile Include="frmDoiMatKhau.Designer.cs">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHienThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHienThi.Designer.cs">
+      <DependentUpon>frmHienThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHoUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,18 @@
     <Compile Include="ucHome.Designer.cs">
       <DependentUpon>ucHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSearch.Designer.cs">
+      <DependentUpon>ucSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucListItem.Designer.cs">
+      <DependentUpon>ucListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucLoai.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,11 +157,17 @@
     <Compile Include="ucNganh.Designer.cs">
       <DependentUpon>ucNganh.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucSettings.cs">
+    <Compile Include="ucSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucSettings.Designer.cs">
-      <DependentUpon>ucSettings.cs</DependentUpon>
+    <Compile Include="ucSetting.Designer.cs">
+      <DependentUpon>ucSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucUserInfo.Designer.cs">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="ucUser.cs">
       <SubType>UserControl</SubType>
@@ -156,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHienThi.resx">
+      <DependentUpon>frmHienThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoUpdate.resx">
       <DependentUpon>frmHoUpdate.cs</DependentUpon>
@@ -196,6 +223,12 @@
     <EmbeddedResource Include="ucHome.resx">
       <DependentUpon>ucHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucListItem.resx">
+      <DependentUpon>ucListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSearch.resx">
+      <DependentUpon>ucSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucLoai.resx">
       <DependentUpon>ucLoai.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,8 +238,11 @@
     <EmbeddedResource Include="ucNganh.resx">
       <DependentUpon>ucNganh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucSettings.resx">
-      <DependentUpon>ucSettings.cs</DependentUpon>
+    <EmbeddedResource Include="ucSetting.resx">
+      <DependentUpon>ucSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucUserInfo.resx">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUser.resx">
       <DependentUpon>ucUser.cs</DependentUpon>

@@ -47,13 +47,13 @@ namespace DongThucVat
             this.btHome = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pbAvatar = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.panelControl = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lbRole
@@ -278,23 +278,23 @@ namespace DongThucVat
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.pbAvatar);
+            this.panel3.Controls.Add(this.pbLogo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(163, 92);
             this.panel3.TabIndex = 6;
             // 
-            // pbAvatar
+            // pbLogo
             // 
-            this.pbAvatar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
-            this.pbAvatar.Location = new System.Drawing.Point(0, 0);
-            this.pbAvatar.Name = "pbAvatar";
-            this.pbAvatar.Size = new System.Drawing.Size(163, 92);
-            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAvatar.TabIndex = 0;
-            this.pbAvatar.TabStop = false;
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(163, 92);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
             // 
             // timerTime
             // 
@@ -326,7 +326,7 @@ namespace DongThucVat
             this.panel2.PerformLayout();
             this.panelLeft.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -349,7 +349,7 @@ namespace DongThucVat
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.Panel panelControl;
         private System.Windows.Forms.Button btClose;
-        private System.Windows.Forms.PictureBox pbAvatar;
+        private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Button btBack;
     }
 }

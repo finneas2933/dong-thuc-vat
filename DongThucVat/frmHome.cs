@@ -102,18 +102,25 @@ namespace DongThucVat
         private void btnHome_Click(object sender, EventArgs e)
         {
             moveSidePanel(btHome);
-            //ucHome uc = new ucHome();
-            //AddControlsToPanel(uc);
+            ucHome uc = new ucHome();
+            AddControlsToPanel(uc);
             btBack.Visible = false;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
             moveSidePanel(btnUsers);
-            ucUser uc = new ucUser();
-            //uc.idChon = id;
-            //uc.loaiChon = 0;// Truyền vào thuộc tính của form tiếp theo
-            AddControlsToPanel(uc);
+            if (Boolean.Parse(is_admin) == true)
+            {
+                ucUser uc = new ucUser();
+                AddControlsToPanel(uc);
+            }
+            if (Boolean.Parse(is_admin) == false)
+            {
+                ucUserInfo uc = new ucUserInfo();
+                uc.Id = Int32.Parse(id);
+                AddControlsToPanel(uc);
+            }
             btBack.Visible = false;
         }
 
@@ -137,14 +144,52 @@ namespace DongThucVat
             if (Boolean.Parse(is_admin) == false)
             {
                 lbRole.Text = "Nhân viên.";
-                btSettings.Top = btThucVat.Bottom;
             }
-            
+            loadLogo();
+
+            moveSidePanel(btHome);
+            ucHome uc = new ucHome();
+            AddControlsToPanel(uc);
+
             btBack.Visible = false;
             _obj = this;
             //ucChon uc = new ucChon();
             //uc.Dock = DockStyle.Fill;
             //panelControl.Controls.Add(uc);
+        }
+
+        public void loadLogo()
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            sql = "SELECT logo FROM ThongTin WHERE id = " + 1;
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            cmd.Dispose();
+            conn.Close();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            // Lấy giá trị từ dòng đầu tiên của DataTable
+            string logo = dt.Rows[0]["logo"].ToString();
+            try
+            {
+                if (logo != "")
+                {
+                    if (File.Exists(logo))
+                    {
+                        pbLogo.Image = null;
+                        pbLogo.Image = Image.FromFile(logo);
+                        pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                    else
+                        return;
+                }
+                else
+                    return;
+            }
+            catch (Exception ex) { }
         }
 
         private void btBack_Click(object sender, EventArgs e)
@@ -166,8 +211,7 @@ namespace DongThucVat
         private void btSettings_Click(object sender, EventArgs e)
         {
             moveSidePanel(btSettings);
-            ucSettings uc = new ucSettings();
-            uc.Id = Int32.Parse(id);
+            ucSetting uc = new ucSetting();
             AddControlsToPanel(uc);
             btBack.Visible = false;
         }

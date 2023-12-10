@@ -26,25 +26,6 @@ namespace DongThucVat
             groupBox1.ForeColor = Color.FromArgb(255, 0, 127, 24);
             groupBox2.ForeColor = Color.FromArgb(255, 0, 127, 24);
 
-            /*
-            // Tạo datasource
-            DataTable dt = new DataTable();
-            dt.Columns.Add("DisplayMember", typeof(string));
-            dt.Columns.Add("TValueMember", typeof(string));
-
-            // Thêm dữ liệu vào datasource
-            dt.Rows.Add("--Chọn giới tính--", "");
-            dt.Rows.Add("Nam", "Nam");
-            dt.Rows.Add("Nữ", "Nữ");
-            dt.Rows.Add("Khác", "Khác");
-
-            // Thiết lập DisplayMember và ValueMember
-            cbGioiTinh.DisplayMember = "DisplayMember";
-            cbGioiTinh.ValueMember = "ValueMember";
-
-            // Gán datasource cho combobox
-            cbGioiTinh.DataSource = dt;
-            */
 
         }
 
@@ -273,11 +254,6 @@ namespace DongThucVat
                 MessageBox.Show("Lỗi" + ex.Message, "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -47,7 +47,7 @@ namespace DongThucVat
                 MessageBox.Show("Mật khẩu cũ chưa chính xác!", "Thông báo", MessageBoxButtons.OK);
                 txtMatKhauCu.Focus();
             }
-            if (passwordCheck() == true)
+            if (passwordCheck() == true && txtMatKhauMoi.Text == txtNhapLaiMatKhau.Text)
             {
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
@@ -61,6 +61,7 @@ namespace DongThucVat
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 conn.Close();
+                MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK);
                 this.Dispose();
             }
         }

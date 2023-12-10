@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DongThucVat
 {
-    public partial class ucSettings : UserControl
+    public partial class ucUserInfo : UserControl
     {
         SqlConnection conn;
         string sql = "";
@@ -19,7 +19,7 @@ namespace DongThucVat
         private int id;
         public int Id { get => id; set => id = value; }
 
-        public ucSettings()
+        public ucUserInfo()
         {
             InitializeComponent();
         }
@@ -119,6 +119,11 @@ namespace DongThucVat
         private void btSuaThongTin_Click_1(object sender, EventArgs e)
         {
             khoaMo(false);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

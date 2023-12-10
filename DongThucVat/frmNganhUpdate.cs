@@ -14,8 +14,6 @@ namespace DongThucVat
     public partial class frmNganhUpdate : Form
     {
         SqlConnection conn;
-        string sql = "";
-
         private string idUser, tenTiengViet, tenLatinh, status;
         private int id, loai;
         private bool ktThem;

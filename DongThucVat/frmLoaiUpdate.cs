@@ -19,7 +19,7 @@ namespace DongThucVat
 
         private List<string> selectedImages = new List<string>();
         private string idUser, tenTiengViet;
-        private int id, idFK, loai;
+        private int id, loai;
         private bool ktThem;
         public string IdUserLoaiUpdate { get => idUser; set => idUser = value; }
         public int IdLoaiUpdate { get => id; set => id = value; }
@@ -144,7 +144,7 @@ namespace DongThucVat
                 {
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Image = Image.FromFile(imagePath);
-                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox.Width = 50;
                     pictureBox.Height = 50;
                     fpnlHinhAnh.Controls.Add(pictureBox);

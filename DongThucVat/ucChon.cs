@@ -112,6 +112,7 @@ namespace DongThucVat
         {
             if (loai == 0)
             {
+                btSearch.Text = "CSDL động vật";
                 btNganh.Text = "Ngành động vật";
                 btLop.Text = "Lớp động vật";
                 btBo.Text = "Bộ động vật";
@@ -120,12 +121,27 @@ namespace DongThucVat
             }
             else
             {
+                btSearch.Text = "CSDL thực vật";
                 btNganh.Text = "Ngành thực vật";
                 btLop.Text = "Lớp thực vật";
                 btBo.Text = "Bộ thực vật";
                 btHo.Text = "Họ thực vật";
                 btLoai.Text = "Loài thực vật";
             }
+        }
+
+        private void btSearch_Click(object sender, EventArgs e)
+        {
+            if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucSearch"))
+            {
+                ucSearch uc = new ucSearch();
+                uc.Loai = loai;
+
+                uc.Dock = DockStyle.Fill;
+                frmHome.Instance.pnlControl.Controls.Add(uc);
+            }
+            frmHome.Instance.pnlControl.Controls["ucSearch"].BringToFront();
+            frmHome.Instance.buttonBack.Visible = true;
         }
     }
 }
