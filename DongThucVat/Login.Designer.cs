@@ -166,6 +166,7 @@ namespace DongThucVat
             this.label5.Size = new System.Drawing.Size(143, 21);
             this.label5.TabIndex = 2;
             this.label5.Text = "Forgot Password?";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label1
             // 
@@ -198,7 +199,6 @@ namespace DongThucVat
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

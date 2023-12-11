@@ -15,7 +15,6 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
-        bool pw1, pw2, pw3;
 
         private int id;
         public int Id { get => id; set => id = value; }
@@ -97,53 +96,43 @@ namespace DongThucVat
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pw2 = !pw2;
-
-            if (pw2 == true)
+            if (txtMatKhauMoi.UseSystemPasswordChar == true)
             {
-                txtMatKhauMoi.PasswordChar = '\0';
+                txtMatKhauMoi.UseSystemPasswordChar = false;
             }
             else
             {
-                txtMatKhauMoi.PasswordChar = '*';
+                txtMatKhauMoi.UseSystemPasswordChar = true;
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            pw3 = !pw3;
-
-            if (pw3 == true)
+            if (txtNhapLaiMatKhau.UseSystemPasswordChar == true)
             {
-                txtNhapLaiMatKhau.PasswordChar = '\0';
+                txtNhapLaiMatKhau.UseSystemPasswordChar = false;
             }
             else
             {
-                txtNhapLaiMatKhau.PasswordChar = '*';
+                txtNhapLaiMatKhau.UseSystemPasswordChar = true;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pw1 = !pw1;
-
-            if (pw1==true)
+            if (txtMatKhauCu.UseSystemPasswordChar == true)
             {
-                txtMatKhauCu.PasswordChar = '\0'; 
+                txtMatKhauCu.UseSystemPasswordChar = false;
             }
             else
             {
-                txtMatKhauCu.PasswordChar = '*';
+                txtMatKhauCu.UseSystemPasswordChar = true;
             }
         }
 
         private void frmDoiMatKhau_Load(object sender, EventArgs e)
         {
             conn = Connect.ConnectDB();
-            pw1 = true;
-            pw2 = true;
-            pw3 = true;
-
         }
     }
 }

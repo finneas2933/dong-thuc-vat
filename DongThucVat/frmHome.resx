@@ -6452,6 +6452,15 @@
   <metadata name="timerTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>229, 17</value>
   </metadata>
+  <data name="btLogOut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAMhJREFUWEftlcENwyAQBElKSGdRKkkhUepySfGHLDCfSFbs4ywdD0a6xwG7rIxt
+        0mRI8klgZwe9G+zsoO82QD4DhAdYae1g4AnwUd1p7dTdBa0ZSfs3L7TtHWcoJL+pnrQ26u6C1oykV9VS
+        TXJ+M3wchN4n8FCt1UghVBem9mkaX4CCLPpCtPXbAZjq5YXNf1g8ZgALsvg5Aob3QXDqS8jwMRB1B5B0
+        iM8w9EcU+yuWNPwyKoRexxVaO+hnADfY2UHvBrvJyKT0BSEuDKCn0zZIAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>41</value>
   </metadata>

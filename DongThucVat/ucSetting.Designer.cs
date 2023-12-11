@@ -40,6 +40,11 @@ namespace DongThucVat
             this.btXoaAnh = new System.Windows.Forms.Button();
             this.fpnlHinhAnh = new System.Windows.Forms.FlowLayoutPanel();
             this.btChonAnh = new System.Windows.Forms.Button();
+            this.rtxtNoiDung4 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btXoaLogo = new System.Windows.Forms.Button();
+            this.fpnlLogo = new System.Windows.Forms.FlowLayoutPanel();
+            this.btChonLogo = new System.Windows.Forms.Button();
             this.rtxtNoiDung3 = new System.Windows.Forms.RichTextBox();
             this.rtxtNoiDung1 = new System.Windows.Forms.RichTextBox();
             this.rtxtNoiDung2 = new System.Windows.Forms.RichTextBox();
@@ -61,7 +66,7 @@ namespace DongThucVat
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(144, 382);
+            this.label6.Location = new System.Drawing.Point(144, 387);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 25);
             this.label6.TabIndex = 59;
@@ -86,9 +91,9 @@ namespace DongThucVat
             this.btHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHuy.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btHuy.ForeColor = System.Drawing.Color.White;
-            this.btHuy.Location = new System.Drawing.Point(586, 805);
+            this.btHuy.Location = new System.Drawing.Point(1271, 917);
             this.btHuy.Name = "btHuy";
-            this.btHuy.Size = new System.Drawing.Size(284, 52);
+            this.btHuy.Size = new System.Drawing.Size(212, 52);
             this.btHuy.TabIndex = 10;
             this.btHuy.Text = "Hủy";
             this.btHuy.UseVisualStyleBackColor = false;
@@ -102,9 +107,9 @@ namespace DongThucVat
             this.btLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLuu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLuu.ForeColor = System.Drawing.Color.White;
-            this.btLuu.Location = new System.Drawing.Point(913, 805);
+            this.btLuu.Location = new System.Drawing.Point(1524, 917);
             this.btLuu.Name = "btLuu";
-            this.btLuu.Size = new System.Drawing.Size(284, 52);
+            this.btLuu.Size = new System.Drawing.Size(212, 52);
             this.btLuu.TabIndex = 11;
             this.btLuu.Text = "Lưu";
             this.btLuu.UseVisualStyleBackColor = false;
@@ -137,6 +142,11 @@ namespace DongThucVat
             this.panel1.Controls.Add(this.btXoaAnh);
             this.panel1.Controls.Add(this.fpnlHinhAnh);
             this.panel1.Controls.Add(this.btChonAnh);
+            this.panel1.Controls.Add(this.rtxtNoiDung4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.btXoaLogo);
+            this.panel1.Controls.Add(this.fpnlLogo);
+            this.panel1.Controls.Add(this.btChonLogo);
             this.panel1.Controls.Add(this.rtxtNoiDung3);
             this.panel1.Controls.Add(this.rtxtNoiDung1);
             this.panel1.Controls.Add(this.rtxtNoiDung2);
@@ -158,35 +168,82 @@ namespace DongThucVat
             // 
             // btXoaAnh
             // 
-            this.btXoaAnh.Location = new System.Drawing.Point(1451, 112);
+            this.btXoaAnh.Location = new System.Drawing.Point(1451, 510);
             this.btXoaAnh.Name = "btXoaAnh";
             this.btXoaAnh.Size = new System.Drawing.Size(124, 47);
-            this.btXoaAnh.TabIndex = 152;
+            this.btXoaAnh.TabIndex = 157;
             this.btXoaAnh.Text = "Xóa ảnh";
             this.btXoaAnh.UseVisualStyleBackColor = true;
-            this.btXoaAnh.Click += new System.EventHandler(this.btXoaAnh_Click);
+            this.btXoaAnh.Click += new System.EventHandler(this.btXoaAnh_Click_1);
             // 
             // fpnlHinhAnh
             // 
             this.fpnlHinhAnh.AutoScroll = true;
-            this.fpnlHinhAnh.Location = new System.Drawing.Point(1271, 178);
+            this.fpnlHinhAnh.Location = new System.Drawing.Point(1271, 576);
             this.fpnlHinhAnh.Name = "fpnlHinhAnh";
             this.fpnlHinhAnh.Size = new System.Drawing.Size(304, 304);
-            this.fpnlHinhAnh.TabIndex = 151;
+            this.fpnlHinhAnh.TabIndex = 156;
             // 
             // btChonAnh
             // 
-            this.btChonAnh.Location = new System.Drawing.Point(1271, 112);
+            this.btChonAnh.Location = new System.Drawing.Point(1271, 510);
             this.btChonAnh.Name = "btChonAnh";
             this.btChonAnh.Size = new System.Drawing.Size(124, 47);
-            this.btChonAnh.TabIndex = 150;
+            this.btChonAnh.TabIndex = 155;
             this.btChonAnh.Text = "Chọn ảnh";
             this.btChonAnh.UseVisualStyleBackColor = true;
-            this.btChonAnh.Click += new System.EventHandler(this.btChonAnh_Click);
+            this.btChonAnh.Click += new System.EventHandler(this.btChonAnh_Click_1);
+            // 
+            // rtxtNoiDung4
+            // 
+            this.rtxtNoiDung4.Location = new System.Drawing.Point(275, 796);
+            this.rtxtNoiDung4.Name = "rtxtNoiDung4";
+            this.rtxtNoiDung4.Size = new System.Drawing.Size(922, 173);
+            this.rtxtNoiDung4.TabIndex = 154;
+            this.rtxtNoiDung4.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(144, 799);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 25);
+            this.label3.TabIndex = 153;
+            this.label3.Text = "Nội dung (4):";
+            // 
+            // btXoaLogo
+            // 
+            this.btXoaLogo.Location = new System.Drawing.Point(1451, 112);
+            this.btXoaLogo.Name = "btXoaLogo";
+            this.btXoaLogo.Size = new System.Drawing.Size(124, 47);
+            this.btXoaLogo.TabIndex = 152;
+            this.btXoaLogo.Text = "Xóa logo";
+            this.btXoaLogo.UseVisualStyleBackColor = true;
+            this.btXoaLogo.Click += new System.EventHandler(this.btXoaLogo_Click);
+            // 
+            // fpnlLogo
+            // 
+            this.fpnlLogo.AutoScroll = true;
+            this.fpnlLogo.Location = new System.Drawing.Point(1271, 178);
+            this.fpnlLogo.Name = "fpnlLogo";
+            this.fpnlLogo.Size = new System.Drawing.Size(304, 304);
+            this.fpnlLogo.TabIndex = 151;
+            // 
+            // btChonLogo
+            // 
+            this.btChonLogo.Location = new System.Drawing.Point(1271, 112);
+            this.btChonLogo.Name = "btChonLogo";
+            this.btChonLogo.Size = new System.Drawing.Size(124, 47);
+            this.btChonLogo.TabIndex = 150;
+            this.btChonLogo.Text = "Chọn logo";
+            this.btChonLogo.UseVisualStyleBackColor = true;
+            this.btChonLogo.Click += new System.EventHandler(this.btChonLogo_Click);
             // 
             // rtxtNoiDung3
             // 
-            this.rtxtNoiDung3.Location = new System.Drawing.Point(275, 589);
+            this.rtxtNoiDung3.Location = new System.Drawing.Point(275, 590);
             this.rtxtNoiDung3.Name = "rtxtNoiDung3";
             this.rtxtNoiDung3.Size = new System.Drawing.Size(922, 173);
             this.rtxtNoiDung3.TabIndex = 81;
@@ -202,7 +259,7 @@ namespace DongThucVat
             // 
             // rtxtNoiDung2
             // 
-            this.rtxtNoiDung2.Location = new System.Drawing.Point(275, 382);
+            this.rtxtNoiDung2.Location = new System.Drawing.Point(275, 384);
             this.rtxtNoiDung2.Name = "rtxtNoiDung2";
             this.rtxtNoiDung2.Size = new System.Drawing.Size(922, 173);
             this.rtxtNoiDung2.TabIndex = 79;
@@ -213,7 +270,7 @@ namespace DongThucVat
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(144, 592);
+            this.label5.Location = new System.Drawing.Point(144, 593);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 25);
             this.label5.TabIndex = 78;
@@ -248,6 +305,11 @@ namespace DongThucVat
         private System.Windows.Forms.RichTextBox rtxtNoiDung1;
         private System.Windows.Forms.RichTextBox rtxtNoiDung2;
         private System.Windows.Forms.RichTextBox rtxtNoiDung3;
+        private System.Windows.Forms.Button btXoaLogo;
+        private System.Windows.Forms.FlowLayoutPanel fpnlLogo;
+        private System.Windows.Forms.Button btChonLogo;
+        private System.Windows.Forms.RichTextBox rtxtNoiDung4;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btXoaAnh;
         private System.Windows.Forms.FlowLayoutPanel fpnlHinhAnh;
         private System.Windows.Forms.Button btChonAnh;

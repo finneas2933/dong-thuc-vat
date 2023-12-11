@@ -18,11 +18,11 @@ namespace DongThucVat
         SqlConnection conn;
         string sql;
         static frmHome _obj;
+        public bool isClose = true;
 
         private string id;
         private string name;
         private string is_admin;
-
         public string idHome//Đọc, ghi biến nhận từ form trước
         {
             get { return id; }
@@ -73,11 +73,8 @@ namespace DongThucVat
 
         private void btClose_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            using (Login fd = new Login())
-            {
-                fd.ShowDialog();
-            }
+            if (isClose == true)
+                Application.Exit();
         }
 
         private void AddControlsToPanel(Control c)
@@ -175,16 +172,11 @@ namespace DongThucVat
             string logo = dt.Rows[0]["logo"].ToString();
             try
             {
-                if (logo != "")
+                if (logo != null && File.Exists(logo))
                 {
-                    if (File.Exists(logo))
-                    {
-                        pbLogo.Image = null;
-                        pbLogo.Image = Image.FromFile(logo);
-                        pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
-                    }
-                    else
-                        return;
+                    pbLogo.Image = null;
+                    pbLogo.Image = Image.FromFile(logo);
+                    pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
                 }
                 else
                     return;
@@ -214,6 +206,37 @@ namespace DongThucVat
             ucSetting uc = new ucSetting();
             AddControlsToPanel(uc);
             btBack.Visible = false;
+        }
+
+        private void btLogOut_Click(object sender, EventArgs e)
+        {
+            isClose = false;
+            this.Dispose();
+            saveLastSigninedTime();
+            using (Login frm = new Login())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        public void saveLastSigninedTime()
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            DateTime lastSigninedTime = DateTime.Now;
+            sql = "UPDATE [user] SET last_signined_time = @LastSigninedTime WHERE id = " + id;
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add("@LastSigninedTime", SqlDbType.DateTime).Value = lastSigninedTime;
+
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            conn.Close();
+        }
+
+        private void frmHome_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (isClose == true)
+                Application.Exit();
         }
     }
 }

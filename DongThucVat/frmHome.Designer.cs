@@ -50,6 +50,7 @@ namespace DongThucVat
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.panelControl = new System.Windows.Forms.Panel();
+            this.btLogOut = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -62,7 +63,7 @@ namespace DongThucVat
             this.lbRole.AutoSize = true;
             this.lbRole.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbRole.Location = new System.Drawing.Point(725, 50);
+            this.lbRole.Location = new System.Drawing.Point(1445, 50);
             this.lbRole.Name = "lbRole";
             this.lbRole.Size = new System.Drawing.Size(14, 21);
             this.lbRole.TabIndex = 6;
@@ -74,7 +75,7 @@ namespace DongThucVat
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(672, 49);
+            this.label6.Location = new System.Drawing.Point(1392, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 21);
             this.label6.TabIndex = 5;
@@ -86,7 +87,7 @@ namespace DongThucVat
             this.lbFirstName.AutoSize = true;
             this.lbFirstName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbFirstName.Location = new System.Drawing.Point(725, 18);
+            this.lbFirstName.Location = new System.Drawing.Point(1445, 18);
             this.lbFirstName.Name = "lbFirstName";
             this.lbFirstName.Size = new System.Drawing.Size(14, 21);
             this.lbFirstName.TabIndex = 4;
@@ -98,7 +99,7 @@ namespace DongThucVat
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(636, 18);
+            this.label1.Location = new System.Drawing.Point(1356, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 3;
@@ -107,6 +108,7 @@ namespace DongThucVat
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel2.Controls.Add(this.btLogOut);
             this.panel2.Controls.Add(this.btBack);
             this.panel2.Controls.Add(this.btClose);
             this.panel2.Controls.Add(this.lbTime);
@@ -117,7 +119,7 @@ namespace DongThucVat
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(163, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1037, 92);
+            this.panel2.Size = new System.Drawing.Size(1757, 92);
             this.panel2.TabIndex = 5;
             // 
             // btBack
@@ -147,7 +149,7 @@ namespace DongThucVat
             this.btClose.ForeColor = System.Drawing.Color.White;
             this.btClose.Image = ((System.Drawing.Image)(resources.GetObject("btClose.Image")));
             this.btClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btClose.Location = new System.Drawing.Point(995, 3);
+            this.btClose.Location = new System.Drawing.Point(1715, 3);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(39, 36);
             this.btClose.TabIndex = 1;
@@ -161,7 +163,7 @@ namespace DongThucVat
             this.lbTime.AutoSize = true;
             this.lbTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbTime.Location = new System.Drawing.Point(888, 75);
+            this.lbTime.Location = new System.Drawing.Point(1608, 75);
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(149, 17);
             this.lbTime.TabIndex = 2;
@@ -273,7 +275,7 @@ namespace DongThucVat
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(163, 720);
+            this.panelLeft.Size = new System.Drawing.Size(163, 1061);
             this.panelLeft.TabIndex = 4;
             // 
             // panel3
@@ -305,14 +307,32 @@ namespace DongThucVat
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl.Location = new System.Drawing.Point(163, 92);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(1037, 628);
+            this.panelControl.Size = new System.Drawing.Size(1757, 969);
             this.panelControl.TabIndex = 0;
+            // 
+            // btLogOut
+            // 
+            this.btLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btLogOut.FlatAppearance.BorderSize = 0;
+            this.btLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btLogOut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogOut.ForeColor = System.Drawing.Color.White;
+            this.btLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btLogOut.Image")));
+            this.btLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btLogOut.Location = new System.Drawing.Point(1670, 3);
+            this.btLogOut.Name = "btLogOut";
+            this.btLogOut.Size = new System.Drawing.Size(39, 36);
+            this.btLogOut.TabIndex = 7;
+            this.btLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btLogOut.UseVisualStyleBackColor = true;
+            this.btLogOut.Click += new System.EventHandler(this.btLogOut_Click);
             // 
             // frmHome
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.ClientSize = new System.Drawing.Size(1920, 1061);
             this.Controls.Add(this.panelControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelLeft);
@@ -321,6 +341,7 @@ namespace DongThucVat
             this.Name = "frmHome";
             this.Text = "frmHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmHome_FormClosed);
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -351,5 +372,6 @@ namespace DongThucVat
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.Button btLogOut;
     }
 }

@@ -53,9 +53,9 @@ namespace DongThucVat
             // 
             this.txtNhapLaiMatKhau.Location = new System.Drawing.Point(214, 235);
             this.txtNhapLaiMatKhau.Name = "txtNhapLaiMatKhau";
-            this.txtNhapLaiMatKhau.PasswordChar = '*';
             this.txtNhapLaiMatKhau.Size = new System.Drawing.Size(502, 29);
             this.txtNhapLaiMatKhau.TabIndex = 73;
+            this.txtNhapLaiMatKhau.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -71,9 +71,9 @@ namespace DongThucVat
             // 
             this.txtMatKhauMoi.Location = new System.Drawing.Point(214, 182);
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
-            this.txtMatKhauMoi.PasswordChar = '*';
             this.txtMatKhauMoi.Size = new System.Drawing.Size(502, 29);
             this.txtMatKhauMoi.TabIndex = 71;
+            this.txtMatKhauMoi.UseSystemPasswordChar = true;
             // 
             // btHuy
             // 
@@ -185,9 +185,9 @@ namespace DongThucVat
             // 
             this.txtMatKhauCu.Location = new System.Drawing.Point(214, 132);
             this.txtMatKhauCu.Name = "txtMatKhauCu";
-            this.txtMatKhauCu.PasswordChar = '*';
             this.txtMatKhauCu.Size = new System.Drawing.Size(502, 29);
             this.txtMatKhauCu.TabIndex = 76;
+            this.txtMatKhauCu.UseSystemPasswordChar = true;
             // 
             // button1
             // 

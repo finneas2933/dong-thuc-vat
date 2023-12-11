@@ -30,7 +30,12 @@ namespace DongThucVat
 
         private void btClose_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Application.Exit();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btLogin_Click(object sender, EventArgs e)
@@ -53,13 +58,14 @@ namespace DongThucVat
             }
             else
             {
+                this.Hide();
                 using (frmHome frm = new frmHome())
                 {
                     frm.idHome = id;// Truyền vào thuộc tính idHome của form Home
                     frm.nameHome = name;// Truyền vào thuộc tính first_name_Home
                     frm.is_adminHome = is_admin;// Truyền vào thuộc tính is_admin_Home
 
-                    frm.ShowDialog();
+                    frm.ShowDialog();                    
                 }
                 this.Dispose();
             }
