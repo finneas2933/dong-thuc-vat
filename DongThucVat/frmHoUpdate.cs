@@ -80,7 +80,7 @@ namespace DongThucVat
                 txtTenTiengViet.Focus();
                 return;
             }
-            if (cb.SelectedIndex < 0)
+            if (cb.SelectedIndex <= 0)
             {
                 MessageBox.Show("Bạn chưa chọn bộ!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

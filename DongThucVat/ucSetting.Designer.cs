@@ -69,7 +69,7 @@ namespace DongThucVat
             this.label6.Location = new System.Drawing.Point(144, 387);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 25);
-            this.label6.TabIndex = 59;
+            this.label6.TabIndex = 14;
             this.label6.Text = "Nội dung (2):";
             // 
             // label4
@@ -80,7 +80,7 @@ namespace DongThucVat
             this.label4.Location = new System.Drawing.Point(147, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 25);
-            this.label4.TabIndex = 57;
+            this.label4.TabIndex = 13;
             this.label4.Text = "Nội dung (1):";
             // 
             // btHuy
@@ -94,7 +94,7 @@ namespace DongThucVat
             this.btHuy.Location = new System.Drawing.Point(1271, 917);
             this.btHuy.Name = "btHuy";
             this.btHuy.Size = new System.Drawing.Size(212, 52);
-            this.btHuy.TabIndex = 10;
+            this.btHuy.TabIndex = 9;
             this.btHuy.Text = "Hủy";
             this.btHuy.UseVisualStyleBackColor = false;
             this.btHuy.Click += new System.EventHandler(this.btHuy_Click);
@@ -110,7 +110,7 @@ namespace DongThucVat
             this.btLuu.Location = new System.Drawing.Point(1524, 917);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(212, 52);
-            this.btLuu.TabIndex = 11;
+            this.btLuu.TabIndex = 10;
             this.btLuu.Text = "Lưu";
             this.btLuu.UseVisualStyleBackColor = false;
             this.btLuu.Click += new System.EventHandler(this.btLuu_Click);
@@ -123,7 +123,7 @@ namespace DongThucVat
             this.label2.Location = new System.Drawing.Point(719, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(319, 37);
-            this.label2.TabIndex = 63;
+            this.label2.TabIndex = 11;
             this.label2.Text = "THÔNG TIN GIỚI THIỆU";
             // 
             // label1
@@ -134,7 +134,7 @@ namespace DongThucVat
             this.label1.Location = new System.Drawing.Point(189, 115);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 25);
-            this.label1.TabIndex = 56;
+            this.label1.TabIndex = 12;
             this.label1.Text = "Tiêu đề:";
             // 
             // panel1
@@ -163,7 +163,7 @@ namespace DongThucVat
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1757, 988);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btXoaAnh
@@ -171,7 +171,7 @@ namespace DongThucVat
             this.btXoaAnh.Location = new System.Drawing.Point(1451, 510);
             this.btXoaAnh.Name = "btXoaAnh";
             this.btXoaAnh.Size = new System.Drawing.Size(124, 47);
-            this.btXoaAnh.TabIndex = 157;
+            this.btXoaAnh.TabIndex = 8;
             this.btXoaAnh.Text = "Xóa ảnh";
             this.btXoaAnh.UseVisualStyleBackColor = true;
             this.btXoaAnh.Click += new System.EventHandler(this.btXoaAnh_Click_1);
@@ -182,14 +182,14 @@ namespace DongThucVat
             this.fpnlHinhAnh.Location = new System.Drawing.Point(1271, 576);
             this.fpnlHinhAnh.Name = "fpnlHinhAnh";
             this.fpnlHinhAnh.Size = new System.Drawing.Size(304, 304);
-            this.fpnlHinhAnh.TabIndex = 156;
+            this.fpnlHinhAnh.TabIndex = 18;
             // 
             // btChonAnh
             // 
             this.btChonAnh.Location = new System.Drawing.Point(1271, 510);
             this.btChonAnh.Name = "btChonAnh";
             this.btChonAnh.Size = new System.Drawing.Size(124, 47);
-            this.btChonAnh.TabIndex = 155;
+            this.btChonAnh.TabIndex = 7;
             this.btChonAnh.Text = "Chọn ảnh";
             this.btChonAnh.UseVisualStyleBackColor = true;
             this.btChonAnh.Click += new System.EventHandler(this.btChonAnh_Click_1);
@@ -199,7 +199,7 @@ namespace DongThucVat
             this.rtxtNoiDung4.Location = new System.Drawing.Point(275, 796);
             this.rtxtNoiDung4.Name = "rtxtNoiDung4";
             this.rtxtNoiDung4.Size = new System.Drawing.Size(922, 173);
-            this.rtxtNoiDung4.TabIndex = 154;
+            this.rtxtNoiDung4.TabIndex = 4;
             this.rtxtNoiDung4.Text = "";
             // 
             // label3
@@ -210,7 +210,7 @@ namespace DongThucVat
             this.label3.Location = new System.Drawing.Point(144, 799);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 25);
-            this.label3.TabIndex = 153;
+            this.label3.TabIndex = 16;
             this.label3.Text = "Nội dung (4):";
             // 
             // btXoaLogo
@@ -218,7 +218,7 @@ namespace DongThucVat
             this.btXoaLogo.Location = new System.Drawing.Point(1451, 112);
             this.btXoaLogo.Name = "btXoaLogo";
             this.btXoaLogo.Size = new System.Drawing.Size(124, 47);
-            this.btXoaLogo.TabIndex = 152;
+            this.btXoaLogo.TabIndex = 6;
             this.btXoaLogo.Text = "Xóa logo";
             this.btXoaLogo.UseVisualStyleBackColor = true;
             this.btXoaLogo.Click += new System.EventHandler(this.btXoaLogo_Click);
@@ -229,14 +229,14 @@ namespace DongThucVat
             this.fpnlLogo.Location = new System.Drawing.Point(1271, 178);
             this.fpnlLogo.Name = "fpnlLogo";
             this.fpnlLogo.Size = new System.Drawing.Size(304, 304);
-            this.fpnlLogo.TabIndex = 151;
+            this.fpnlLogo.TabIndex = 17;
             // 
             // btChonLogo
             // 
             this.btChonLogo.Location = new System.Drawing.Point(1271, 112);
             this.btChonLogo.Name = "btChonLogo";
             this.btChonLogo.Size = new System.Drawing.Size(124, 47);
-            this.btChonLogo.TabIndex = 150;
+            this.btChonLogo.TabIndex = 5;
             this.btChonLogo.Text = "Chọn logo";
             this.btChonLogo.UseVisualStyleBackColor = true;
             this.btChonLogo.Click += new System.EventHandler(this.btChonLogo_Click);
@@ -246,7 +246,7 @@ namespace DongThucVat
             this.rtxtNoiDung3.Location = new System.Drawing.Point(275, 590);
             this.rtxtNoiDung3.Name = "rtxtNoiDung3";
             this.rtxtNoiDung3.Size = new System.Drawing.Size(922, 173);
-            this.rtxtNoiDung3.TabIndex = 81;
+            this.rtxtNoiDung3.TabIndex = 3;
             this.rtxtNoiDung3.Text = "";
             // 
             // rtxtNoiDung1
@@ -254,7 +254,7 @@ namespace DongThucVat
             this.rtxtNoiDung1.Location = new System.Drawing.Point(275, 178);
             this.rtxtNoiDung1.Name = "rtxtNoiDung1";
             this.rtxtNoiDung1.Size = new System.Drawing.Size(922, 173);
-            this.rtxtNoiDung1.TabIndex = 80;
+            this.rtxtNoiDung1.TabIndex = 1;
             this.rtxtNoiDung1.Text = "";
             // 
             // rtxtNoiDung2
@@ -262,7 +262,7 @@ namespace DongThucVat
             this.rtxtNoiDung2.Location = new System.Drawing.Point(275, 384);
             this.rtxtNoiDung2.Name = "rtxtNoiDung2";
             this.rtxtNoiDung2.Size = new System.Drawing.Size(922, 173);
-            this.rtxtNoiDung2.TabIndex = 79;
+            this.rtxtNoiDung2.TabIndex = 2;
             this.rtxtNoiDung2.Text = "";
             // 
             // label5
@@ -273,7 +273,7 @@ namespace DongThucVat
             this.label5.Location = new System.Drawing.Point(144, 593);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 25);
-            this.label5.TabIndex = 78;
+            this.label5.TabIndex = 15;
             this.label5.Text = "Nội dung (3):";
             // 
             // ucSetting

@@ -101,9 +101,9 @@ namespace DongThucVat
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             if (idFK == 0)
-                sql = "SELECT * FROM Ho WHERE loai = " + loai;
+                sql = "SELECT h.*, b.name AS namefk FROM Ho h JOIN Bo b ON h.id_dtv_bo = b.id WHERE b.loai = " + loai;
             else
-                sql = "SELECT * FROM Ho WHERE loai = " + loai + " AND id_dtv_bo = " + cb.SelectedValue;
+                sql = "SELECT h.*, b.name AS namefk FROM Ho h JOIN Bo b ON h.id_dtv_bo = b.id WHERE b.loai = " + loai + " AND h.id_dtv_bo = " + cb.SelectedValue;
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter daGRV = new SqlDataAdapter();
             daGRV.SelectCommand = cmd;

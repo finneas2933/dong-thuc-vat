@@ -144,7 +144,7 @@ namespace DongThucVat
                 {
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Image = Image.FromFile(imagePath);
-                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
                     pictureBox.Width = 50;
                     pictureBox.Height = 50;
                     fpnlHinhAnh.Controls.Add(pictureBox);
@@ -208,7 +208,7 @@ namespace DongThucVat
                 txtTenTiengViet.Focus();
                 return;
             }
-            if (cbFK.SelectedIndex == 0 || cbFK.SelectedValue == null)
+            if (cbFK.SelectedIndex <= 0 || cbFK.SelectedValue == null)
             {
                 MessageBox.Show("Bạn chưa chọn họ!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

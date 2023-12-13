@@ -18,7 +18,7 @@ namespace DongThucVat
         string sql = "";
         DataGridViewCellMouseEventArgs vitri;
         bool ktThem;
-        string macu;
+        string macu, emailcu;
 
         public ucUser()
         {
@@ -114,9 +114,35 @@ namespace DongThucVat
             }
         }
 
+        public bool kiemTraEmailTrung(bool ktThem, string emailmoi)
+        {
+            if (ktThem == true)
+            {
+                sql = "SELECT * FROM [user] WHERE email = N'" + emailmoi + "'";
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                sql = "SELECT * FROM [user] WHERE email = N'" + emailmoi + "' AND email <> N'" + emailcu + "'";
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
         private void btLuu_Click_1(object sender, EventArgs e)
         {
-            if (txtEmail.Text == "" && txtPassword.Text == "")
+            if (txtEmail.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập email và mật khẩu!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -125,6 +151,14 @@ namespace DongThucVat
             }
             if (conn.State != ConnectionState.Open)
                 conn.Open();
+            // Kiểm tra email trùng
+            if (kiemTraEmailTrung(ktThem, txtEmail.Text) == true)
+            {
+                MessageBox.Show("Email bạn nhập đã tồn tại!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtEmail.Focus();
+                return;
+            }
             if (ktThem == true)
             {
                 DateTime createdAt = DateTime.Now;
@@ -188,6 +222,7 @@ namespace DongThucVat
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            emailcu = txtEmail.Text;
             ktThem = false;
             khoaMo(false);
         }

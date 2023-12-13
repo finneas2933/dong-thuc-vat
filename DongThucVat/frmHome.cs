@@ -238,5 +238,10 @@ namespace DongThucVat
             if (isClose == true)
                 Application.Exit();
         }
+
+        private void btMini_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

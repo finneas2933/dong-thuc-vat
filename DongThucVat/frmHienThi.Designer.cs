@@ -77,7 +77,7 @@ namespace DongThucVat
             this.fpnlHinhAnh.Location = new System.Drawing.Point(56, 459);
             this.fpnlHinhAnh.Name = "fpnlHinhAnh";
             this.fpnlHinhAnh.Size = new System.Drawing.Size(440, 410);
-            this.fpnlHinhAnh.TabIndex = 182;
+            this.fpnlHinhAnh.TabIndex = 1;
             // 
             // rtxtCongDung
             // 
@@ -85,7 +85,7 @@ namespace DongThucVat
             this.rtxtCongDung.Name = "rtxtCongDung";
             this.rtxtCongDung.ReadOnly = true;
             this.rtxtCongDung.Size = new System.Drawing.Size(969, 170);
-            this.rtxtCongDung.TabIndex = 180;
+            this.rtxtCongDung.TabIndex = 3;
             this.rtxtCongDung.Text = "";
             // 
             // rtxtDacDiem
@@ -94,7 +94,7 @@ namespace DongThucVat
             this.rtxtDacDiem.Name = "rtxtDacDiem";
             this.rtxtDacDiem.ReadOnly = true;
             this.rtxtDacDiem.Size = new System.Drawing.Size(969, 170);
-            this.rtxtDacDiem.TabIndex = 178;
+            this.rtxtDacDiem.TabIndex = 2;
             this.rtxtDacDiem.Text = "";
             // 
             // label3
@@ -104,7 +104,7 @@ namespace DongThucVat
             this.label3.Location = new System.Drawing.Point(52, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 21);
-            this.label3.TabIndex = 167;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Tên khác:";
             // 
             // label1
@@ -114,7 +114,7 @@ namespace DongThucVat
             this.label1.Location = new System.Drawing.Point(52, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 21);
-            this.label1.TabIndex = 166;
+            this.label1.TabIndex = 12;
             this.label1.Text = "Thuộc:";
             // 
             // label2
@@ -124,7 +124,7 @@ namespace DongThucVat
             this.label2.Location = new System.Drawing.Point(52, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 21);
-            this.label2.TabIndex = 161;
+            this.label2.TabIndex = 8;
             this.label2.Text = "Tên Latinh:";
             // 
             // btClose
@@ -137,7 +137,7 @@ namespace DongThucVat
             this.btClose.Location = new System.Drawing.Point(1531, 12);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(57, 39);
-            this.btClose.TabIndex = 158;
+            this.btClose.TabIndex = 0;
             this.btClose.Text = "X";
             this.btClose.UseVisualStyleBackColor = false;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
@@ -149,7 +149,7 @@ namespace DongThucVat
             this.label8.Location = new System.Drawing.Point(52, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 21);
-            this.label8.TabIndex = 154;
+            this.label8.TabIndex = 6;
             this.label8.Text = "Tên tiếng Việt:";
             // 
             // panel2
@@ -159,7 +159,7 @@ namespace DongThucVat
             this.panel2.Location = new System.Drawing.Point(0, 10);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 880);
-            this.panel2.TabIndex = 150;
+            this.panel2.TabIndex = 37;
             // 
             // panel3
             // 
@@ -168,7 +168,7 @@ namespace DongThucVat
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1590, 10);
-            this.panel3.TabIndex = 151;
+            this.panel3.TabIndex = 34;
             // 
             // panel4
             // 
@@ -177,7 +177,7 @@ namespace DongThucVat
             this.panel4.Location = new System.Drawing.Point(1590, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(10, 890);
-            this.panel4.TabIndex = 152;
+            this.panel4.TabIndex = 35;
             // 
             // panel1
             // 
@@ -186,7 +186,7 @@ namespace DongThucVat
             this.panel1.Location = new System.Drawing.Point(0, 890);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1600, 10);
-            this.panel1.TabIndex = 153;
+            this.panel1.TabIndex = 36;
             // 
             // panel5
             // 
@@ -194,7 +194,7 @@ namespace DongThucVat
             this.panel5.Location = new System.Drawing.Point(116, 41);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(717, 1);
-            this.panel5.TabIndex = 183;
+            this.panel5.TabIndex = 5;
             // 
             // label6
             // 
@@ -203,7 +203,7 @@ namespace DongThucVat
             this.label6.Location = new System.Drawing.Point(112, 316);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 21);
-            this.label6.TabIndex = 187;
+            this.label6.TabIndex = 17;
             this.label6.Text = "Lớp:";
             // 
             // label11
@@ -213,7 +213,7 @@ namespace DongThucVat
             this.label11.Location = new System.Drawing.Point(112, 360);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 21);
-            this.label11.TabIndex = 186;
+            this.label11.TabIndex = 19;
             this.label11.Text = "Ngành:";
             // 
             // label12
@@ -223,7 +223,7 @@ namespace DongThucVat
             this.label12.Location = new System.Drawing.Point(112, 272);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(31, 21);
-            this.label12.TabIndex = 185;
+            this.label12.TabIndex = 15;
             this.label12.Text = "Bộ:";
             // 
             // label13
@@ -233,7 +233,7 @@ namespace DongThucVat
             this.label13.Location = new System.Drawing.Point(112, 228);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 21);
-            this.label13.TabIndex = 184;
+            this.label13.TabIndex = 13;
             this.label13.Text = "Họ:";
             // 
             // label14
@@ -243,7 +243,7 @@ namespace DongThucVat
             this.label14.Location = new System.Drawing.Point(50, 19);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(62, 32);
-            this.label14.TabIndex = 188;
+            this.label14.TabIndex = 4;
             this.label14.Text = "Loài";
             // 
             // label15
@@ -253,7 +253,7 @@ namespace DongThucVat
             this.label15.Location = new System.Drawing.Point(569, 197);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(132, 21);
-            this.label15.TabIndex = 189;
+            this.label15.TabIndex = 21;
             this.label15.Text = "Mức độ bảo tồn:";
             // 
             // label16
@@ -263,7 +263,7 @@ namespace DongThucVat
             this.label16.Location = new System.Drawing.Point(702, 316);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(120, 21);
-            this.label16.TabIndex = 193;
+            this.label16.TabIndex = 26;
             this.label16.Text = "3. Nghị định 84:";
             // 
             // label17
@@ -273,7 +273,7 @@ namespace DongThucVat
             this.label17.Location = new System.Drawing.Point(702, 360);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(120, 21);
-            this.label17.TabIndex = 192;
+            this.label17.TabIndex = 28;
             this.label17.Text = "4. Nghị định 64:";
             // 
             // label18
@@ -283,7 +283,7 @@ namespace DongThucVat
             this.label18.Location = new System.Drawing.Point(702, 272);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(110, 21);
-            this.label18.TabIndex = 191;
+            this.label18.TabIndex = 24;
             this.label18.Text = "2. Sách đỏ VN:";
             // 
             // label19
@@ -293,7 +293,7 @@ namespace DongThucVat
             this.label19.Location = new System.Drawing.Point(702, 228);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(66, 21);
-            this.label19.TabIndex = 190;
+            this.label19.TabIndex = 22;
             this.label19.Text = "1. UICN:";
             // 
             // label20
@@ -303,7 +303,7 @@ namespace DongThucVat
             this.label20.Location = new System.Drawing.Point(50, 406);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(118, 32);
-            this.label20.TabIndex = 195;
+            this.label20.TabIndex = 30;
             this.label20.Text = "Hình ảnh";
             // 
             // panel6
@@ -312,7 +312,7 @@ namespace DongThucVat
             this.panel6.Location = new System.Drawing.Point(172, 428);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(145, 1);
-            this.panel6.TabIndex = 194;
+            this.panel6.TabIndex = 31;
             // 
             // label21
             // 
@@ -321,7 +321,7 @@ namespace DongThucVat
             this.label21.Location = new System.Drawing.Point(567, 406);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(122, 32);
-            this.label21.TabIndex = 197;
+            this.label21.TabIndex = 32;
             this.label21.Text = "Đặc điểm";
             // 
             // panel7
@@ -330,7 +330,7 @@ namespace DongThucVat
             this.panel7.Location = new System.Drawing.Point(693, 428);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(145, 1);
-            this.panel7.TabIndex = 196;
+            this.panel7.TabIndex = 33;
             // 
             // label7
             // 
@@ -339,7 +339,7 @@ namespace DongThucVat
             this.label7.Location = new System.Drawing.Point(567, 646);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(337, 32);
-            this.label7.TabIndex = 199;
+            this.label7.TabIndex = 38;
             this.label7.Text = "Công dụng - Giá trị sử dụng";
             // 
             // panel8
@@ -348,7 +348,7 @@ namespace DongThucVat
             this.panel8.Location = new System.Drawing.Point(898, 668);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(145, 1);
-            this.panel8.TabIndex = 198;
+            this.panel8.TabIndex = 39;
             // 
             // lbTenTiengViet
             // 
@@ -356,7 +356,7 @@ namespace DongThucVat
             this.lbTenTiengViet.Location = new System.Drawing.Point(164, 65);
             this.lbTenTiengViet.Name = "lbTenTiengViet";
             this.lbTenTiengViet.Size = new System.Drawing.Size(665, 21);
-            this.lbTenTiengViet.TabIndex = 200;
+            this.lbTenTiengViet.TabIndex = 7;
             this.lbTenTiengViet.Text = ".";
             // 
             // lbTenLatinh
@@ -365,7 +365,7 @@ namespace DongThucVat
             this.lbTenLatinh.Location = new System.Drawing.Point(141, 107);
             this.lbTenLatinh.Name = "lbTenLatinh";
             this.lbTenLatinh.Size = new System.Drawing.Size(692, 21);
-            this.lbTenLatinh.TabIndex = 201;
+            this.lbTenLatinh.TabIndex = 9;
             this.lbTenLatinh.Text = ".";
             // 
             // lbTenKhac
@@ -374,7 +374,7 @@ namespace DongThucVat
             this.lbTenKhac.Location = new System.Drawing.Point(130, 152);
             this.lbTenKhac.Name = "lbTenKhac";
             this.lbTenKhac.Size = new System.Drawing.Size(703, 21);
-            this.lbTenKhac.TabIndex = 202;
+            this.lbTenKhac.TabIndex = 11;
             this.lbTenKhac.Text = ".";
             // 
             // lbLop
@@ -383,7 +383,7 @@ namespace DongThucVat
             this.lbLop.Location = new System.Drawing.Point(158, 316);
             this.lbLop.Name = "lbLop";
             this.lbLop.Size = new System.Drawing.Size(405, 21);
-            this.lbLop.TabIndex = 205;
+            this.lbLop.TabIndex = 18;
             this.lbLop.Text = ".";
             // 
             // lbBo
@@ -392,7 +392,7 @@ namespace DongThucVat
             this.lbBo.Location = new System.Drawing.Point(149, 272);
             this.lbBo.Name = "lbBo";
             this.lbBo.Size = new System.Drawing.Size(414, 21);
-            this.lbBo.TabIndex = 204;
+            this.lbBo.TabIndex = 16;
             this.lbBo.Text = ".";
             // 
             // lbHo
@@ -401,7 +401,7 @@ namespace DongThucVat
             this.lbHo.Location = new System.Drawing.Point(151, 228);
             this.lbHo.Name = "lbHo";
             this.lbHo.Size = new System.Drawing.Size(412, 21);
-            this.lbHo.TabIndex = 203;
+            this.lbHo.TabIndex = 14;
             this.lbHo.Text = ".";
             // 
             // lbNganh
@@ -410,7 +410,7 @@ namespace DongThucVat
             this.lbNganh.Location = new System.Drawing.Point(178, 360);
             this.lbNganh.Name = "lbNganh";
             this.lbNganh.Size = new System.Drawing.Size(385, 21);
-            this.lbNganh.TabIndex = 206;
+            this.lbNganh.TabIndex = 20;
             this.lbNganh.Text = ".";
             // 
             // lbND64
@@ -419,7 +419,7 @@ namespace DongThucVat
             this.lbND64.Location = new System.Drawing.Point(828, 360);
             this.lbND64.Name = "lbND64";
             this.lbND64.Size = new System.Drawing.Size(358, 21);
-            this.lbND64.TabIndex = 210;
+            this.lbND64.TabIndex = 29;
             this.lbND64.Text = ".";
             // 
             // lbND84
@@ -428,7 +428,7 @@ namespace DongThucVat
             this.lbND84.Location = new System.Drawing.Point(828, 316);
             this.lbND84.Name = "lbND84";
             this.lbND84.Size = new System.Drawing.Size(358, 21);
-            this.lbND84.TabIndex = 209;
+            this.lbND84.TabIndex = 27;
             this.lbND84.Text = ".";
             // 
             // lbSDVN
@@ -437,7 +437,7 @@ namespace DongThucVat
             this.lbSDVN.Location = new System.Drawing.Point(818, 272);
             this.lbSDVN.Name = "lbSDVN";
             this.lbSDVN.Size = new System.Drawing.Size(368, 21);
-            this.lbSDVN.TabIndex = 208;
+            this.lbSDVN.TabIndex = 25;
             this.lbSDVN.Text = ".";
             // 
             // lbUICN
@@ -446,7 +446,7 @@ namespace DongThucVat
             this.lbUICN.Location = new System.Drawing.Point(774, 228);
             this.lbUICN.Name = "lbUICN";
             this.lbUICN.Size = new System.Drawing.Size(412, 21);
-            this.lbUICN.TabIndex = 207;
+            this.lbUICN.TabIndex = 23;
             this.lbUICN.Text = ".";
             // 
             // frmHienThi

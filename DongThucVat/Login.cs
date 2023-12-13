@@ -33,9 +33,19 @@ namespace DongThucVat
             Application.Exit();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void lbQuenMatKhau_Click(object sender, EventArgs e)
         {
+            {
+                using (frmQuenMatKhau frm = new frmQuenMatKhau())
+                {
+                    frm.ShowDialog();
+                }
+            }
+        }
 
+        private void btMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btLogin_Click(object sender, EventArgs e)

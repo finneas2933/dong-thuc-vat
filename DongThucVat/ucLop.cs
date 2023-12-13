@@ -116,9 +116,9 @@ namespace DongThucVat
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             if (idFK == 0)
-                sql = "SELECT * FROM Lop WHERE loai = " + loai;
+                sql = "SELECT lp.*, n.name AS namefk FROM Lop lp JOIN Nganh n ON lp.id_dtv_nganh= n.id WHERE lp.loai = " + loai;
             else
-                sql = "SELECT * FROM Lop WHERE loai = " + loai + " AND id_dtv_nganh = " + cb.SelectedValue;
+                sql = "SELECT lp.*, n.name AS namefk FROM Lop lp JOIN Nganh n ON lp.id_dtv_nganh= n.id WHERE lp.loai = " + loai + " AND lp.id_dtv_nganh = " + cb.SelectedValue;
                 //sql = "SELECT * FROM Lop WHERE loai = " + loai + " AND id_dtv_nganh = " + idFK + "AND (name LIKE N'%" + search + "%' OR name_latinh LIKE N'%" + search + "%')";
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter daGRV = new SqlDataAdapter();

@@ -160,9 +160,10 @@ namespace DongThucVat
                     KetQua kq = kqList[i];
 
                     // Gán giá trị từ kq vào listItem[i]
-                    if (!string.IsNullOrEmpty(anhListItemLoad(kq.ID)))
+                    string hinhanhloai = anhListItemLoad(kq.ID);
+                    if (!string.IsNullOrEmpty(hinhanhloai))
                     {
-                        listItem[i].Anh = anhListItemLoad(kq.ID);
+                        listItem[i].Anh = hinhanhloai;
                     }
                     if (!string.IsNullOrEmpty(kq.TenLoai))
                     {
@@ -193,6 +194,7 @@ namespace DongThucVat
 
         public string anhListItemLoad(string idloai)
         {
+            hinhanh = "";
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             try
@@ -210,10 +212,7 @@ namespace DongThucVat
 
                 conn.Close();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi: " + ex.Message);
-            }
+            catch (Exception ex) { }
 
             return hinhanh;
         }
