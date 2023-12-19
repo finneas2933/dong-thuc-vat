@@ -20,6 +20,7 @@ namespace DongThucVat
 
         // Tạo một đối tượng của lớp ConfigurationManager để đọc thông tin cấu hình từ file app.config
         // string pictureFolder;
+        string imageFolder = ConfigurationManager.AppSettings["PictureFolder"];
         private List<string> selectedImages = new List<string>();
         private string idUser, tenTiengViet;
         private int id, loai;
@@ -203,6 +204,14 @@ namespace DongThucVat
             */
         }
 
+        public string GenerateImagePath(string uploadedFileName)
+        {
+            // Kết hợp đường dẫn cố định với tên của hình ảnh được tải lên
+            string fullPath = Path.Combine(imageFolder, uploadedFileName);
+
+            return fullPath;
+        }
+
         private void btLuu_Click(object sender, EventArgs e)
         {
             if (txtTenTiengViet.Text == "" && txtTenLatinh.Text == "")
@@ -334,7 +343,8 @@ namespace DongThucVat
             {
                 foreach (string fileName in openFileDialog.FileNames)
                 {
-                    selectedImages.Add(fileName);
+                    string imagePath = GenerateImagePath(Path.GetFileName(fileName));
+                    selectedImages.Add(imagePath);
                 }
                 DisplayImages();
                 MessageBox.Show("Đã chọn " + openFileDialog.FileNames.Length + " ảnh.");

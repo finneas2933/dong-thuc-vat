@@ -179,8 +179,6 @@ namespace DongThucVat
                     pbLogo.Image = Image.FromFile(logo);
                     pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
                 }
-                else
-                    return;
             }
             catch (Exception ex)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,7 +55,19 @@ namespace DongThucVat
         public string Anh
         {
             get { return _anh; }
-            set { _anh = value; pbLoai.Image = Image.FromFile(value); }
+            set
+            {
+                _anh = value;
+                try
+                {
+                    pbLoai.Image = Image.FromFile(value);
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý khi không tìm thấy hình ảnh
+                    MessageBox.Show("Không tìm thấy hình ảnh: " + ex.Message);
+                }
+            }
         }
         [Category("Custom Props")]
         public int Stt

@@ -42,6 +42,9 @@ namespace DongThucVat
             this.lbQuenMatKhau = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -57,7 +60,7 @@ namespace DongThucVat
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(854, 112);
+            this.panel1.Size = new System.Drawing.Size(854, 100);
             this.panel1.TabIndex = 4;
             // 
             // btMin
@@ -72,7 +75,7 @@ namespace DongThucVat
             this.btMin.Image = ((System.Drawing.Image)(resources.GetObject("btMin.Image")));
             this.btMin.Location = new System.Drawing.Point(732, 0);
             this.btMin.Name = "btMin";
-            this.btMin.Size = new System.Drawing.Size(61, 112);
+            this.btMin.Size = new System.Drawing.Size(61, 100);
             this.btMin.TabIndex = 5;
             this.btMin.UseVisualStyleBackColor = false;
             this.btMin.Click += new System.EventHandler(this.btMin_Click);
@@ -89,7 +92,7 @@ namespace DongThucVat
             this.btClose.Image = ((System.Drawing.Image)(resources.GetObject("btClose.Image")));
             this.btClose.Location = new System.Drawing.Point(793, 0);
             this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(61, 112);
+            this.btClose.Size = new System.Drawing.Size(61, 100);
             this.btClose.TabIndex = 4;
             this.btClose.UseVisualStyleBackColor = false;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
@@ -97,7 +100,7 @@ namespace DongThucVat
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(21, 18);
+            this.pbLogo.Location = new System.Drawing.Point(21, 12);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(76, 76);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -108,7 +111,7 @@ namespace DongThucVat
             // 
             this.lbTieuDe.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTieuDe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbTieuDe.Location = new System.Drawing.Point(103, 25);
+            this.lbTieuDe.Location = new System.Drawing.Point(103, 20);
             this.lbTieuDe.Name = "lbTieuDe";
             this.lbTieuDe.Size = new System.Drawing.Size(568, 60);
             this.lbTieuDe.TabIndex = 0;
@@ -123,7 +126,7 @@ namespace DongThucVat
             this.btLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogin.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin.ForeColor = System.Drawing.Color.White;
-            this.btLogin.Location = new System.Drawing.Point(123, 415);
+            this.btLogin.Location = new System.Drawing.Point(123, 409);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(609, 33);
             this.btLogin.TabIndex = 3;
@@ -135,7 +138,7 @@ namespace DongThucVat
             // 
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(123, 348);
+            this.txtPassword.Location = new System.Drawing.Point(123, 342);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(609, 33);
             this.txtPassword.TabIndex = 1;
@@ -145,7 +148,7 @@ namespace DongThucVat
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(352, 118);
+            this.pictureBox2.Location = new System.Drawing.Point(352, 112);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 150);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -158,7 +161,7 @@ namespace DongThucVat
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.label4.Location = new System.Drawing.Point(129, 320);
+            this.label4.Location = new System.Drawing.Point(129, 314);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 25);
             this.label4.TabIndex = 6;
@@ -170,7 +173,7 @@ namespace DongThucVat
             this.lbQuenMatKhau.AutoSize = true;
             this.lbQuenMatKhau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbQuenMatKhau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.lbQuenMatKhau.Location = new System.Drawing.Point(590, 384);
+            this.lbQuenMatKhau.Location = new System.Drawing.Point(590, 378);
             this.lbQuenMatKhau.Name = "lbQuenMatKhau";
             this.lbQuenMatKhau.Size = new System.Drawing.Size(143, 21);
             this.lbQuenMatKhau.TabIndex = 2;
@@ -183,7 +186,7 @@ namespace DongThucVat
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.label1.Location = new System.Drawing.Point(129, 256);
+            this.label1.Location = new System.Drawing.Point(129, 250);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 5;
@@ -193,10 +196,37 @@ namespace DongThucVat
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(123, 284);
+            this.txtEmail.Location = new System.Drawing.Point(123, 278);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(609, 33);
             this.txtEmail.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(844, 100);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 380);
+            this.panel4.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 470);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(844, 10);
+            this.panel2.TabIndex = 17;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 100);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 370);
+            this.panel3.TabIndex = 18;
             // 
             // Login
             // 
@@ -204,6 +234,9 @@ namespace DongThucVat
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(854, 480);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btLogin);
             this.Controls.Add(this.txtPassword);
@@ -242,6 +275,9 @@ namespace DongThucVat
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btMin;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

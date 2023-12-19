@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -16,7 +17,8 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
-        string fileName, fileLogo;
+        string fileLogo, logoPath;
+        string imageFolder = ConfigurationManager.AppSettings["PictureFolder"];
         private List<string> selectedImages = new List<string>();
 
         public ucSetting()
@@ -73,10 +75,19 @@ namespace DongThucVat
         {
             conn = Connect.ConnectDB();
             selectedImages.Clear();
+            txtFolder.Text = imageFolder;
             layNguonNoiDung();
             DisplayLogo();
             LoadImages();
             DisplayImages();
+        }
+
+        public string GenerateImagePath(string uploadedFileName)
+        {
+            // Kết hợp đường dẫn cố định với tên của hình ảnh được tải lên
+            string fullPath = Path.Combine(imageFolder, uploadedFileName);
+
+            return fullPath;
         }
 
         private void DisplayLogo()
@@ -85,12 +96,12 @@ namespace DongThucVat
                 fpnlLogo.Controls.Clear();
             try
             {
-                if (fileLogo != "")
+                if (logoPath != "")
                 {
-                    if (File.Exists(fileLogo))
+                    if (File.Exists(logoPath))
                     {
                         PictureBox pictureBox = new PictureBox();
-                        pictureBox.Image = Image.FromFile(fileLogo);
+                        pictureBox.Image = Image.FromFile(logoPath);
                         pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox.Width = 200;
                         pictureBox.Height = 200;
@@ -140,7 +151,8 @@ namespace DongThucVat
             {
                 foreach (string fileName in openFileDialog.FileNames)
                 {
-                    selectedImages.Add(fileName);
+                    string imagePath = GenerateImagePath(Path.GetFileName(fileName));
+                    selectedImages.Add(imagePath);
                 }
                 DisplayImages();
                 MessageBox.Show("Đã chọn " + openFileDialog.FileNames.Length + " ảnh.");
@@ -161,6 +173,7 @@ namespace DongThucVat
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 fileLogo = openFileDialog.FileName;
+                logoPath = GenerateImagePath(Path.GetFileName(fileLogo));
                 DisplayLogo();
             }
         }
@@ -172,6 +185,11 @@ namespace DongThucVat
             if (MessageBox.Show("Bạn có muốn sửa thông tin hiển thị không?", "Thông báo",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["PictureFolder"].Value = txtFolder.Text;
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+
             SqlCommand cmd = new SqlCommand("UpdateThongTin", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1;
@@ -216,6 +234,7 @@ namespace DongThucVat
 
         private void btHuy_Click_1(object sender, EventArgs e)
         {
+            txtFolder.Text = imageFolder;
             layNguonNoiDung();
             DisplayLogo();
             LoadImages();

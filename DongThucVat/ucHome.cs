@@ -60,16 +60,20 @@ namespace DongThucVat
 
         private void ImageTimer_Tick(object sender, EventArgs e)
         {
-            // Kiểm tra xem có ảnh trong danh sách không
-            if (imagePaths.Count > 0)
+            try
             {
-                // Hiển thị ảnh tiếp theo
-                pbHome.ImageLocation = imagePaths[currentImageIndex];
-                currentImageIndex = (currentImageIndex + 1) % imagePaths.Count;
+                // Kiểm tra xem có ảnh trong danh sách không
+                if (imagePaths.Count > 0)
+                {
+                    // Hiển thị ảnh tiếp theo
+                    pbHome.ImageLocation = imagePaths[currentImageIndex];
+                    currentImageIndex = (currentImageIndex + 1) % imagePaths.Count;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Không tìm thấy ảnh!");
+                // Xử lý khi không tìm thấy hình ảnh
+                MessageBox.Show("Không tìm thấy hình ảnh: " + ex.Message);
             }
         }
 
