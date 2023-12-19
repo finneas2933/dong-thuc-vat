@@ -51,7 +51,7 @@ namespace DongThucVat
             this.pnlSTT.Location = new System.Drawing.Point(3, 3);
             this.pnlSTT.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSTT.Name = "pnlSTT";
-            this.pnlSTT.Size = new System.Drawing.Size(53, 194);
+            this.pnlSTT.Size = new System.Drawing.Size(53, 192);
             this.pnlSTT.TabIndex = 0;
             // 
             // lbSTT
@@ -72,7 +72,7 @@ namespace DongThucVat
             this.pnlAnh.Location = new System.Drawing.Point(56, 3);
             this.pnlAnh.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAnh.Name = "pnlAnh";
-            this.pnlAnh.Size = new System.Drawing.Size(152, 194);
+            this.pnlAnh.Size = new System.Drawing.Size(152, 192);
             this.pnlAnh.TabIndex = 1;
             // 
             // pbLoai
@@ -143,6 +143,7 @@ namespace DongThucVat
             // ucListItem
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.lbNganh);
             this.Controls.Add(this.lbLop);
             this.Controls.Add(this.lbBo);
@@ -154,7 +155,7 @@ namespace DongThucVat
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
             this.Name = "ucListItem";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(500, 200);
+            this.Size = new System.Drawing.Size(498, 198);
             this.pnlSTT.ResumeLayout(false);
             this.pnlSTT.PerformLayout();
             this.pnlAnh.ResumeLayout(false);

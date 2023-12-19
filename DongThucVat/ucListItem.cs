@@ -65,6 +65,9 @@ namespace DongThucVat
                 catch (Exception ex)
                 {
                     // Xử lý khi không tìm thấy hình ảnh
+                    //string defaultImage = @"picture\Image File.png";
+                    //string imagePath = Path.Combine(Application.StartupPath, defaultImage);
+                    //pbLoai.Image = Image.FromFile(imagePath);
                     MessageBox.Show("Không tìm thấy hình ảnh: " + ex.Message);
                 }
             }

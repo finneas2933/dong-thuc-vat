@@ -28,5 +28,5 @@ C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucHome.
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucUserInfo.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucSetting.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmQuenMatKhau.resources
-C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.AssemblyReference.cache
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucGioiThieu.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.AssemblyReference.cache

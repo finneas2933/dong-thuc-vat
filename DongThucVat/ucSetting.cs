@@ -17,7 +17,7 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
-        string fileLogo, logoPath;
+        string fileLogo;
         string imageFolder = ConfigurationManager.AppSettings["PictureFolder"];
         private List<string> selectedImages = new List<string>();
 
@@ -82,26 +82,18 @@ namespace DongThucVat
             DisplayImages();
         }
 
-        public string GenerateImagePath(string uploadedFileName)
-        {
-            // Kết hợp đường dẫn cố định với tên của hình ảnh được tải lên
-            string fullPath = Path.Combine(imageFolder, uploadedFileName);
-
-            return fullPath;
-        }
-
         private void DisplayLogo()
         {
             if (fpnlLogo.Controls.Count > 0)
                 fpnlLogo.Controls.Clear();
             try
             {
-                if (logoPath != "")
+                if (fileLogo != "")
                 {
-                    if (File.Exists(logoPath))
+                    if (File.Exists(fileLogo))
                     {
                         PictureBox pictureBox = new PictureBox();
-                        pictureBox.Image = Image.FromFile(logoPath);
+                        pictureBox.Image = Image.FromFile(fileLogo);
                         pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox.Width = 200;
                         pictureBox.Height = 200;
@@ -151,8 +143,7 @@ namespace DongThucVat
             {
                 foreach (string fileName in openFileDialog.FileNames)
                 {
-                    string imagePath = GenerateImagePath(Path.GetFileName(fileName));
-                    selectedImages.Add(imagePath);
+                    selectedImages.Add(fileName);
                 }
                 DisplayImages();
                 MessageBox.Show("Đã chọn " + openFileDialog.FileNames.Length + " ảnh.");
@@ -173,7 +164,6 @@ namespace DongThucVat
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 fileLogo = openFileDialog.FileName;
-                logoPath = GenerateImagePath(Path.GetFileName(fileLogo));
                 DisplayLogo();
             }
         }

@@ -37,7 +37,7 @@ namespace DongThucVat
             this.lbTieuDe = new System.Windows.Forms.Label();
             this.btLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbLogo1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lbQuenMatKhau = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@ namespace DongThucVat
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -144,16 +144,16 @@ namespace DongThucVat
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // pictureBox2
+            // pbLogo1
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(352, 112);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
+            this.pbLogo1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbLogo1.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo1.Image")));
+            this.pbLogo1.Location = new System.Drawing.Point(352, 112);
+            this.pbLogo1.Name = "pbLogo1";
+            this.pbLogo1.Size = new System.Drawing.Size(150, 150);
+            this.pbLogo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo1.TabIndex = 11;
+            this.pbLogo1.TabStop = false;
             // 
             // label4
             // 
@@ -241,7 +241,7 @@ namespace DongThucVat
             this.Controls.Add(this.btLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbLogo1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbQuenMatKhau);
             this.Controls.Add(this.label1);
@@ -255,7 +255,7 @@ namespace DongThucVat
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +269,7 @@ namespace DongThucVat
         private System.Windows.Forms.Label lbTieuDe;
         private System.Windows.Forms.Button btLogin;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbLogo1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbQuenMatKhau;
         private System.Windows.Forms.Label label1;

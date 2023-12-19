@@ -53,6 +53,9 @@ namespace DongThucVat
                     pbLogo.Image = null;
                     pbLogo.Image = Image.FromFile(logo);
                     pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
+                    pbLogo1.Image = null;
+                    pbLogo1.Image = Image.FromFile(logo);
+                    pbLogo1.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
             catch (Exception ex)
