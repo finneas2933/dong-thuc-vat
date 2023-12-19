@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -17,6 +18,8 @@ namespace DongThucVat
         SqlConnection conn;
         string sql = "";
 
+        // Tạo một đối tượng của lớp ConfigurationManager để đọc thông tin cấu hình từ file app.config
+        // string pictureFolder;
         private List<string> selectedImages = new List<string>();
         private string idUser, tenTiengViet;
         private int id, loai;
@@ -29,6 +32,7 @@ namespace DongThucVat
         public frmLoaiUpdate()
         {
             InitializeComponent();
+            //pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
         }
 
         public void cbLoad()

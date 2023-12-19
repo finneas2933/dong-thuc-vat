@@ -24,66 +24,6 @@ namespace DongThucVat
             InitializeComponent();
         }
 
-        private void btHuy_Click(object sender, EventArgs e)
-        {
-            layNguonNoiDung();
-            DisplayLogo();
-            LoadImages();
-            DisplayImages();
-        }
-
-        private void btLuu_Click(object sender, EventArgs e)
-        {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-            if (MessageBox.Show("Bạn có muốn sửa thông tin hiển thị không?", "Thông báo",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                return;
-            SqlCommand cmd = new SqlCommand("UpdateThongTin", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1;
-            cmd.Parameters.Add("@logo", SqlDbType.NVarChar).Value = fileLogo;
-            cmd.Parameters.Add("@tieude", SqlDbType.NVarChar).Value = txtTieuDe.Text;
-            cmd.Parameters.Add("@noidung1", SqlDbType.NVarChar).Value = rtxtNoiDung1.Text;
-            cmd.Parameters.Add("@noidung2", SqlDbType.NVarChar).Value = rtxtNoiDung2.Text;
-            cmd.Parameters.Add("@noidung3", SqlDbType.NVarChar).Value = rtxtNoiDung3.Text;
-            cmd.Parameters.Add("@noidung4", SqlDbType.NVarChar).Value = rtxtNoiDung4.Text;
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
-
-            if (selectedImages.Count <= 0)
-            {
-                sql = "DELETE FROM ThongTin WHERE is_image = @IsImage";
-                SqlCommand delCmd = new SqlCommand(sql, conn);
-                delCmd.Parameters.Add("@IsImage", SqlDbType.Bit).Value = true;
-                delCmd.ExecuteNonQuery();
-                delCmd.Dispose();
-            }
-            if (selectedImages.Count > 0)
-            {
-                sql = "DELETE FROM ThongTin WHERE is_image = @IsImage";
-                SqlCommand deleteCmd = new SqlCommand(sql, conn);
-                deleteCmd.Parameters.Add("@IsImage", SqlDbType.Bit).Value = true;
-                deleteCmd.ExecuteNonQuery();
-                deleteCmd.Dispose();
-
-                foreach (string imagePath in selectedImages)
-                {
-                    sql = "INSERT INTO ThongTin (is_image, hinhanh) VALUES (@IsImage, @Hinhanh)";
-                    SqlCommand insCmd = new SqlCommand(sql, conn);
-                    insCmd.Parameters.Add("@IsImage", SqlDbType.Bit).Value = true;
-                    insCmd.Parameters.Add("@Hinhanh", SqlDbType.NVarChar).Value = imagePath;
-                    insCmd.ExecuteNonQuery();
-                    insCmd.Dispose();
-                }
-            }
-
-            conn.Close();
-            DisplayImages();
-            selectedImages.Clear();
-            fileLogo = "";
-        }
-
         public void LoadImages()
         {
             try
@@ -126,10 +66,7 @@ namespace DongThucVat
             // Lấy giá trị từ dòng đầu tiên của DataTable
             fileLogo = dt.Rows[0]["logo"].ToString();
             txtTieuDe.Text = dt.Rows[0]["tieude"].ToString();
-            rtxtNoiDung1.Text = dt.Rows[0]["noidung1"].ToString();
-            rtxtNoiDung2.Text = dt.Rows[0]["noidung2"].ToString();
-            rtxtNoiDung3.Text = dt.Rows[0]["noidung3"].ToString();
-            rtxtNoiDung4.Text = dt.Rows[0]["noidung4"].ToString();
+            rtxtNoiDung.Text = dt.Rows[0]["noidung"].ToString();
         }
 
         private void ucSetting_Load(object sender, EventArgs e)
@@ -155,8 +92,8 @@ namespace DongThucVat
                         PictureBox pictureBox = new PictureBox();
                         pictureBox.Image = Image.FromFile(fileLogo);
                         pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                        pictureBox.Width = 300;
-                        pictureBox.Height = 300;
+                        pictureBox.Width = 200;
+                        pictureBox.Height = 200;
                         fpnlLogo.Controls.Add(pictureBox);
                     }
                     else
@@ -165,12 +102,10 @@ namespace DongThucVat
                 else 
                     return;
             }
-            catch (Exception ex) { }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void DisplayImages()
@@ -188,10 +123,14 @@ namespace DongThucVat
                     pictureBox.Height = 140;
                     fpnlHinhAnh.Controls.Add(pictureBox);
                 }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy ảnh!");
+                }
             }
         }
 
-        private void btChonAnh_Click_1(object sender, EventArgs e)
+        private void btChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
@@ -208,7 +147,13 @@ namespace DongThucVat
             }
         }
 
-        private void btChonLogo_Click(object sender, EventArgs e)
+        private void btXoaLogo_Click_1(object sender, EventArgs e)
+        {
+            fpnlLogo.Controls.Clear();
+            fileLogo = "";
+        }
+
+        private void btChonLogo_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
@@ -220,13 +165,64 @@ namespace DongThucVat
             }
         }
 
-        private void btXoaLogo_Click(object sender, EventArgs e)
+        private void btLuu_Click_1(object sender, EventArgs e)
         {
-            fpnlLogo.Controls.Clear();
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            if (MessageBox.Show("Bạn có muốn sửa thông tin hiển thị không?", "Thông báo",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+            SqlCommand cmd = new SqlCommand("UpdateThongTin", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1;
+            cmd.Parameters.Add("@logo", SqlDbType.NVarChar).Value = fileLogo;
+            cmd.Parameters.Add("@tieude", SqlDbType.NVarChar).Value = txtTieuDe.Text;
+            cmd.Parameters.Add("@noidung", SqlDbType.NVarChar).Value = rtxtNoiDung.Text;
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+
+            if (selectedImages.Count <= 0)
+            {
+                sql = "DELETE FROM ThongTin WHERE is_image = @IsImage";
+                SqlCommand delCmd = new SqlCommand(sql, conn);
+                delCmd.Parameters.Add("@IsImage", SqlDbType.Bit).Value = true;
+                delCmd.ExecuteNonQuery();
+                delCmd.Dispose();
+            }
+            if (selectedImages.Count > 0)
+            {
+                sql = "DELETE FROM ThongTin WHERE is_image = @IsImage";
+                SqlCommand deleteCmd = new SqlCommand(sql, conn);
+                deleteCmd.Parameters.Add("@IsImage", SqlDbType.Bit).Value = true;
+                deleteCmd.ExecuteNonQuery();
+                deleteCmd.Dispose();
+
+                foreach (string imagePath in selectedImages)
+                {
+                    sql = "INSERT INTO ThongTin (is_image, hinhanh) VALUES (@IsImage, @Hinhanh)";
+                    SqlCommand insCmd = new SqlCommand(sql, conn);
+                    insCmd.Parameters.Add("@IsImage", SqlDbType.Bit).Value = true;
+                    insCmd.Parameters.Add("@Hinhanh", SqlDbType.NVarChar).Value = imagePath;
+                    insCmd.ExecuteNonQuery();
+                    insCmd.Dispose();
+                }
+            }
+
+            conn.Close();
+            DisplayImages();
+            selectedImages.Clear();
             fileLogo = "";
         }
 
-        private void btXoaAnh_Click_1(object sender, EventArgs e)
+        private void btHuy_Click_1(object sender, EventArgs e)
+        {
+            layNguonNoiDung();
+            DisplayLogo();
+            LoadImages();
+            DisplayImages();
+        }
+
+        private void btXoaAnh_Click(object sender, EventArgs e)
         {
             fpnlHinhAnh.Controls.Clear();
             selectedImages.Clear();

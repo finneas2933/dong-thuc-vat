@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -120,6 +121,12 @@
     </Compile>
     <Compile Include="ucChon.Designer.cs">
       <DependentUpon>ucChon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucGioiThieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGioiThieu.Designer.cs">
+      <DependentUpon>ucGioiThieu.cs</DependentUpon>
     </Compile>
     <Compile Include="ucHo.cs">
       <SubType>UserControl</SubType>
@@ -226,6 +233,9 @@
     <EmbeddedResource Include="ucChon.resx">
       <DependentUpon>ucChon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucGioiThieu.resx">
+      <DependentUpon>ucGioiThieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucHo.resx">
       <DependentUpon>ucHo.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +278,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="picture\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

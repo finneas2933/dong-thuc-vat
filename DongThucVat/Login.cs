@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,58 @@ namespace DongThucVat
         private void Form1_Load(object sender, EventArgs e)
         {
             conn = Connect.ConnectDB();
+            loadLogo();
+            loadTieuDe();
             txtEmail.Focus();
+        }
+
+        public void loadLogo()
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            sql = "SELECT logo FROM ThongTin WHERE id = " + 1;
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            cmd.Dispose();
+            conn.Close();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            // Lấy giá trị từ dòng đầu tiên của DataTable
+            string logo = dt.Rows[0]["logo"].ToString();
+            try
+            {
+                if (logo != null && File.Exists(logo))
+                {
+                    pbLogo.Image = null;
+                    pbLogo.Image = Image.FromFile(logo);
+                    pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+                else
+                    return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        public void loadTieuDe()
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            sql = "SELECT tieude FROM ThongTin WHERE id = " + 1;
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            cmd.Dispose();
+            conn.Close();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            // Lấy giá trị từ dòng đầu tiên của DataTable
+            lbTieuDe.Text = dt.Rows[0]["tieude"].ToString();
         }
 
         private void btClose_Click(object sender, EventArgs e)

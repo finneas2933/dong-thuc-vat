@@ -95,25 +95,6 @@ namespace DongThucVat
             dgv.Refresh();
         }
 
-        private void btHuy_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                // Chọn lại ví trí sửa
-                if (vitri != null)
-                {
-                    dgv_CellMouseClick_1(sender, vitri);
-                }
-                else xoaTrang();
-                khoaMo(true);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi" + ex.Message, "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         public bool kiemTraEmailTrung(bool ktThem, string emailmoi)
         {
             if (ktThem == true)
@@ -140,7 +121,7 @@ namespace DongThucVat
             }
         }
 
-        private void btLuu_Click_1(object sender, EventArgs e)
+        private void btLuu_Click(object sender, EventArgs e)
         {
             if (txtEmail.Text == "" || txtPassword.Text == "")
             {
@@ -206,7 +187,26 @@ namespace DongThucVat
             vitri = null;
         }
 
-        private void btThem_Click_1(object sender, EventArgs e)
+        private void btHuy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Chọn lại ví trí sửa
+                if (vitri != null)
+                {
+                    dgv_CellMouseClick(sender, vitri);
+                }
+                else xoaTrang();
+                khoaMo(true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi" + ex.Message, "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btThem_Click(object sender, EventArgs e)
         {
             ktThem = true;
             xoaTrang();
@@ -214,7 +214,7 @@ namespace DongThucVat
             txtHoTen.Focus();
         }
 
-        private void btSua_Click_1(object sender, EventArgs e)
+        private void btSua_Click(object sender, EventArgs e)
         {
             if ((txtEmail.Text == "" && txtPassword.Text == "") || macu == "")
             {
@@ -227,7 +227,7 @@ namespace DongThucVat
             khoaMo(false);
         }
 
-        private void btXoa_Click_1(object sender, EventArgs e)
+        private void btXoa_Click(object sender, EventArgs e)
         {
             if ((txtEmail.Text == "" && txtPassword.Text == "") || macu == "")
             {
@@ -255,7 +255,7 @@ namespace DongThucVat
             }
         }
 
-        private void dgv_CellMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgv_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {

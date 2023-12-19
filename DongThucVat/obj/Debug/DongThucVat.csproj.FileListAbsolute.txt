@@ -24,8 +24,9 @@ C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmDoiM
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmHienThi.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucListItem.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucSearch.resources
-C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.AssemblyReference.cache
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucHome.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucUserInfo.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucSetting.resources
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmQuenMatKhau.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.AssemblyReference.cache
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.ucGioiThieu.resources

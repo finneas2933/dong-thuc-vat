@@ -113,5 +113,15 @@ namespace DongThucVat
         {
             this.Dispose();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void frmHienThi_Shown(object sender, EventArgs e)
+        {
+            this.AutoScrollPosition = new Point(-10, -10);
+        }
     }
 }

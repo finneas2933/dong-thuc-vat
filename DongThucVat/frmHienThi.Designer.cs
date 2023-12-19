@@ -37,10 +37,6 @@ namespace DongThucVat
             this.label2 = new System.Windows.Forms.Label();
             this.btClose = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -69,31 +65,34 @@ namespace DongThucVat
             this.lbND84 = new System.Windows.Forms.Label();
             this.lbSDVN = new System.Windows.Forms.Label();
             this.lbUICN = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // fpnlHinhAnh
             // 
             this.fpnlHinhAnh.AutoScroll = true;
-            this.fpnlHinhAnh.Location = new System.Drawing.Point(56, 459);
+            this.fpnlHinhAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fpnlHinhAnh.Location = new System.Drawing.Point(13, 446);
             this.fpnlHinhAnh.Name = "fpnlHinhAnh";
-            this.fpnlHinhAnh.Size = new System.Drawing.Size(440, 410);
+            this.fpnlHinhAnh.Size = new System.Drawing.Size(440, 440);
             this.fpnlHinhAnh.TabIndex = 1;
             // 
             // rtxtCongDung
             // 
-            this.rtxtCongDung.Location = new System.Drawing.Point(573, 699);
+            this.rtxtCongDung.Location = new System.Drawing.Point(517, 706);
             this.rtxtCongDung.Name = "rtxtCongDung";
             this.rtxtCongDung.ReadOnly = true;
-            this.rtxtCongDung.Size = new System.Drawing.Size(969, 170);
+            this.rtxtCongDung.Size = new System.Drawing.Size(613, 180);
             this.rtxtCongDung.TabIndex = 3;
             this.rtxtCongDung.Text = "";
             // 
             // rtxtDacDiem
             // 
-            this.rtxtDacDiem.Location = new System.Drawing.Point(573, 459);
+            this.rtxtDacDiem.Location = new System.Drawing.Point(517, 449);
             this.rtxtDacDiem.Name = "rtxtDacDiem";
             this.rtxtDacDiem.ReadOnly = true;
-            this.rtxtDacDiem.Size = new System.Drawing.Size(969, 170);
+            this.rtxtDacDiem.Size = new System.Drawing.Size(613, 180);
             this.rtxtDacDiem.TabIndex = 2;
             this.rtxtDacDiem.Text = "";
             // 
@@ -101,7 +100,7 @@ namespace DongThucVat
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(52, 152);
+            this.label3.Location = new System.Drawing.Point(16, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 21);
             this.label3.TabIndex = 10;
@@ -111,7 +110,7 @@ namespace DongThucVat
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 197);
+            this.label1.Location = new System.Drawing.Point(16, 184);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 21);
             this.label1.TabIndex = 12;
@@ -121,7 +120,7 @@ namespace DongThucVat
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(52, 107);
+            this.label2.Location = new System.Drawing.Point(16, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 21);
             this.label2.TabIndex = 8;
@@ -134,7 +133,7 @@ namespace DongThucVat
             this.btClose.FlatAppearance.BorderSize = 0;
             this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btClose.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btClose.Location = new System.Drawing.Point(1531, 12);
+            this.btClose.Location = new System.Drawing.Point(1969, 2);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(57, 39);
             this.btClose.TabIndex = 0;
@@ -146,61 +145,25 @@ namespace DongThucVat
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(52, 65);
+            this.label8.Location = new System.Drawing.Point(16, 52);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 21);
             this.label8.TabIndex = 6;
             this.label8.Text = "Tên tiếng Việt:";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 880);
-            this.panel2.TabIndex = 37;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1590, 10);
-            this.panel3.TabIndex = 34;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1590, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 890);
-            this.panel4.TabIndex = 35;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 890);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1600, 10);
-            this.panel1.TabIndex = 36;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.panel5.Location = new System.Drawing.Point(116, 41);
+            this.panel5.Location = new System.Drawing.Point(73, 28);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(717, 1);
+            this.panel5.Size = new System.Drawing.Size(201, 1);
             this.panel5.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(112, 316);
+            this.label6.Location = new System.Drawing.Point(76, 303);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 21);
             this.label6.TabIndex = 17;
@@ -210,7 +173,7 @@ namespace DongThucVat
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(112, 360);
+            this.label11.Location = new System.Drawing.Point(76, 347);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 21);
             this.label11.TabIndex = 19;
@@ -220,7 +183,7 @@ namespace DongThucVat
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(112, 272);
+            this.label12.Location = new System.Drawing.Point(76, 259);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(31, 21);
             this.label12.TabIndex = 15;
@@ -230,7 +193,7 @@ namespace DongThucVat
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(112, 228);
+            this.label13.Location = new System.Drawing.Point(76, 215);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 21);
             this.label13.TabIndex = 13;
@@ -240,7 +203,7 @@ namespace DongThucVat
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(50, 19);
+            this.label14.Location = new System.Drawing.Point(7, 6);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(62, 32);
             this.label14.TabIndex = 4;
@@ -250,7 +213,7 @@ namespace DongThucVat
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(569, 197);
+            this.label15.Location = new System.Drawing.Point(513, 187);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(132, 21);
             this.label15.TabIndex = 21;
@@ -260,7 +223,7 @@ namespace DongThucVat
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(702, 316);
+            this.label16.Location = new System.Drawing.Point(646, 306);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(120, 21);
             this.label16.TabIndex = 26;
@@ -270,7 +233,7 @@ namespace DongThucVat
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(702, 360);
+            this.label17.Location = new System.Drawing.Point(646, 350);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(120, 21);
             this.label17.TabIndex = 28;
@@ -280,7 +243,7 @@ namespace DongThucVat
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(702, 272);
+            this.label18.Location = new System.Drawing.Point(646, 262);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(110, 21);
             this.label18.TabIndex = 24;
@@ -290,7 +253,7 @@ namespace DongThucVat
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(702, 228);
+            this.label19.Location = new System.Drawing.Point(646, 218);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(66, 21);
             this.label19.TabIndex = 22;
@@ -300,7 +263,7 @@ namespace DongThucVat
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(50, 406);
+            this.label20.Location = new System.Drawing.Point(7, 393);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(118, 32);
             this.label20.TabIndex = 30;
@@ -309,7 +272,7 @@ namespace DongThucVat
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.panel6.Location = new System.Drawing.Point(172, 428);
+            this.panel6.Location = new System.Drawing.Point(129, 415);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(145, 1);
             this.panel6.TabIndex = 31;
@@ -318,7 +281,7 @@ namespace DongThucVat
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(567, 406);
+            this.label21.Location = new System.Drawing.Point(511, 396);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(122, 32);
             this.label21.TabIndex = 32;
@@ -327,7 +290,7 @@ namespace DongThucVat
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.panel7.Location = new System.Drawing.Point(693, 428);
+            this.panel7.Location = new System.Drawing.Point(637, 418);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(145, 1);
             this.panel7.TabIndex = 33;
@@ -336,7 +299,7 @@ namespace DongThucVat
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(567, 646);
+            this.label7.Location = new System.Drawing.Point(511, 651);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(337, 32);
             this.label7.TabIndex = 38;
@@ -345,7 +308,7 @@ namespace DongThucVat
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.panel8.Location = new System.Drawing.Point(898, 668);
+            this.panel8.Location = new System.Drawing.Point(842, 673);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(145, 1);
             this.panel8.TabIndex = 39;
@@ -353,7 +316,7 @@ namespace DongThucVat
             // lbTenTiengViet
             // 
             this.lbTenTiengViet.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenTiengViet.Location = new System.Drawing.Point(164, 65);
+            this.lbTenTiengViet.Location = new System.Drawing.Point(128, 52);
             this.lbTenTiengViet.Name = "lbTenTiengViet";
             this.lbTenTiengViet.Size = new System.Drawing.Size(665, 21);
             this.lbTenTiengViet.TabIndex = 7;
@@ -362,7 +325,7 @@ namespace DongThucVat
             // lbTenLatinh
             // 
             this.lbTenLatinh.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenLatinh.Location = new System.Drawing.Point(141, 107);
+            this.lbTenLatinh.Location = new System.Drawing.Point(105, 94);
             this.lbTenLatinh.Name = "lbTenLatinh";
             this.lbTenLatinh.Size = new System.Drawing.Size(692, 21);
             this.lbTenLatinh.TabIndex = 9;
@@ -371,7 +334,7 @@ namespace DongThucVat
             // lbTenKhac
             // 
             this.lbTenKhac.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenKhac.Location = new System.Drawing.Point(130, 152);
+            this.lbTenKhac.Location = new System.Drawing.Point(94, 139);
             this.lbTenKhac.Name = "lbTenKhac";
             this.lbTenKhac.Size = new System.Drawing.Size(703, 21);
             this.lbTenKhac.TabIndex = 11;
@@ -380,43 +343,43 @@ namespace DongThucVat
             // lbLop
             // 
             this.lbLop.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLop.Location = new System.Drawing.Point(158, 316);
+            this.lbLop.Location = new System.Drawing.Point(122, 303);
             this.lbLop.Name = "lbLop";
-            this.lbLop.Size = new System.Drawing.Size(405, 21);
+            this.lbLop.Size = new System.Drawing.Size(382, 21);
             this.lbLop.TabIndex = 18;
             this.lbLop.Text = ".";
             // 
             // lbBo
             // 
             this.lbBo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBo.Location = new System.Drawing.Point(149, 272);
+            this.lbBo.Location = new System.Drawing.Point(113, 259);
             this.lbBo.Name = "lbBo";
-            this.lbBo.Size = new System.Drawing.Size(414, 21);
+            this.lbBo.Size = new System.Drawing.Size(391, 21);
             this.lbBo.TabIndex = 16;
             this.lbBo.Text = ".";
             // 
             // lbHo
             // 
             this.lbHo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHo.Location = new System.Drawing.Point(151, 228);
+            this.lbHo.Location = new System.Drawing.Point(115, 215);
             this.lbHo.Name = "lbHo";
-            this.lbHo.Size = new System.Drawing.Size(412, 21);
+            this.lbHo.Size = new System.Drawing.Size(389, 21);
             this.lbHo.TabIndex = 14;
             this.lbHo.Text = ".";
             // 
             // lbNganh
             // 
             this.lbNganh.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNganh.Location = new System.Drawing.Point(178, 360);
+            this.lbNganh.Location = new System.Drawing.Point(142, 347);
             this.lbNganh.Name = "lbNganh";
-            this.lbNganh.Size = new System.Drawing.Size(385, 21);
+            this.lbNganh.Size = new System.Drawing.Size(362, 21);
             this.lbNganh.TabIndex = 20;
             this.lbNganh.Text = ".";
             // 
             // lbND64
             // 
             this.lbND64.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbND64.Location = new System.Drawing.Point(828, 360);
+            this.lbND64.Location = new System.Drawing.Point(772, 350);
             this.lbND64.Name = "lbND64";
             this.lbND64.Size = new System.Drawing.Size(358, 21);
             this.lbND64.TabIndex = 29;
@@ -425,7 +388,7 @@ namespace DongThucVat
             // lbND84
             // 
             this.lbND84.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbND84.Location = new System.Drawing.Point(828, 316);
+            this.lbND84.Location = new System.Drawing.Point(772, 306);
             this.lbND84.Name = "lbND84";
             this.lbND84.Size = new System.Drawing.Size(358, 21);
             this.lbND84.TabIndex = 27;
@@ -434,7 +397,7 @@ namespace DongThucVat
             // lbSDVN
             // 
             this.lbSDVN.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSDVN.Location = new System.Drawing.Point(818, 272);
+            this.lbSDVN.Location = new System.Drawing.Point(762, 262);
             this.lbSDVN.Name = "lbSDVN";
             this.lbSDVN.Size = new System.Drawing.Size(368, 21);
             this.lbSDVN.TabIndex = 25;
@@ -443,18 +406,34 @@ namespace DongThucVat
             // lbUICN
             // 
             this.lbUICN.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUICN.Location = new System.Drawing.Point(774, 228);
+            this.lbUICN.Location = new System.Drawing.Point(718, 218);
             this.lbUICN.Name = "lbUICN";
             this.lbUICN.Size = new System.Drawing.Size(412, 21);
             this.lbUICN.TabIndex = 23;
             this.lbUICN.Text = ".";
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(444, 892);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(52, 18);
+            this.panel9.TabIndex = 41;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(1136, 449);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(18, 52);
+            this.panel3.TabIndex = 42;
             // 
             // frmHienThi
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.ClientSize = new System.Drawing.Size(1008, 537);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.lbND64);
             this.Controls.Add(this.lbND84);
             this.Controls.Add(this.lbSDVN);
@@ -491,17 +470,15 @@ namespace DongThucVat
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmHienThi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmHienThi";
             this.Load += new System.EventHandler(this.frmHienThi_Load);
+            this.Shown += new System.EventHandler(this.frmHienThi_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,10 +493,6 @@ namespace DongThucVat
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
@@ -548,5 +521,7 @@ namespace DongThucVat
         private System.Windows.Forms.Label lbND84;
         private System.Windows.Forms.Label lbSDVN;
         private System.Windows.Forms.Label lbUICN;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel3;
     }
 }

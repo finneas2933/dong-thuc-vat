@@ -46,9 +46,9 @@ namespace DongThucVat
             this.btNganh.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNganh.ForeColor = System.Drawing.Color.White;
             this.btNganh.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btNganh.Location = new System.Drawing.Point(727, 161);
+            this.btNganh.Location = new System.Drawing.Point(433, 5);
             this.btNganh.Name = "btNganh";
-            this.btNganh.Size = new System.Drawing.Size(300, 300);
+            this.btNganh.Size = new System.Drawing.Size(250, 250);
             this.btNganh.TabIndex = 1;
             this.btNganh.Text = "Ngành";
             this.btNganh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -64,9 +64,9 @@ namespace DongThucVat
             this.btLop.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLop.ForeColor = System.Drawing.Color.White;
             this.btLop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btLop.Location = new System.Drawing.Point(1077, 161);
+            this.btLop.Location = new System.Drawing.Point(783, 5);
             this.btLop.Name = "btLop";
-            this.btLop.Size = new System.Drawing.Size(300, 300);
+            this.btLop.Size = new System.Drawing.Size(250, 250);
             this.btLop.TabIndex = 2;
             this.btLop.Text = "Lớp";
             this.btLop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -82,9 +82,9 @@ namespace DongThucVat
             this.btBo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btBo.ForeColor = System.Drawing.Color.White;
             this.btBo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btBo.Location = new System.Drawing.Point(377, 523);
+            this.btBo.Location = new System.Drawing.Point(83, 372);
             this.btBo.Name = "btBo";
-            this.btBo.Size = new System.Drawing.Size(300, 300);
+            this.btBo.Size = new System.Drawing.Size(250, 250);
             this.btBo.TabIndex = 3;
             this.btBo.Text = "Bộ";
             this.btBo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -100,9 +100,9 @@ namespace DongThucVat
             this.btHo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btHo.ForeColor = System.Drawing.Color.White;
             this.btHo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btHo.Location = new System.Drawing.Point(727, 523);
+            this.btHo.Location = new System.Drawing.Point(433, 372);
             this.btHo.Name = "btHo";
-            this.btHo.Size = new System.Drawing.Size(300, 300);
+            this.btHo.Size = new System.Drawing.Size(250, 250);
             this.btHo.TabIndex = 4;
             this.btHo.Text = "Họ";
             this.btHo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -118,9 +118,9 @@ namespace DongThucVat
             this.btLoai.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLoai.ForeColor = System.Drawing.Color.White;
             this.btLoai.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btLoai.Location = new System.Drawing.Point(1077, 523);
+            this.btLoai.Location = new System.Drawing.Point(783, 372);
             this.btLoai.Name = "btLoai";
-            this.btLoai.Size = new System.Drawing.Size(300, 300);
+            this.btLoai.Size = new System.Drawing.Size(250, 250);
             this.btLoai.TabIndex = 5;
             this.btLoai.Text = "Loài";
             this.btLoai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -136,9 +136,9 @@ namespace DongThucVat
             this.btSearch.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSearch.ForeColor = System.Drawing.Color.White;
             this.btSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btSearch.Location = new System.Drawing.Point(377, 161);
+            this.btSearch.Location = new System.Drawing.Point(83, 5);
             this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(300, 300);
+            this.btSearch.Size = new System.Drawing.Size(250, 250);
             this.btSearch.TabIndex = 0;
             this.btSearch.Text = "CSDL";
             this.btSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -157,7 +157,7 @@ namespace DongThucVat
             this.Controls.Add(this.btNganh);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ucChon";
-            this.Size = new System.Drawing.Size(1757, 988);
+            this.Size = new System.Drawing.Size(1117, 628);
             this.Load += new System.EventHandler(this.ucChon_Load);
             this.ResumeLayout(false);
 

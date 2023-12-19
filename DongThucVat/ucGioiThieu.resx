@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbNoiDung.Text" xml:space="preserve">
+    <value>Khu BTTN Bắc Hướng Hóa nằm về phía Tây của tỉnh Quảng Trị và thuộc phía Nam của dải Trường Sơn Bắc, cách thành phố Đông Hà khoảng 100 km theo quốc lộ 9 đến thị trấn Khe Sanh và đường Hồ Chí Minh nhánh Tây.
+
+- Vị trí tọa độ địa lý:
+
+       + Từ 16 043'22’’ - 16059’55’’ vĩ độ Bắc.
+
+       + Từ 106033' - 106047’03’’ kinh độ Đông</value>
+  </data>
 </root>

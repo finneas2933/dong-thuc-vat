@@ -30,14 +30,13 @@ namespace DongThucVat
             conn = Connect.ConnectDB();
             LoadImagePathsFromDatabase(); // Lấy đường dẫn ảnh từ cơ sở dữ liệu
             InitializeImageTimer();
-            layNguonNoiDung();
         }
 
         private void LoadImagePathsFromDatabase()
         {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-            string sql = "SELECT hinhanh FROM ThongTin";
+            sql = "SELECT hinhanh FROM ThongTin";
             SqlCommand command = new SqlCommand(sql, conn);
             try
             {
@@ -53,7 +52,10 @@ namespace DongThucVat
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void ImageTimer_Tick(object sender, EventArgs e)
@@ -65,6 +67,10 @@ namespace DongThucVat
                 pbHome.ImageLocation = imagePaths[currentImageIndex];
                 currentImageIndex = (currentImageIndex + 1) % imagePaths.Count;
             }
+            else
+            {
+                MessageBox.Show("Không tìm thấy ảnh!");
+            }
         }
 
         private void InitializeImageTimer()
@@ -72,27 +78,6 @@ namespace DongThucVat
             imageTimer.Interval = 1500; // Thời gian chuyển đổi giữa các ảnh
             imageTimer.Tick += ImageTimer_Tick;
             imageTimer.Start();
-        }
-
-        public void layNguonNoiDung()
-        {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-            sql = "SELECT * FROM ThongTin WHERE id = " + 1;
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            cmd.Dispose();
-            conn.Close();
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            // Lấy giá trị từ dòng đầu tiên của DataTable
-            lbTieuDe.Text = dt.Rows[0]["tieude"].ToString();
-            lbNoiDung1.Text = dt.Rows[0]["noidung1"].ToString();
-            lbNoiDung2.Text = dt.Rows[0]["noidung2"].ToString();
-            lbNoiDung3.Text = dt.Rows[0]["noidung3"].ToString();
-            lbNoiDung4.Text = dt.Rows[0]["noidung4"].ToString();
         }
     }
 }

@@ -67,12 +67,13 @@ namespace DongThucVat
         {
             InitializeComponent();
             timerTime.Start();
-            //ucChon uc = new ucChon();
-            //AddControlsToPanel(uc);
+            ucGioiThieu uc = new ucGioiThieu();
+            AddControlsToPanel(uc);
         }
 
         private void btClose_Click(object sender, EventArgs e)
         {
+            saveLastSigninedTime();
             if (isClose == true)
                 Application.Exit();
         }
@@ -145,7 +146,7 @@ namespace DongThucVat
             loadLogo();
 
             moveSidePanel(btHome);
-            ucHome uc = new ucHome();
+            ucGioiThieu uc = new ucGioiThieu();
             AddControlsToPanel(uc);
 
             btBack.Visible = false;
@@ -181,7 +182,10 @@ namespace DongThucVat
                 else
                     return;
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void btBack_Click(object sender, EventArgs e)

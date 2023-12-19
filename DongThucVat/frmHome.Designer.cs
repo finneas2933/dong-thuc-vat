@@ -64,7 +64,7 @@ namespace DongThucVat
             this.lbRole.AutoSize = true;
             this.lbRole.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbRole.Location = new System.Drawing.Point(1291, 50);
+            this.lbRole.Location = new System.Drawing.Point(651, 50);
             this.lbRole.Name = "lbRole";
             this.lbRole.Size = new System.Drawing.Size(14, 21);
             this.lbRole.TabIndex = 7;
@@ -76,7 +76,7 @@ namespace DongThucVat
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(1238, 49);
+            this.label6.Location = new System.Drawing.Point(598, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 21);
             this.label6.TabIndex = 6;
@@ -88,7 +88,7 @@ namespace DongThucVat
             this.lbFirstName.AutoSize = true;
             this.lbFirstName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbFirstName.Location = new System.Drawing.Point(1291, 18);
+            this.lbFirstName.Location = new System.Drawing.Point(651, 18);
             this.lbFirstName.Name = "lbFirstName";
             this.lbFirstName.Size = new System.Drawing.Size(14, 21);
             this.lbFirstName.TabIndex = 5;
@@ -100,7 +100,7 @@ namespace DongThucVat
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1202, 18);
+            this.label1.Location = new System.Drawing.Point(562, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 4;
@@ -121,7 +121,7 @@ namespace DongThucVat
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(163, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1757, 92);
+            this.panel2.Size = new System.Drawing.Size(1117, 92);
             this.panel2.TabIndex = 5;
             // 
             // lbTime
@@ -129,7 +129,7 @@ namespace DongThucVat
             this.lbTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbTime.Location = new System.Drawing.Point(1594, 72);
+            this.lbTime.Location = new System.Drawing.Point(1274, 72);
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(160, 17);
             this.lbTime.TabIndex = 8;
@@ -145,7 +145,7 @@ namespace DongThucVat
             this.btMini.ForeColor = System.Drawing.Color.White;
             this.btMini.Image = ((System.Drawing.Image)(resources.GetObject("btMini.Image")));
             this.btMini.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btMini.Location = new System.Drawing.Point(1625, 3);
+            this.btMini.Location = new System.Drawing.Point(985, 3);
             this.btMini.Name = "btMini";
             this.btMini.Size = new System.Drawing.Size(39, 36);
             this.btMini.TabIndex = 1;
@@ -163,7 +163,7 @@ namespace DongThucVat
             this.btLogOut.ForeColor = System.Drawing.Color.White;
             this.btLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btLogOut.Image")));
             this.btLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btLogOut.Location = new System.Drawing.Point(1670, 3);
+            this.btLogOut.Location = new System.Drawing.Point(1030, 3);
             this.btLogOut.Name = "btLogOut";
             this.btLogOut.Size = new System.Drawing.Size(39, 36);
             this.btLogOut.TabIndex = 2;
@@ -198,7 +198,7 @@ namespace DongThucVat
             this.btClose.ForeColor = System.Drawing.Color.White;
             this.btClose.Image = ((System.Drawing.Image)(resources.GetObject("btClose.Image")));
             this.btClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btClose.Location = new System.Drawing.Point(1715, 3);
+            this.btClose.Location = new System.Drawing.Point(1075, 3);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(39, 36);
             this.btClose.TabIndex = 3;
@@ -312,7 +312,7 @@ namespace DongThucVat
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(163, 1080);
+            this.panelLeft.Size = new System.Drawing.Size(163, 720);
             this.panelLeft.TabIndex = 4;
             // 
             // panel3
@@ -344,14 +344,14 @@ namespace DongThucVat
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl.Location = new System.Drawing.Point(163, 92);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(1757, 988);
+            this.panelControl.Size = new System.Drawing.Size(1117, 628);
             this.panelControl.TabIndex = 0;
             // 
             // frmHome
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panelControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelLeft);
