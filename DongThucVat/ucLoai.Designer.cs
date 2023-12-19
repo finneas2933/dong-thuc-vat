@@ -58,6 +58,7 @@ namespace DongThucVat
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -94,6 +95,7 @@ namespace DongThucVat
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.cb);
             this.panel5.Controls.Add(this.btRefresh);
             this.panel5.Controls.Add(this.btXoa);
@@ -362,6 +364,18 @@ namespace DongThucVat
             this.Column11.ReadOnly = true;
             this.Column11.Width = 300;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(645, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 25);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "     ";
+            // 
             // ucLoai
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -374,6 +388,7 @@ namespace DongThucVat
             this.Size = new System.Drawing.Size(1117, 628);
             this.Load += new System.EventHandler(this.ucLoai_Load);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
@@ -410,5 +425,6 @@ namespace DongThucVat
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.Label label1;
     }
 }

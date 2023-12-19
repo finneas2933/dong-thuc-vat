@@ -49,6 +49,7 @@ namespace DongThucVat
             this.cb = new System.Windows.Forms.ComboBox();
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel5.SuspendLayout();
@@ -216,6 +217,7 @@ namespace DongThucVat
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.cb);
             this.panel5.Controls.Add(this.btRefresh);
             this.panel5.Controls.Add(this.btXoa);
@@ -272,6 +274,18 @@ namespace DongThucVat
             this.btThem.UseVisualStyleBackColor = true;
             this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(648, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 25);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "     ";
+            // 
             // ucLop
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -286,6 +300,7 @@ namespace DongThucVat
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -310,5 +325,6 @@ namespace DongThucVat
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.Label label1;
     }
 }
