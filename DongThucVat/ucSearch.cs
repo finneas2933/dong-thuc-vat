@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -13,6 +14,7 @@ namespace DongThucVat
 {
     public partial class ucSearch : UserControl
     {
+        string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
         List<int> listID = new List<int>();
         List<KetQua> kqList = new List<KetQua>();
         SqlConnection conn;
@@ -161,27 +163,27 @@ namespace DongThucVat
 
                     // Gán giá trị từ kq vào listItem[i]
                     string hinhanhloai = anhListItemLoad(kq.ID);
-                    if (!string.IsNullOrEmpty(hinhanhloai))
+                    if (!string.IsNullOrWhiteSpace(hinhanhloai))
                     {
                         listItem[i].Anh = hinhanhloai;
                     }
-                    if (!string.IsNullOrEmpty(kq.TenLoai))
+                    if (!string.IsNullOrWhiteSpace(kq.TenLoai))
                     {
                         listItem[i].Tenloai = kq.TenLoai;
                     }
-                    if (!string.IsNullOrEmpty(kq.Ho))
+                    if (!string.IsNullOrWhiteSpace(kq.Ho))
                     {
                         listItem[i].Ho = kq.Ho;
                     }
-                    if (!string.IsNullOrEmpty(kq.Bo))
+                    if (!string.IsNullOrWhiteSpace(kq.Bo))
                     {
                         listItem[i].Bo = kq.Bo;
                     }
-                    if (!string.IsNullOrEmpty(kq.Lop))
+                    if (!string.IsNullOrWhiteSpace(kq.Lop))
                     {
                         listItem[i].Lop = kq.Lop;
                     }
-                    if (!string.IsNullOrEmpty(kq.Nganh))
+                    if (!string.IsNullOrWhiteSpace(kq.Nganh))
                     {
                         listItem[i].Nganh = kq.Nganh;
                     }
@@ -197,22 +199,30 @@ namespace DongThucVat
             hinhanh = "";
             if (conn.State != ConnectionState.Open)
                 conn.Open();
+
             try
             {
-
                 string query = "SELECT TOP 1 hinhanh FROM HinhAnhLoai WHERE id_dtv_loai = @Id ORDER BY id DESC; ";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Id", Int32.Parse(idloai));
-
-                var result = cmd.ExecuteScalar();
-                if (result != null)
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    hinhanh = result.ToString();
-                }
+                    cmd.Parameters.AddWithValue("@Id", Int32.Parse(idloai));
+                    object result = cmd.ExecuteScalar();
 
+                    if (result is string hinhanhValue)
+                    {
+                        hinhanh = pictureFolder + "\\" + hinhanhValue;
+                    }
+                }
+            }
+            catch
+            {
+                string anhmacdinh = AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png";
+                return anhmacdinh;
+            }
+            finally
+            {
                 conn.Close();
             }
-            catch (Exception ex) { }
 
             return hinhanh;
         }

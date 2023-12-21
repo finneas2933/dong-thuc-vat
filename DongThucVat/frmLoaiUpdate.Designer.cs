@@ -209,14 +209,14 @@ namespace DongThucVat
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1007, 10);
+            this.panel3.Size = new System.Drawing.Size(1041, 10);
             this.panel3.TabIndex = 31;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1007, 0);
+            this.panel4.Location = new System.Drawing.Point(1041, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(10, 705);
             this.panel4.TabIndex = 32;
@@ -227,7 +227,7 @@ namespace DongThucVat
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 705);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1017, 10);
+            this.panel1.Size = new System.Drawing.Size(1051, 10);
             this.panel1.TabIndex = 33;
             // 
             // txtTenKhac
@@ -440,7 +440,7 @@ namespace DongThucVat
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1034, 593);
+            this.ClientSize = new System.Drawing.Size(1068, 593);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.btXoaAnh);

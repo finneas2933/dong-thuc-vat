@@ -45,6 +45,7 @@ namespace DongThucVat
             this.txtTieuDe = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFolder = new System.Windows.Forms.TextBox();
+            this.btFolder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btXoaAnh
@@ -66,7 +67,7 @@ namespace DongThucVat
             this.fpnlHinhAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fpnlHinhAnh.Location = new System.Drawing.Point(233, 374);
             this.fpnlHinhAnh.Name = "fpnlHinhAnh";
-            this.fpnlHinhAnh.Size = new System.Drawing.Size(304, 236);
+            this.fpnlHinhAnh.Size = new System.Drawing.Size(397, 236);
             this.fpnlHinhAnh.TabIndex = 31;
             // 
             // btChonAnh
@@ -227,12 +228,26 @@ namespace DongThucVat
             this.txtFolder.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFolder.Location = new System.Drawing.Point(233, 325);
             this.txtFolder.Name = "txtFolder";
-            this.txtFolder.Size = new System.Drawing.Size(632, 29);
+            this.txtFolder.ReadOnly = true;
+            this.txtFolder.Size = new System.Drawing.Size(530, 29);
             this.txtFolder.TabIndex = 37;
+            // 
+            // btFolder
+            // 
+            this.btFolder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFolder.Location = new System.Drawing.Point(769, 324);
+            this.btFolder.Name = "btFolder";
+            this.btFolder.Size = new System.Drawing.Size(96, 29);
+            this.btFolder.TabIndex = 38;
+            this.btFolder.Text = "Chọn";
+            this.btFolder.UseVisualStyleBackColor = true;
+            this.btFolder.Click += new System.EventHandler(this.btFolder_Click);
             // 
             // ucSetting
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.btFolder);
             this.Controls.Add(this.txtFolder);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTieuDe);
@@ -278,5 +293,6 @@ namespace DongThucVat
         private System.Windows.Forms.RichTextBox txtTieuDe;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFolder;
+        private System.Windows.Forms.Button btFolder;
     }
 }

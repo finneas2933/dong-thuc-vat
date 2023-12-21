@@ -20,6 +20,8 @@ namespace DongThucVat
         static frmHome _obj;
         public bool isClose = true;
 
+        public event Action LogoChanged;
+
         private string id;
         private string name;
         private string is_admin;
@@ -206,6 +208,7 @@ namespace DongThucVat
         {
             moveSidePanel(btSettings);
             ucSetting uc = new ucSetting();
+            uc.LogoChanged += loadLogo;
             AddControlsToPanel(uc);
             btBack.Visible = false;
         }

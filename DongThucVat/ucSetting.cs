@@ -18,8 +18,11 @@ namespace DongThucVat
         SqlConnection conn;
         string sql = "";
         string fileLogo;
-        string imageFolder = ConfigurationManager.AppSettings["PictureFolder"];
+        string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
+
         private List<string> selectedImages = new List<string>();
+
+        public event Action LogoChanged;
 
         public ucSetting()
         {
@@ -49,7 +52,7 @@ namespace DongThucVat
                 }
                 reader.Close();
             }
-            catch (Exception ex){ }
+            catch { }
         }
 
         public void layNguonNoiDung()
@@ -75,7 +78,8 @@ namespace DongThucVat
         {
             conn = Connect.ConnectDB();
             selectedImages.Clear();
-            txtFolder.Text = imageFolder;
+            fileLogo = "";
+            txtFolder.Text = pictureFolder;
             layNguonNoiDung();
             DisplayLogo();
             LoadImages();
@@ -90,24 +94,23 @@ namespace DongThucVat
             {
                 if (fileLogo != "")
                 {
-                    if (File.Exists(fileLogo))
-                    {
-                        PictureBox pictureBox = new PictureBox();
-                        pictureBox.Image = Image.FromFile(fileLogo);
-                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                        pictureBox.Width = 200;
-                        pictureBox.Height = 200;
-                        fpnlLogo.Controls.Add(pictureBox);
-                    }
-                    else
-                        return;
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Image = Image.FromFile(pictureFolder + "\\" + fileLogo);
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox.Width = 195;
+                    pictureBox.Height = 195;
+                    fpnlLogo.Controls.Add(pictureBox);
                 }
-                else 
-                    return;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                // Nếu không tìm thấy tệp hình ảnh hiển thị hình ảnh mặc định
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png");
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Width = 195;
+                pictureBox.Height = 195;
+                fpnlLogo.Controls.Add(pictureBox);
             }
         }
 
@@ -115,20 +118,29 @@ namespace DongThucVat
         {
             if (fpnlHinhAnh.Controls.Count > 0)
                 fpnlHinhAnh.Controls.Clear();
-            foreach (string imagePath in selectedImages)
+            foreach (string imageName in selectedImages)
             {
-                if (File.Exists(imagePath))
+                try
                 {
+                    string imagePath = pictureFolder + "\\" + imageName;
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Image = Image.FromFile(imagePath);
-                    pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-                    pictureBox.Width = 140;
-                    pictureBox.Height = 140;
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox.Width = 125;
+                    pictureBox.Height = 125;
+
                     fpnlHinhAnh.Controls.Add(pictureBox);
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Không tìm thấy ảnh!");
+                    // Nếu không tìm thấy tệp hình ảnh hiển thị hình ảnh mặc định
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png");
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox.Width = 125;
+                    pictureBox.Height = 125;
+
+                    fpnlHinhAnh.Controls.Add(pictureBox);
                 }
             }
         }
@@ -141,10 +153,27 @@ namespace DongThucVat
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                // Kiểm tra và tạo thư mục nếu chưa tồn tại
+                if (!Directory.Exists(pictureFolder))
+                {
+                    Directory.CreateDirectory(pictureFolder);
+                }
+
                 foreach (string fileName in openFileDialog.FileNames)
                 {
-                    selectedImages.Add(fileName);
+                    // Lấy tên của ảnh từ đường dẫn
+                    string imageName = Path.GetFileName(fileName);
+                    // Kiểm tra xem ảnh đã tồn tại trong thư mục cấu hình chưa
+                    string imagePath = pictureFolder + "\\" + imageName;
+                    if (!File.Exists(imagePath))
+                    {
+                        // Nếu chưa tồn tại thì copy ảnh vào thư mục cấu hình
+                        File.Copy(fileName, imagePath);
+                    }
+                    // Thêm đường dẫn của ảnh đã chọn vào danh sách
+                    selectedImages.Add(imageName);
                 }
+
                 DisplayImages();
                 MessageBox.Show("Đã chọn " + openFileDialog.FileNames.Length + " ảnh.");
             }
@@ -154,16 +183,31 @@ namespace DongThucVat
         {
             fpnlLogo.Controls.Clear();
             fileLogo = "";
+            DisplayLogo();
         }
 
         private void btChonLogo_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
-
+            // Kiểm tra và tạo thư mục nếu chưa tồn tại
+            if (!Directory.Exists(pictureFolder))
+            {
+                Directory.CreateDirectory(pictureFolder);
+            }
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                fileLogo = openFileDialog.FileName;
+                string fileName = openFileDialog.FileName;
+                // Lấy tên của ảnh từ đường dẫn
+                string imageName = Path.GetFileName(fileName);
+                // Kiểm tra xem ảnh đã tồn tại trong thư mục cấu hình chưa
+                string imagePath = pictureFolder + "\\" + imageName;
+                if (!File.Exists(imagePath))
+                {
+                    // Nếu chưa tồn tại thì copy ảnh vào thư mục cấu hình
+                    File.Copy(fileName, imagePath);
+                }
+                fileLogo = imageName;
                 DisplayLogo();
             }
         }
@@ -217,14 +261,21 @@ namespace DongThucVat
             }
 
             conn.Close();
-            DisplayImages();
+
             selectedImages.Clear();
             fileLogo = "";
+            txtFolder.Text = pictureFolder;
+            layNguonNoiDung();
+            DisplayLogo();
+            LoadImages();
+            DisplayImages();
+
+            LogoChanged?.Invoke();
         }
 
         private void btHuy_Click_1(object sender, EventArgs e)
         {
-            txtFolder.Text = imageFolder;
+            txtFolder.Text = pictureFolder;
             layNguonNoiDung();
             DisplayLogo();
             LoadImages();
@@ -236,6 +287,18 @@ namespace DongThucVat
             fpnlHinhAnh.Controls.Clear();
             selectedImages.Clear();
             DisplayImages();
+        }
+
+        private void btFolder_Click(object sender, EventArgs e)
+        {
+            // Tạo hộp thoại FolderBrowserDialog
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            // Hiển thị hộp thoại
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Lấy đường dẫn của thư mục đã chọn
+                txtFolder.Text = folderBrowserDialog.SelectedPath;
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
+        public event Action loadDGV;
 
         private string idUser, tenTiengViet, tenLatinh, status;
         private int id, idFK, loai;
@@ -181,6 +182,7 @@ namespace DongThucVat
                 cmd.Dispose();
             }
             conn.Close();
+            loadDGV?.Invoke();
 
             xoaTrang(true);
             this.Dispose();

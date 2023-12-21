@@ -14,6 +14,8 @@ namespace DongThucVat
     public partial class frmNganhUpdate : Form
     {
         SqlConnection conn;
+        public event Action loadDGV;
+
         private string idUser, tenTiengViet, tenLatinh, status;
         private int id, loai;
         private bool ktThem;
@@ -117,6 +119,7 @@ namespace DongThucVat
                 cmd.Dispose();
             }
             conn.Close();
+            loadDGV?.Invoke();
 
             xoaTrang(true);
             this.Dispose();

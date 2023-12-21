@@ -39,7 +39,7 @@ namespace DongThucVat
             this.pbHome.Location = new System.Drawing.Point(15, 14);
             this.pbHome.Name = "pbHome";
             this.pbHome.Size = new System.Drawing.Size(1087, 600);
-            this.pbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbHome.TabIndex = 4;
             this.pbHome.TabStop = false;
             // 

@@ -483,21 +483,21 @@ namespace DongThucVat
             // 
             // ucListItem1
             // 
-            this.ucListItem1.Anh = "..\\..\\picture\\Image File.png";
-            this.ucListItem1.Bo = null;
+            this.ucListItem1.Anh = null;
+            this.ucListItem1.Bo = "(Bộ)";
             this.ucListItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucListItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucListItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.ucListItem1.Ho = null;
+            this.ucListItem1.Ho = "(Họ)";
             this.ucListItem1.Location = new System.Drawing.Point(3, 3);
-            this.ucListItem1.Lop = null;
+            this.ucListItem1.Lop = "(Lớp)";
             this.ucListItem1.Name = "ucListItem1";
-            this.ucListItem1.Nganh = null;
+            this.ucListItem1.Nganh = "(Ngành)";
             this.ucListItem1.Padding = new System.Windows.Forms.Padding(3);
             this.ucListItem1.Size = new System.Drawing.Size(498, 198);
             this.ucListItem1.Stt = 0;
             this.ucListItem1.TabIndex = 0;
-            this.ucListItem1.Tenloai = null;
+            this.ucListItem1.Tenloai = "(Loài)";
             // 
             // ucSearch
             // 

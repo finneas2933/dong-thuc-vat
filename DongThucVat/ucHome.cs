@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,9 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
+
+        string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
+        string defaultImagePath = AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png";
 
         private List<string> imagePaths = new List<string>();
         private int currentImageIndex = 0;
@@ -36,7 +41,7 @@ namespace DongThucVat
         {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-            sql = "SELECT hinhanh FROM ThongTin";
+            sql = "SELECT hinhanh FROM ThongTin WHERE is_image = 1";
             SqlCommand command = new SqlCommand(sql, conn);
             try
             {
@@ -46,8 +51,16 @@ namespace DongThucVat
                 {
                     while (reader.Read())
                     {
-                        string imagePath = reader["hinhanh"].ToString();
-                        imagePaths.Add(imagePath);
+                        string imageName = reader["hinhanh"].ToString();
+                        string imagePath = pictureFolder + "\\" + imageName;
+                        if (File.Exists(imagePath))
+                        {
+                            imagePaths.Add(imagePath);
+                        }
+                        else
+                        {
+                            imagePaths.Add(defaultImagePath);
+                        }
                     }
                 }
                 reader.Close();
@@ -70,10 +83,10 @@ namespace DongThucVat
                     currentImageIndex = (currentImageIndex + 1) % imagePaths.Count;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 // Xử lý khi không tìm thấy hình ảnh
-                MessageBox.Show("Không tìm thấy hình ảnh: " + ex.Message);
+                
             }
         }
 

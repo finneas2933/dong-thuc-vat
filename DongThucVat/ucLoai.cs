@@ -18,6 +18,7 @@ namespace DongThucVat
         string tenTiengViet;
         int id, idFK;
         DataGridViewCellMouseEventArgs vitri;
+        public event Action loadDGV;
 
         private int loai;
         private string idUser;
@@ -103,6 +104,7 @@ namespace DongThucVat
                 frm.IdUserLoaiUpdate = idUser;
                 frm.LoaiLoaiUpdate = loai;
                 frm.IdLoaiUpdate = id;
+                frm.loadDGV += dgvLoad;
                 frm.ShowDialog();
             }
             vitri = null;
@@ -115,6 +117,7 @@ namespace DongThucVat
                 frm.KtThemLoaiUpdate = true;
                 frm.IdUserLoaiUpdate = idUser;
                 frm.LoaiLoaiUpdate = loai;
+                frm.loadDGV += dgvLoad;
                 frm.ShowDialog();
             }
             vitri = null;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -14,6 +15,8 @@ namespace DongThucVat
 {
     public partial class frmHienThi : Form
     {
+        string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
+
         SqlConnection conn;
         private List<string> hinhAnhList = new List<string>();
         string sql = "";
@@ -46,28 +49,36 @@ namespace DongThucVat
 
                 while (reader.Read())
                 {
-                    string imagePath = reader["hinhanh"].ToString();
-                    if (!string.IsNullOrEmpty(imagePath))
+                    string imageName = reader["hinhanh"].ToString();
+                    if (!string.IsNullOrEmpty(imageName))
                     {
-                        hinhAnhList.Add(imagePath);
+                        hinhAnhList.Add(imageName);
                     }
                 }
                 reader.Close();
 
-                foreach (string imagePath in hinhAnhList)
+                foreach (string imageName in hinhAnhList)
                 {
+                    string imagePath = pictureFolder + "\\" + imageName;
                     if (File.Exists(imagePath))
                     {
                         PictureBox pictureBox = new PictureBox();
                         pictureBox.Image = Image.FromFile(imagePath);
-                        pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox.Width = 200;
                         pictureBox.Height = 200;
                         fpnlHinhAnh.Controls.Add(pictureBox);
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy ảnh: " + imagePath);
+                        // MessageBox.Show("Không tìm thấy ảnh: " + imagePath);
+                        // Nếu không tìm thấy tệp hình ảnh hiển thị hình ảnh mặc định
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png");
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox.Width = 200;
+                        pictureBox.Height = 200;
+                        fpnlHinhAnh.Controls.Add(pictureBox);
                     }
                 }
             }

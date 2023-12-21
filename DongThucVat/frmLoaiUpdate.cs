@@ -17,10 +17,10 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
+        public event Action loadDGV;
 
         // Tạo một đối tượng của lớp ConfigurationManager để đọc thông tin cấu hình từ file app.config
-        // string pictureFolder;
-        string imageFolder = ConfigurationManager.AppSettings["PictureFolder"];
+        string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
         private List<string> selectedImages = new List<string>();
         private string idUser, tenTiengViet;
         private int id, loai;
@@ -127,10 +127,10 @@ namespace DongThucVat
 
                 while (reader.Read())
                 {
-                    string imagePath = reader["hinhanh"].ToString();
-                    if (!string.IsNullOrEmpty(imagePath))
+                    string imageName = reader["hinhanh"].ToString();
+                    if (!string.IsNullOrEmpty(imageName))
                     {
-                        selectedImages.Add(imagePath);
+                        selectedImages.Add(imageName);
                     }
                 }
                 reader.Close();
@@ -143,23 +143,72 @@ namespace DongThucVat
 
         private void DisplayImages()
         {
-            foreach (string imagePath in selectedImages)
+            fpnlHinhAnh.Controls.Clear();
+
+            foreach (string imageName in selectedImages)
             {
-                if (File.Exists(imagePath))
+                try
                 {
+                    string imagePath = pictureFolder + "\\" + imageName;
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Image = Image.FromFile(imagePath);
-                    pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox.Width = 50;
                     pictureBox.Height = 50;
+
                     fpnlHinhAnh.Controls.Add(pictureBox);
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Không tìm thấy ảnh: " + imagePath);
+                    // Nếu không tìm thấy tệp hình ảnh hiển thị hình ảnh mặc định
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png");
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox.Width = 50;
+                    pictureBox.Height = 50;
+
+                    fpnlHinhAnh.Controls.Add(pictureBox);
                 }
             }
         }
+
+        //private void DisplayImages()
+        //{
+        //    fpnlHinhAnh.Controls.Clear();
+
+        //    foreach (string imageName in selectedImages)
+        //    {
+        //        string imagePath = Path.Combine(imageFolder, imageName);
+
+        //        PictureBox pictureBox = new PictureBox();
+        //        pictureBox.Image = Image.FromFile(imagePath);
+        //        pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+        //        pictureBox.Width = 50;
+        //        pictureBox.Height = 50;
+
+        //        fpnlHinhAnh.Controls.Add(pictureBox);
+        //    }
+        //}
+
+        //private void DisplayImages()
+        //{
+        //    foreach (string imagePath in selectedImages)
+        //    {
+        //        if (File.Exists(imagePath))
+        //        {
+        //            PictureBox pictureBox = new PictureBox();
+        //            pictureBox.Image = Image.FromFile(imagePath);
+        //            pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+        //            pictureBox.Width = 50;
+        //            pictureBox.Height = 50;
+        //            fpnlHinhAnh.Controls.Add(pictureBox);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Không tìm thấy ảnh: " + imagePath);
+        //        }
+        //    }
+        //}
 
         private void btClose_Click(object sender, EventArgs e)
         {
@@ -204,13 +253,13 @@ namespace DongThucVat
             */
         }
 
-        public string GenerateImagePath(string uploadedFileName)
-        {
-            // Kết hợp đường dẫn cố định với tên của hình ảnh được tải lên
-            string fullPath = Path.Combine(imageFolder, uploadedFileName);
+        //public string GenerateImagePath(string uploadedFileName)
+        //{
+        //    // Kết hợp đường dẫn cố định với tên của hình ảnh được tải lên
+        //    string fullPath = Path.Combine(pictureFolder, uploadedFileName);
 
-            return fullPath;
-        }
+        //    return fullPath;
+        //}
 
         private void btLuu_Click(object sender, EventArgs e)
         {
@@ -290,11 +339,11 @@ namespace DongThucVat
             }
             if (ktThem == true && selectedImages.Count > 0)
             {
-                foreach (string imagePath in selectedImages)
+                foreach (string imageName in selectedImages)
                 {
                     string sql = "INSERT INTO HinhAnhLoai (id_dtv_loai, hinhanh) VALUES((SELECT MAX(id) FROM Loai), @hinhanh)";
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.Add("@hinhanh", SqlDbType.NVarChar).Value = imagePath;
+                    cmd.Parameters.Add("@hinhanh", SqlDbType.NVarChar).Value = imageName;
 
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
@@ -308,13 +357,13 @@ namespace DongThucVat
                 deleteCmd.ExecuteNonQuery();
                 deleteCmd.Dispose();
 
-                foreach (string imagePath in selectedImages)
+                foreach (string imageName in selectedImages)
                 {
                     // Thực hiện việc lưu imageData vào cơ sở dữ liệu cho loài tương ứng
                     sql = "INSERT INTO HinhAnhLoai (id_dtv_loai, hinhanh) VALUES (@id_dtv_loai, @hinhanh)";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@id_dtv_loai", id);
-                    cmd.Parameters.AddWithValue("@hinhanh", imagePath);
+                    cmd.Parameters.AddWithValue("@hinhanh", imageName);
 
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
@@ -322,6 +371,7 @@ namespace DongThucVat
 
             }
             conn.Close();
+            loadDGV?.Invoke();
 
             selectedImages.Clear();
             xoaTrang(true);
@@ -341,15 +391,50 @@ namespace DongThucVat
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                // Kiểm tra và tạo thư mục nếu chưa tồn tại
+                if (!Directory.Exists(pictureFolder))
+                {
+                    Directory.CreateDirectory(pictureFolder);
+                }
+
                 foreach (string fileName in openFileDialog.FileNames)
                 {
-                    string imagePath = GenerateImagePath(Path.GetFileName(fileName));
-                    selectedImages.Add(imagePath);
+                    // Lấy tên của ảnh từ đường dẫn
+                    string imageName = Path.GetFileName(fileName);
+                    // Kiểm tra xem ảnh đã tồn tại trong thư mục cấu hình chưa
+                    string imagePath = pictureFolder + "\\" + imageName;
+                    if (!File.Exists(imagePath))
+                    {
+                        // Nếu chưa tồn tại thì copy ảnh vào thư mục cấu hình
+                        File.Copy(fileName, imagePath);
+                    }
+                    // Thêm đường dẫn của ảnh đã chọn vào danh sách
+                    selectedImages.Add(imageName);
                 }
+
                 DisplayImages();
                 MessageBox.Show("Đã chọn " + openFileDialog.FileNames.Length + " ảnh.");
             }
         }
+
+        //private void btChonAnh_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog openFileDialog = new OpenFileDialog();
+        //    openFileDialog.Multiselect = true;
+        //    openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
+        //    openFileDialog.InitialDirectory = imageFolder;
+
+        //    if (openFileDialog.ShowDialog() == DialogResult.OK)
+        //    {
+        //        foreach (string fileName in openFileDialog.FileNames)
+        //        {
+        //            string imagePath = GenerateImagePath(Path.GetFileName(fileName));
+        //            selectedImages.Add(imagePath);
+        //        }
+        //        DisplayImages();
+        //        MessageBox.Show("Đã chọn " + openFileDialog.FileNames.Length + " ảnh.");
+        //    }
+        //}
 
         private void btXoaAnh_Click(object sender, EventArgs e)
         {

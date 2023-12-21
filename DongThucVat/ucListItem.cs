@@ -58,17 +58,9 @@ namespace DongThucVat
             set
             {
                 _anh = value;
-                try
+                if (value != null && File.Exists(value))
                 {
                     pbLoai.Image = Image.FromFile(value);
-                }
-                catch (Exception ex)
-                {
-                    // Xử lý khi không tìm thấy hình ảnh
-                    //string defaultImage = @"picture\Image File.png";
-                    //string imagePath = Path.Combine(Application.StartupPath, defaultImage);
-                    //pbLoai.Image = Image.FromFile(imagePath);
-                    MessageBox.Show("Không tìm thấy hình ảnh: " + ex.Message);
                 }
             }
         }
@@ -76,8 +68,31 @@ namespace DongThucVat
         public int Stt
         {
             get { return _stt; }
-            set { _stt = value; lbSTT.Text = value.ToString() + "."; }
+            set { _stt = value; lbSTT.Text = lbSTT.Text = $"{value}."; }
         }
         #endregion
+
+        private void SetImage(string imagePath)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    pbLoai.Image = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    // Xử lý khi không tìm thấy hình ảnh
+                    string defaultImage = @"picture\Image File.png";
+                    string defaultImagePath = Path.Combine(Application.StartupPath, defaultImage);
+                    pbLoai.Image = Image.FromFile(defaultImagePath);
+                    MessageBox.Show("Không tìm thấy hình ảnh!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
     }
 }
