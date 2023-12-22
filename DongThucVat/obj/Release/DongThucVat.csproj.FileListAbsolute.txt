@@ -28,3 +28,8 @@ C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.cspro
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.csproj.CoreCompileInputs.cache
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.exe
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.pdb
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.ucGioiThieu.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Release\DongThucVat.exe.manifest
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Release\DongThucVat.application
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.exe.manifest
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.application

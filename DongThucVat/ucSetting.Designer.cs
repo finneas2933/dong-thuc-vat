@@ -46,13 +46,15 @@ namespace DongThucVat
             this.label5 = new System.Windows.Forms.Label();
             this.txtFolder = new System.Windows.Forms.TextBox();
             this.btFolder = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtWelcome = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btXoaAnh
             // 
             this.btXoaAnh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btXoaAnh.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXoaAnh.Location = new System.Drawing.Point(125, 443);
+            this.btXoaAnh.Location = new System.Drawing.Point(125, 499);
             this.btXoaAnh.Name = "btXoaAnh";
             this.btXoaAnh.Size = new System.Drawing.Size(96, 29);
             this.btXoaAnh.TabIndex = 24;
@@ -65,16 +67,16 @@ namespace DongThucVat
             this.fpnlHinhAnh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fpnlHinhAnh.AutoScroll = true;
             this.fpnlHinhAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fpnlHinhAnh.Location = new System.Drawing.Point(233, 374);
+            this.fpnlHinhAnh.Location = new System.Drawing.Point(233, 429);
             this.fpnlHinhAnh.Name = "fpnlHinhAnh";
-            this.fpnlHinhAnh.Size = new System.Drawing.Size(397, 236);
+            this.fpnlHinhAnh.Size = new System.Drawing.Size(397, 180);
             this.fpnlHinhAnh.TabIndex = 31;
             // 
             // btChonAnh
             // 
             this.btChonAnh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btChonAnh.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btChonAnh.Location = new System.Drawing.Point(125, 408);
+            this.btChonAnh.Location = new System.Drawing.Point(125, 464);
             this.btChonAnh.Name = "btChonAnh";
             this.btChonAnh.Size = new System.Drawing.Size(96, 29);
             this.btChonAnh.TabIndex = 23;
@@ -120,7 +122,7 @@ namespace DongThucVat
             // 
             this.rtxtNoiDung.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxtNoiDung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtNoiDung.Location = new System.Drawing.Point(233, 142);
+            this.rtxtNoiDung.Location = new System.Drawing.Point(233, 195);
             this.rtxtNoiDung.Name = "rtxtNoiDung";
             this.rtxtNoiDung.Size = new System.Drawing.Size(632, 165);
             this.rtxtNoiDung.TabIndex = 20;
@@ -134,7 +136,7 @@ namespace DongThucVat
             this.btHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHuy.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btHuy.ForeColor = System.Drawing.Color.White;
-            this.btHuy.Location = new System.Drawing.Point(661, 374);
+            this.btHuy.Location = new System.Drawing.Point(661, 430);
             this.btHuy.Name = "btHuy";
             this.btHuy.Size = new System.Drawing.Size(204, 43);
             this.btHuy.TabIndex = 25;
@@ -150,7 +152,7 @@ namespace DongThucVat
             this.btLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLuu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLuu.ForeColor = System.Drawing.Color.White;
-            this.btLuu.Location = new System.Drawing.Point(892, 374);
+            this.btLuu.Location = new System.Drawing.Point(892, 430);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(204, 43);
             this.btLuu.TabIndex = 26;
@@ -163,11 +165,12 @@ namespace DongThucVat
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 145);
+            this.label4.Location = new System.Drawing.Point(17, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(210, 21);
             this.label4.TabIndex = 29;
             this.label4.Text = "Nội dung (Trang giới thiệu):";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
@@ -185,18 +188,18 @@ namespace DongThucVat
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 71);
+            this.label1.Location = new System.Drawing.Point(159, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 21);
+            this.label1.Size = new System.Drawing.Size(68, 21);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Tiêu đề (Trang đăng nhập):";
+            this.label1.Text = "Tiêu đề:";
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 374);
+            this.label3.Location = new System.Drawing.Point(52, 430);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 21);
             this.label3.TabIndex = 34;
@@ -217,7 +220,7 @@ namespace DongThucVat
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(120, 328);
+            this.label5.Location = new System.Drawing.Point(121, 384);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 21);
             this.label5.TabIndex = 36;
@@ -226,7 +229,7 @@ namespace DongThucVat
             // txtFolder
             // 
             this.txtFolder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFolder.Location = new System.Drawing.Point(233, 325);
+            this.txtFolder.Location = new System.Drawing.Point(233, 380);
             this.txtFolder.Name = "txtFolder";
             this.txtFolder.ReadOnly = true;
             this.txtFolder.Size = new System.Drawing.Size(530, 29);
@@ -236,7 +239,7 @@ namespace DongThucVat
             // 
             this.btFolder.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFolder.Location = new System.Drawing.Point(769, 324);
+            this.btFolder.Location = new System.Drawing.Point(769, 380);
             this.btFolder.Name = "btFolder";
             this.btFolder.Size = new System.Drawing.Size(96, 29);
             this.btFolder.TabIndex = 38;
@@ -244,9 +247,30 @@ namespace DongThucVat
             this.btFolder.UseVisualStyleBackColor = true;
             this.btFolder.Click += new System.EventHandler(this.btFolder_Click);
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(17, 149);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(210, 21);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Hiệu ứng chữ (Trang chính):";
+            // 
+            // txtWelcome
+            // 
+            this.txtWelcome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtWelcome.Location = new System.Drawing.Point(233, 146);
+            this.txtWelcome.Name = "txtWelcome";
+            this.txtWelcome.Size = new System.Drawing.Size(632, 29);
+            this.txtWelcome.TabIndex = 40;
+            // 
             // ucSetting
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.txtWelcome);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btFolder);
             this.Controls.Add(this.txtFolder);
             this.Controls.Add(this.label5);
@@ -294,5 +318,7 @@ namespace DongThucVat
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFolder;
         private System.Windows.Forms.Button btFolder;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtWelcome;
     }
 }

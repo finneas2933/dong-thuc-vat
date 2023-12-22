@@ -64,6 +64,12 @@ namespace DongThucVat
             get { return btBack; }
             set { btBack = value; }
         }
+        
+        public Label tieuDe
+        {
+            get { return lbTieuDe; }
+            set { lbTieuDe = value; }
+        }
 
         public frmHome()
         {
@@ -105,6 +111,7 @@ namespace DongThucVat
             ucHome uc = new ucHome();
             AddControlsToPanel(uc);
             btBack.Visible = false;
+            lbTieuDe.Visible = true;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -122,6 +129,7 @@ namespace DongThucVat
                 AddControlsToPanel(uc);
             }
             btBack.Visible = false;
+            lbTieuDe.Visible = true;
         }
 
         private void btDongVat_Click(object sender, EventArgs e)
@@ -132,12 +140,29 @@ namespace DongThucVat
             uc.loaiChon = 0;// Truyền vào thuộc tính của form tiếp theo
             AddControlsToPanel(uc);
             btBack.Visible = false;
+            lbTieuDe.Visible = true;
+        }
+
+        public void loadTieuDe()
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            sql = "SELECT tieude FROM ThongTin WHERE id = " + 1;
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            cmd.Dispose();
+            conn.Close();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            // Lấy giá trị từ dòng đầu tiên của DataTable
+            lbTieuDe.Text = dt.Rows[0]["tieude"].ToString();
         }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
             conn = Connect.ConnectDB();
-
             lbFirstName.Text = name + ".";
             if (Boolean.Parse(is_admin) == true)
                 lbRole.Text = "Admin.";
@@ -146,12 +171,14 @@ namespace DongThucVat
                 lbRole.Text = "Nhân viên.";
             }
             loadLogo();
+            loadTieuDe();
 
             moveSidePanel(btHome);
             ucGioiThieu uc = new ucGioiThieu();
             AddControlsToPanel(uc);
 
             btBack.Visible = false;
+            lbTieuDe.Visible = true;
             _obj = this;
             //ucChon uc = new ucChon();
             //uc.Dock = DockStyle.Fill;
@@ -192,6 +219,7 @@ namespace DongThucVat
         {
             panelControl.Controls["ucChon"].BringToFront();
             btBack.Visible = false;
+            lbTieuDe.Visible = true;
         }
 
         private void btThucVat_Click(object sender, EventArgs e)
@@ -202,6 +230,7 @@ namespace DongThucVat
             uc.loaiChon = 1;// Truyền vào thuộc tính của form tiếp theo
             AddControlsToPanel(uc);
             btBack.Visible = false;
+            lbTieuDe.Visible = true;
         }
 
         private void btSettings_Click(object sender, EventArgs e)
@@ -211,6 +240,7 @@ namespace DongThucVat
             uc.LogoChanged += loadLogo;
             AddControlsToPanel(uc);
             btBack.Visible = false;
+            lbTieuDe.Visible = true;
         }
 
         private void btLogOut_Click(object sender, EventArgs e)
@@ -247,6 +277,21 @@ namespace DongThucVat
         private void btMini_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void lbTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

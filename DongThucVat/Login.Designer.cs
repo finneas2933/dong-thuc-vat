@@ -113,7 +113,7 @@ namespace DongThucVat
             this.lbTieuDe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.lbTieuDe.Location = new System.Drawing.Point(103, 20);
             this.lbTieuDe.Name = "lbTieuDe";
-            this.lbTieuDe.Size = new System.Drawing.Size(568, 60);
+            this.lbTieuDe.Size = new System.Drawing.Size(623, 60);
             this.lbTieuDe.TabIndex = 0;
             this.lbTieuDe.Text = "BAN QUẢN LÝ KHU BẢO TỒN THIÊN NHIÊN\r\nBẮC HƯỚNG HOÁ";
             this.lbTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

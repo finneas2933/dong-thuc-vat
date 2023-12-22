@@ -17,7 +17,7 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
-
+        int t;
         string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
         string defaultImagePath = AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png";
 
@@ -33,8 +33,10 @@ namespace DongThucVat
         private void ucHome_Load(object sender, EventArgs e)
         {
             conn = Connect.ConnectDB();
+            LoadText();
             LoadImagePathsFromDatabase(); // Lấy đường dẫn ảnh từ cơ sở dữ liệu
             InitializeImageTimer();
+            //InitializeTextTimer();
         }
 
         private void LoadImagePathsFromDatabase()
@@ -71,6 +73,27 @@ namespace DongThucVat
             }
         }
 
+        public void LoadText()
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            sql = "SELECT text_effect FROM ThongTin WHERE id = 1";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            cmd.Dispose();
+            conn.Close();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                // Lấy giá trị từ dòng đầu tiên của DataTable
+                txtWelcome.Text = dt.Rows[0]["text_effect"].ToString() + " ";
+            }
+        }
+
         private void ImageTimer_Tick(object sender, EventArgs e)
         {
             try
@@ -83,11 +106,7 @@ namespace DongThucVat
                     currentImageIndex = (currentImageIndex + 1) % imagePaths.Count;
                 }
             }
-            catch
-            {
-                // Xử lý khi không tìm thấy hình ảnh
-                
-            }
+            catch { }
         }
 
         private void InitializeImageTimer()
@@ -96,5 +115,29 @@ namespace DongThucVat
             imageTimer.Tick += ImageTimer_Tick;
             imageTimer.Start();
         }
+
+        //private void InitializeTextTimer()
+        //{
+        //    //textTimer.Interval = 200;
+        //    //textTimer.Tick += Texttimer_Tick;
+        //    textTimer.Start();
+        //}
+
+        //private void Texttimer_Tick(object sender, EventArgs e)
+        //{
+        //    //string x = lbTextRun.Text.Substring(0, 1);
+        //    //string y = lbTextRun.Text.Substring(1) + x;
+        //    //lbTextRun.Text = y;
+        //    t = 200;
+        //    if (t == lbTextRun.Left)
+        //    {
+        //        lbTextRun.Left = -300;
+        //    }
+        //    else
+        //    {
+        //        lbTextRun.Left = lbTextRun.Left + 2;
+        //    }
+
+        //}
     }
 }

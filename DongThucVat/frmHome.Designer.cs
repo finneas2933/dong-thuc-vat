@@ -31,12 +31,7 @@ namespace DongThucVat
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
-            this.lbRole = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbFirstName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbTime = new System.Windows.Forms.Label();
             this.btMini = new System.Windows.Forms.Button();
             this.btLogOut = new System.Windows.Forms.Button();
             this.btBack = new System.Windows.Forms.Button();
@@ -49,91 +44,38 @@ namespace DongThucVat
             this.btHome = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.panelControl = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.lbRole = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbFirstName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.lbTieuDe = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lbRole
-            // 
-            this.lbRole.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbRole.AutoSize = true;
-            this.lbRole.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbRole.Location = new System.Drawing.Point(651, 50);
-            this.lbRole.Name = "lbRole";
-            this.lbRole.Size = new System.Drawing.Size(14, 21);
-            this.lbRole.TabIndex = 7;
-            this.lbRole.Text = ".";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(598, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 21);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Role:";
-            // 
-            // lbFirstName
-            // 
-            this.lbFirstName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbFirstName.Location = new System.Drawing.Point(651, 18);
-            this.lbFirstName.Name = "lbFirstName";
-            this.lbFirstName.Size = new System.Drawing.Size(14, 21);
-            this.lbFirstName.TabIndex = 5;
-            this.lbFirstName.Text = ".";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(562, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 21);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Welcome:";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.panel2.Controls.Add(this.lbTime);
+            this.panel2.Controls.Add(this.lbTieuDe);
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.btMini);
             this.panel2.Controls.Add(this.btLogOut);
             this.panel2.Controls.Add(this.btBack);
             this.panel2.Controls.Add(this.btClose);
-            this.panel2.Controls.Add(this.lbRole);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.lbFirstName);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(163, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1117, 92);
             this.panel2.TabIndex = 5;
-            // 
-            // lbTime
-            // 
-            this.lbTime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.lbTime.Location = new System.Drawing.Point(1274, 72);
-            this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(160, 17);
-            this.lbTime.TabIndex = 8;
-            this.lbTime.Text = "dd/MM/yyyy HH:mm:ss";
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btMini
             // 
@@ -323,17 +265,7 @@ namespace DongThucVat
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(163, 92);
             this.panel3.TabIndex = 5;
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(163, 92);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // timerTime
             // 
@@ -346,6 +278,101 @@ namespace DongThucVat
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(1117, 628);
             this.panelControl.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel1.Controls.Add(this.lbTime);
+            this.panel1.Controls.Add(this.lbRole);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lbFirstName);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(634, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(345, 90);
+            this.panel1.TabIndex = 9;
+            // 
+            // lbTime
+            // 
+            this.lbTime.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.lbTime.Location = new System.Drawing.Point(0, 73);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(345, 17);
+            this.lbTime.TabIndex = 13;
+            this.lbTime.Text = "dd/MM/yyyy HH:mm:ss";
+            this.lbTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbRole
+            // 
+            this.lbRole.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbRole.AutoSize = true;
+            this.lbRole.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.lbRole.Location = new System.Drawing.Point(99, 42);
+            this.lbRole.Name = "lbRole";
+            this.lbRole.Size = new System.Drawing.Size(14, 21);
+            this.lbRole.TabIndex = 12;
+            this.lbRole.Text = ".";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(46, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 21);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Role:";
+            // 
+            // lbFirstName
+            // 
+            this.lbFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbFirstName.AutoSize = true;
+            this.lbFirstName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.lbFirstName.Location = new System.Drawing.Point(99, 10);
+            this.lbFirstName.Name = "lbFirstName";
+            this.lbFirstName.Size = new System.Drawing.Size(14, 21);
+            this.lbFirstName.TabIndex = 10;
+            this.lbFirstName.Text = ".";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(10, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 21);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Welcome:";
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(163, 92);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
+            // lbTieuDe
+            // 
+            this.lbTieuDe.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTieuDe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.lbTieuDe.Location = new System.Drawing.Point(3, 15);
+            this.lbTieuDe.Name = "lbTieuDe";
+            this.lbTieuDe.Size = new System.Drawing.Size(623, 60);
+            this.lbTieuDe.TabIndex = 11;
+            this.lbTieuDe.Text = "BAN QUẢN LÝ KHU BẢO TỒN THIÊN NHIÊN\r\nBẮC HƯỚNG HOÁ";
+            this.lbTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmHome
             // 
@@ -363,19 +390,16 @@ namespace DongThucVat
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmHome_FormClosed);
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panelLeft.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lbRole;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbFirstName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelSide;
         private System.Windows.Forms.Button btSettings;
@@ -388,10 +412,16 @@ namespace DongThucVat
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.Panel panelControl;
         private System.Windows.Forms.Button btClose;
-        private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Button btBack;
         private System.Windows.Forms.Button btLogOut;
         private System.Windows.Forms.Button btMini;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTime;
+        private System.Windows.Forms.Label lbRole;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbFirstName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTieuDe;
+        private System.Windows.Forms.PictureBox pbLogo;
     }
 }

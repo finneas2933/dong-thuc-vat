@@ -71,6 +71,7 @@ namespace DongThucVat
             // Lấy giá trị từ dòng đầu tiên của DataTable
             fileLogo = dt.Rows[0]["logo"].ToString();
             txtTieuDe.Text = dt.Rows[0]["tieude"].ToString();
+            txtWelcome.Text = dt.Rows[0]["text_effect"].ToString();
             rtxtNoiDung.Text = dt.Rows[0]["noidung"].ToString();
         }
 
@@ -229,6 +230,7 @@ namespace DongThucVat
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1;
             cmd.Parameters.Add("@logo", SqlDbType.NVarChar).Value = fileLogo;
             cmd.Parameters.Add("@tieude", SqlDbType.NVarChar).Value = txtTieuDe.Text;
+            cmd.Parameters.Add("@text_effect", SqlDbType.NVarChar).Value = txtWelcome.Text;
             cmd.Parameters.Add("@noidung", SqlDbType.NVarChar).Value = rtxtNoiDung.Text;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -264,7 +266,7 @@ namespace DongThucVat
 
             selectedImages.Clear();
             fileLogo = "";
-            txtFolder.Text = pictureFolder;
+            pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
             layNguonNoiDung();
             DisplayLogo();
             LoadImages();
@@ -299,6 +301,11 @@ namespace DongThucVat
                 // Lấy đường dẫn của thư mục đã chọn
                 txtFolder.Text = folderBrowserDialog.SelectedPath;
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
