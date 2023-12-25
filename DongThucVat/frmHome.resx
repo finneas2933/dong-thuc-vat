@@ -118,6 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAPdJREFUSEvV
+        ljsKAjEURWcJKggWFuOn0D3pji39gYX4AUUXMZ47voAGtcmL4oHbZB7nkjBxLP6CqqoGZEdmpGnLviDu
+        kQMJLIhvGcI+OcoeMbGRdJBpJ/ta+8ya+OwIUUkejyuwIR0bSwNRl7wq2RLXEgljtNa1sTQkMmGMdpe9
+        5ERKG0sD0aeSoY2lgehdyYX4lAhkuuUxVzKyER8QLmv1Myoa24gPCDtElzDG9+gEQpXlfRkCCPO/3gGE
+        +S9sQELyqkxrWcry/qgGEH76TLRtzAeE78pW5Guf8qmN+IFUZedaf2dOGvbYF8RDomPU362WLf+SorgB
+        JtWPkhZyumkAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btMini.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -132,16 +142,6 @@
         0mRI8klgZwe9G+zsoO82QD4DhAdYae1g4AnwUd1p7dTdBa0ZSfs3L7TtHWcoJL+pnrQ26u6C1oykV9VS
         TXJ+M3wchN4n8FCt1UghVBem9mkaX4CCLPpCtPXbAZjq5YXNf1g8ZgALsvg5Aob3QXDqS8jwMRB1B5B0
         iM8w9EcU+yuWNPwyKoRexxVaO+hnADfY2UHvBrvJyKT0BSEuDKCn0zZIAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAPdJREFUSEvV
-        ljsKAjEURWcJKggWFuOn0D3pji39gYX4AUUXMZ47voAGtcmL4oHbZB7nkjBxLP6CqqoGZEdmpGnLviDu
-        kQMJLIhvGcI+OcoeMbGRdJBpJ/ta+8ya+OwIUUkejyuwIR0bSwNRl7wq2RLXEgljtNa1sTQkMmGMdpe9
-        5ERKG0sD0aeSoY2lgehdyYX4lAhkuuUxVzKyER8QLmv1Myoa24gPCDtElzDG9+gEQpXlfRkCCPO/3gGE
-        +S9sQELyqkxrWcry/qgGEH76TLRtzAeE78pW5Guf8qmN+IFUZedaf2dOGvbYF8RDomPU362WLf+SorgB
-        JtWPkhZyumkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -226,9 +226,6 @@
         jcaErnsDv868fmVpM70AAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="timerTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>229, 17</value>
-  </metadata>
   <data name="pbLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
@@ -6468,6 +6465,9 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="timerTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>229, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>41</value>
   </metadata>

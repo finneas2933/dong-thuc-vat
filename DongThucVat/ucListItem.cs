@@ -13,13 +13,25 @@ namespace DongThucVat
 {
     public partial class ucListItem : UserControl
     {
+        public event EventHandler ItemClick;
+
         public ucListItem()
         {
             InitializeComponent();
         }
 
+        private void OnItemClick(EventArgs e)
+        {
+            ItemClick?.Invoke(this, e);
+        }
+
+        private void ucListItem_Click(object sender, EventArgs e)
+        {
+            OnItemClick(EventArgs.Empty);
+        }
+
         #region Properties
-        private string _tenloai, _ho, _bo, _lop, _nganh, _anh;
+        private string _tenloai, _ho, _bo, _lop, _nganh, _anh, _id;
         private int _stt;
         [Category("Custom Props")]
         public string Tenloai
@@ -33,6 +45,7 @@ namespace DongThucVat
             get { return _ho; }
             set { _ho = value; lbHo.Text = value; }
         }
+
         [Category("Custom Props")]
         public string Bo
         {
@@ -70,29 +83,46 @@ namespace DongThucVat
             get { return _stt; }
             set { _stt = value; lbSTT.Text = lbSTT.Text = $"{value}."; }
         }
+        [Category("Custom Props")]
+        public string Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         #endregion
 
-        private void SetImage(string imagePath)
+
+        private void ucListItem_MouseEnter(object sender, EventArgs e)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
-                {
-                    pbLoai.Image = Image.FromFile(imagePath);
-                }
-                else
-                {
-                    // Xử lý khi không tìm thấy hình ảnh
-                    string defaultImage = @"picture\Image File.png";
-                    string defaultImagePath = Path.Combine(Application.StartupPath, defaultImage);
-                    pbLoai.Image = Image.FromFile(defaultImagePath);
-                    MessageBox.Show("Không tìm thấy hình ảnh!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
+            this.BackColor = Color.Silver;
         }
+
+        private void ucListItem_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+        }
+
+        //private void SetImage(string imagePath)
+        //{
+        //    try
+        //    {
+        //        if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+        //        {
+        //            pbLoai.Image = Image.FromFile(imagePath);
+        //        }
+        //        else
+        //        {
+        //            // Xử lý khi không tìm thấy hình ảnh
+        //            string defaultImage = @"picture\Image File.png";
+        //            string defaultImagePath = Path.Combine(Application.StartupPath, defaultImage);
+        //            pbLoai.Image = Image.FromFile(defaultImagePath);
+        //            MessageBox.Show("Không tìm thấy hình ảnh!");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi: " + ex.Message);
+        //    }
+        //}
     }
 }

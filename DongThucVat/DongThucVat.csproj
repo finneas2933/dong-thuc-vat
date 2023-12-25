@@ -62,6 +62,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Flora100.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -119,6 +122,12 @@
     </Compile>
     <Compile Include="frmQuenMatKhau.Designer.cs">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmZoomAnh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmZoomAnh.Designer.cs">
+      <DependentUpon>frmZoomAnh.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -245,6 +254,9 @@
     <EmbeddedResource Include="frmQuenMatKhau.resx">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmZoomAnh.resx">
+      <DependentUpon>frmZoomAnh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,6 +350,11 @@
   <ItemGroup>
     <EmbeddedResource Include="picture\Gorilla.png" />
     <EmbeddedResource Include="picture\Oak Tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Flora100.ico" />
+    <Content Include="picture\Gorilla-100.png" />
+    <Content Include="picture\Oak Tree - 100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

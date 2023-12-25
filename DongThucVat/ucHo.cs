@@ -18,7 +18,6 @@ namespace DongThucVat
         string tenTiengViet, tenLatinh, status;
         int id, idFK;
         DataGridViewCellMouseEventArgs vitri;
-        public event Action loadDGV;
 
         private int loai;
         private string idUser;
@@ -69,25 +68,41 @@ namespace DongThucVat
 
         private void btXoa_Click(object sender, EventArgs e)
         {
-            if (id == 0 || vitri == null)
+            try
             {
-                MessageBox.Show("Bạn chưa chọn họ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (MessageBox.Show("Bạn có muốn xóa họ " + tenTiengViet + " không?", "Thông báo",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-                sql = "DELETE FROM Ho WHERE id = " + id;
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                conn.Close();
+                if (id == 0 || vitri == null)
+                {
+                    MessageBox.Show("Bạn chưa chọn họ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (MessageBox.Show("Bạn có muốn xóa họ " + tenTiengViet + " không?", "Thông báo",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+                    sql = "DELETE FROM Ho WHERE id = " + id;
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                    conn.Close();
 
-                vitri = null;
-                cbLoad();
-                dgvLoad();
+                    vitri = null;
+                    cbLoad();
+                    dgvLoad();
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Lỗi xảy ra khi có dữ liệu liên quan
+                if (ex.Number == 547)
+                {
+                    MessageBox.Show("Không thể xóa dữ liệu này do có dữ liệu liên quan!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Xử lý các loại lỗi khác
+                    MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

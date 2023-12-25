@@ -33,5 +33,6 @@ C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Debug\DongThucVat.exe.man
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Debug\DongThucVat.application
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.exe.manifest
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.application
-C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.AssemblyReference.cache
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.textEffect.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.frmZoomAnh.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Debug\DongThucVat.csproj.AssemblyReference.cache

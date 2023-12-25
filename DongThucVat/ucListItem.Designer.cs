@@ -51,8 +51,11 @@ namespace DongThucVat
             this.pnlSTT.Location = new System.Drawing.Point(3, 3);
             this.pnlSTT.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSTT.Name = "pnlSTT";
-            this.pnlSTT.Size = new System.Drawing.Size(53, 192);
+            this.pnlSTT.Size = new System.Drawing.Size(53, 166);
             this.pnlSTT.TabIndex = 0;
+            this.pnlSTT.Click += new System.EventHandler(this.ucListItem_Click);
+            this.pnlSTT.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.pnlSTT.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // lbSTT
             // 
@@ -64,6 +67,9 @@ namespace DongThucVat
             this.lbSTT.Size = new System.Drawing.Size(33, 32);
             this.lbSTT.TabIndex = 0;
             this.lbSTT.Text = "1.";
+            this.lbSTT.Click += new System.EventHandler(this.ucListItem_Click);
+            this.lbSTT.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.lbSTT.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // pnlAnh
             // 
@@ -72,8 +78,11 @@ namespace DongThucVat
             this.pnlAnh.Location = new System.Drawing.Point(56, 3);
             this.pnlAnh.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAnh.Name = "pnlAnh";
-            this.pnlAnh.Size = new System.Drawing.Size(152, 192);
+            this.pnlAnh.Size = new System.Drawing.Size(152, 166);
             this.pnlAnh.TabIndex = 1;
+            this.pnlAnh.Click += new System.EventHandler(this.ucListItem_Click);
+            this.pnlAnh.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.pnlAnh.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // pbLoai
             // 
@@ -84,6 +93,9 @@ namespace DongThucVat
             this.pbLoai.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLoai.TabIndex = 2;
             this.pbLoai.TabStop = false;
+            this.pbLoai.Click += new System.EventHandler(this.ucListItem_Click);
+            this.pbLoai.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.pbLoai.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // lbTenLoai
             // 
@@ -95,6 +107,9 @@ namespace DongThucVat
             this.lbTenLoai.Size = new System.Drawing.Size(70, 21);
             this.lbTenLoai.TabIndex = 2;
             this.lbTenLoai.Text = "Tên loài";
+            this.lbTenLoai.Click += new System.EventHandler(this.ucListItem_Click);
+            this.lbTenLoai.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.lbTenLoai.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // lbHo
             // 
@@ -106,6 +121,9 @@ namespace DongThucVat
             this.lbHo.Size = new System.Drawing.Size(32, 21);
             this.lbHo.TabIndex = 3;
             this.lbHo.Text = "Họ";
+            this.lbHo.Click += new System.EventHandler(this.ucListItem_Click);
+            this.lbHo.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.lbHo.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // lbBo
             // 
@@ -117,6 +135,9 @@ namespace DongThucVat
             this.lbBo.Size = new System.Drawing.Size(30, 21);
             this.lbBo.TabIndex = 4;
             this.lbBo.Text = "Bộ";
+            this.lbBo.Click += new System.EventHandler(this.ucListItem_Click);
+            this.lbBo.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.lbBo.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // lbLop
             // 
@@ -128,6 +149,9 @@ namespace DongThucVat
             this.lbLop.Size = new System.Drawing.Size(38, 21);
             this.lbLop.TabIndex = 5;
             this.lbLop.Text = "Lớp";
+            this.lbLop.Click += new System.EventHandler(this.ucListItem_Click);
+            this.lbLop.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.lbLop.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // lbNganh
             // 
@@ -139,6 +163,9 @@ namespace DongThucVat
             this.lbNganh.Size = new System.Drawing.Size(58, 21);
             this.lbNganh.TabIndex = 6;
             this.lbNganh.Text = "Ngành";
+            this.lbNganh.Click += new System.EventHandler(this.ucListItem_Click);
+            this.lbNganh.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.lbNganh.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             // 
             // ucListItem
             // 
@@ -155,7 +182,10 @@ namespace DongThucVat
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
             this.Name = "ucListItem";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(498, 198);
+            this.Size = new System.Drawing.Size(498, 172);
+            this.Click += new System.EventHandler(this.ucListItem_Click);
+            this.MouseEnter += new System.EventHandler(this.ucListItem_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.ucListItem_MouseLeave);
             this.pnlSTT.ResumeLayout(false);
             this.pnlSTT.PerformLayout();
             this.pnlAnh.ResumeLayout(false);

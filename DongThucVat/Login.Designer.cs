@@ -130,7 +130,7 @@ namespace DongThucVat
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(609, 33);
             this.btLogin.TabIndex = 3;
-            this.btLogin.Text = "Login";
+            this.btLogin.Text = "Đăng nhập";
             this.btLogin.UseVisualStyleBackColor = false;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
             // 
@@ -163,9 +163,9 @@ namespace DongThucVat
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
             this.label4.Location = new System.Drawing.Point(129, 314);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 25);
+            this.label4.Size = new System.Drawing.Size(99, 25);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Password:";
+            this.label4.Text = "Mật khẩu:";
             // 
             // lbQuenMatKhau
             // 
@@ -175,9 +175,9 @@ namespace DongThucVat
             this.lbQuenMatKhau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
             this.lbQuenMatKhau.Location = new System.Drawing.Point(590, 378);
             this.lbQuenMatKhau.Name = "lbQuenMatKhau";
-            this.lbQuenMatKhau.Size = new System.Drawing.Size(143, 21);
+            this.lbQuenMatKhau.Size = new System.Drawing.Size(134, 21);
             this.lbQuenMatKhau.TabIndex = 2;
-            this.lbQuenMatKhau.Text = "Forgot Password?";
+            this.lbQuenMatKhau.Text = "Quên mật khẩu?";
             this.lbQuenMatKhau.Click += new System.EventHandler(this.lbQuenMatKhau_Click);
             // 
             // label1

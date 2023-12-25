@@ -7,14 +7,14 @@
     <framework targetVersion="4.6" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="DongThucVat.exe.manifest" size="3475">
+    <dependentAssembly dependencyType="install" codebase="DongThucVat.exe.manifest" size="4762">
       <assemblyIdentity name="DongThucVat.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FAhTuvsxDlcMJpuyS5P0Ap0jTlJghGoA766f+JYxgVI=</dsig:DigestValue>
+        <dsig:DigestValue>l9H+0byXbjtMzqGb3SE5we7CKmEFCGLkm+i+CX+wN2M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

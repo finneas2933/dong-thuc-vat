@@ -43,7 +43,7 @@ namespace DongThucVat
 
                 sql = "SELECT hinhanh FROM HinhAnhLoai WHERE id_dtv_loai = @loaiId";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@loaiId", id);
+                cmd.Parameters.Add("@loaiId", SqlDbType.Int).Value = Int32.Parse(id);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
@@ -67,6 +67,10 @@ namespace DongThucVat
                         pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox.Width = 200;
                         pictureBox.Height = 200;
+
+                        // Gán sự kiện Click để mở ảnh phóng to
+                        pictureBox.Click += pictureBox_Click;
+
                         fpnlHinhAnh.Controls.Add(pictureBox);
                     }
                     else
@@ -85,6 +89,19 @@ namespace DongThucVat
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            // Lấy PictureBox được nhấp
+            PictureBox pictureBox = sender as PictureBox;
+
+            if (pictureBox != null)
+            {
+                // Tạo cửa sổ mới và chuyển ảnh phóng to vào đó
+                frmZoomAnh frm = new frmZoomAnh(pictureBox.Image);
+                frm.ShowDialog();
             }
         }
 

@@ -118,32 +118,32 @@ namespace DongThucVat
             if (loai == 0)
             {
                 btSearch.Text = "CSDL động vật";
-                btSearch.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla.png");
+                btSearch.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla-100.png");
                 btNganh.Text = "Ngành động vật";
-                btNganh.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla.png");
+                btNganh.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla-100.png");
                 btLop.Text = "Lớp động vật";
-                btLop.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla.png");
+                btLop.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla-100.png");
                 btBo.Text = "Bộ động vật";
-                btBo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla.png");
+                btBo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla-100.png");
                 btHo.Text = "Họ động vật";
-                btHo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla.png");
+                btHo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla-100.png");
                 btLoai.Text = "Loài động vật";
-                btLoai.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla.png");
+                btLoai.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Gorilla-100.png");
             }
             else
             {
                 btSearch.Text = "CSDL thực vật";
-                btSearch.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree.png");
+                btSearch.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree - 100.png");
                 btNganh.Text = "Ngành thực vật";
-                btNganh.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree.png");
+                btNganh.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree - 100.png");
                 btLop.Text = "Lớp thực vật";
-                btLop.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree.png");
+                btLop.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree - 100.png");
                 btBo.Text = "Bộ thực vật";
-                btBo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree.png");
+                btBo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree - 100.png");
                 btHo.Text = "Họ thực vật";
-                btHo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree.png");
+                btHo.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree - 100.png");
                 btLoai.Text = "Loài thực vật";
-                btLoai.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree.png");
+                btLoai.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Oak Tree - 100.png");
             }
         }
 

@@ -18,7 +18,6 @@ namespace DongThucVat
         string tenTiengViet;
         int id, idFK;
         DataGridViewCellMouseEventArgs vitri;
-        public event Action loadDGV;
 
         private int loai;
         private string idUser;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -17,6 +18,7 @@ namespace DongThucVat
         SqlConnection conn;
         string sql = "";
         string id, name, is_admin;
+        string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
 
         public Login()
         {
@@ -26,13 +28,37 @@ namespace DongThucVat
         private void Form1_Load(object sender, EventArgs e)
         {
             conn = Connect.ConnectDB();
+            // Thực hiện kiểm tra kết nối
+            if (CheckDatabaseConnection() == false)
+            {
+                if (MessageBox.Show("Lỗi kết nối tới CSDL. Vui lòng kiểm tra cài đặt kết nối.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                    Application.Exit();
+                return;
+            }
             loadLogo();
             loadTieuDe();
             txtEmail.Focus();
         }
 
+        private bool CheckDatabaseConnection()
+        {
+            try
+            {
+                if (conn == null)
+                    return false;
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+                return true; // Kết nối thành công
+            }
+            catch
+            {
+                return false; // Kết nối không thành công
+            }
+        }
+
         public void loadLogo()
         {
+            // Kiểm tra kết nối
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             sql = "SELECT logo FROM ThongTin WHERE id = " + 1;
@@ -48,13 +74,13 @@ namespace DongThucVat
             string logo = dt.Rows[0]["logo"].ToString();
             try
             {
-                if (logo != null && File.Exists(logo))
+                if (logo != null && File.Exists(pictureFolder + "\\" + logo))
                 {
                     pbLogo.Image = null;
-                    pbLogo.Image = Image.FromFile(logo);
+                    pbLogo.Image = Image.FromFile(pictureFolder + "\\" + logo);
                     pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
                     pbLogo1.Image = null;
-                    pbLogo1.Image = Image.FromFile(logo);
+                    pbLogo1.Image = Image.FromFile(pictureFolder + "\\" + logo);
                     pbLogo1.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
@@ -66,6 +92,7 @@ namespace DongThucVat
 
         public void loadTieuDe()
         {
+            // Kiểm tra kết nối
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             sql = "SELECT tieude FROM ThongTin WHERE id = " + 1;
@@ -136,6 +163,7 @@ namespace DongThucVat
 
         public bool loginCheck()
         {
+            // Kiểm tra kết nối
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             sql = "SELECT * FROM [user] WHERE email = @Email AND password = @Password AND status = 1";

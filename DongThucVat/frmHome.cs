@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
 
 namespace DongThucVat
 {
@@ -19,6 +20,7 @@ namespace DongThucVat
         string sql;
         static frmHome _obj;
         public bool isClose = true;
+        string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
 
         public event Action LogoChanged;
 
@@ -180,9 +182,6 @@ namespace DongThucVat
             btBack.Visible = false;
             lbTieuDe.Visible = true;
             _obj = this;
-            //ucChon uc = new ucChon();
-            //uc.Dock = DockStyle.Fill;
-            //panelControl.Controls.Add(uc);
         }
 
         public void loadLogo()
@@ -199,13 +198,14 @@ namespace DongThucVat
             DataTable dt = new DataTable();
             da.Fill(dt);
             // Lấy giá trị từ dòng đầu tiên của DataTable
+            pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
             string logo = dt.Rows[0]["logo"].ToString();
             try
             {
-                if (logo != null && File.Exists(logo))
+                if (logo != null && File.Exists(pictureFolder + "\\" + logo))
                 {
                     pbLogo.Image = null;
-                    pbLogo.Image = Image.FromFile(logo);
+                    pbLogo.Image = Image.FromFile(pictureFolder + "\\" + logo);
                     pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }

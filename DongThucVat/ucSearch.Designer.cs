@@ -30,6 +30,7 @@ namespace DongThucVat
         private void InitializeComponent()
         {
             this.fpnlKetQua = new System.Windows.Forms.FlowLayoutPanel();
+            this.ucListItem1 = new DongThucVat.ucListItem();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.btTim = new System.Windows.Forms.Button();
@@ -66,7 +67,7 @@ namespace DongThucVat
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ucListItem1 = new DongThucVat.ucListItem();
+            this.lbThongBao = new System.Windows.Forms.Label();
             this.fpnlKetQua.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.pnlDGV.SuspendLayout();
@@ -84,10 +85,30 @@ namespace DongThucVat
             this.fpnlKetQua.Size = new System.Drawing.Size(390, 628);
             this.fpnlKetQua.TabIndex = 0;
             // 
+            // ucListItem1
+            // 
+            this.ucListItem1.Anh = null;
+            this.ucListItem1.Bo = "(Bộ)";
+            this.ucListItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucListItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucListItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.ucListItem1.Ho = "(Họ)";
+            this.ucListItem1.Id = "";
+            this.ucListItem1.Location = new System.Drawing.Point(3, 3);
+            this.ucListItem1.Lop = "(Lớp)";
+            this.ucListItem1.Name = "ucListItem1";
+            this.ucListItem1.Nganh = "(Ngành)";
+            this.ucListItem1.Padding = new System.Windows.Forms.Padding(3);
+            this.ucListItem1.Size = new System.Drawing.Size(498, 172);
+            this.ucListItem1.Stt = 1;
+            this.ucListItem1.TabIndex = 0;
+            this.ucListItem1.Tenloai = "(Loài)";
+            // 
             // pnlSearch
             // 
             this.pnlSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSearch.Controls.Add(this.lbThongBao);
             this.pnlSearch.Controls.Add(this.label5);
             this.pnlSearch.Controls.Add(this.btTim);
             this.pnlSearch.Controls.Add(this.txtTenLatinh);
@@ -481,23 +502,14 @@ namespace DongThucVat
             this.Column14.ReadOnly = true;
             this.Column14.Visible = false;
             // 
-            // ucListItem1
+            // lbThongBao
             // 
-            this.ucListItem1.Anh = null;
-            this.ucListItem1.Bo = "(Bộ)";
-            this.ucListItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucListItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucListItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.ucListItem1.Ho = "(Họ)";
-            this.ucListItem1.Location = new System.Drawing.Point(3, 3);
-            this.ucListItem1.Lop = "(Lớp)";
-            this.ucListItem1.Name = "ucListItem1";
-            this.ucListItem1.Nganh = "(Ngành)";
-            this.ucListItem1.Padding = new System.Windows.Forms.Padding(3);
-            this.ucListItem1.Size = new System.Drawing.Size(498, 198);
-            this.ucListItem1.Stt = 0;
-            this.ucListItem1.TabIndex = 0;
-            this.ucListItem1.Tenloai = "(Loài)";
+            this.lbThongBao.Location = new System.Drawing.Point(417, 257);
+            this.lbThongBao.Name = "lbThongBao";
+            this.lbThongBao.Size = new System.Drawing.Size(303, 25);
+            this.lbThongBao.TabIndex = 11;
+            this.lbThongBao.Text = ".";
+            this.lbThongBao.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // ucSearch
             // 
@@ -561,5 +573,6 @@ namespace DongThucVat
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private ucListItem ucListItem1;
+        private System.Windows.Forms.Label lbThongBao;
     }
 }

@@ -33,3 +33,5 @@ C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Release\DongThucVat.exe.m
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\bin\Release\DongThucVat.application
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.exe.manifest
 C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.application
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.frmZoomAnh.resources
+C:\Users\Dell\source\repos\DongThucVat\DongThucVat\obj\Release\DongThucVat.textEffect.resources

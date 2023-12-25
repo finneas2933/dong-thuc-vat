@@ -152,45 +152,80 @@ namespace DongThucVat
         public void listItemLoad()
         {
             fpnlKetQua.Controls.Clear();
-            ucListItem[] listItem = new ucListItem[kqList.Count];
-            for (int i = 0; i < listItem.Length; i++)
+            if (kqList != null && kqList.Count > 0)
             {
-                listItem[i] = new ucListItem();
-                listItem[i].Stt = i + 1;
-                if (i < kqList.Count)
+                ucListItem[] listItem = new ucListItem[kqList.Count];
+                for (int i = 0; i < listItem.Length; i++)
                 {
-                    KetQua kq = kqList[i];
+                    listItem[i] = new ucListItem();
+                    listItem[i].Stt = i + 1;
+                    if (i < kqList.Count)
+                    {
+                        KetQua kq = kqList[i];
 
-                    // Gán giá trị từ kq vào listItem[i]
-                    string hinhanhloai = anhListItemLoad(kq.ID);
-                    if (!string.IsNullOrWhiteSpace(hinhanhloai))
-                    {
-                        listItem[i].Anh = hinhanhloai;
-                    }
-                    if (!string.IsNullOrWhiteSpace(kq.TenLoai))
-                    {
-                        listItem[i].Tenloai = kq.TenLoai;
-                    }
-                    if (!string.IsNullOrWhiteSpace(kq.Ho))
-                    {
-                        listItem[i].Ho = kq.Ho;
-                    }
-                    if (!string.IsNullOrWhiteSpace(kq.Bo))
-                    {
-                        listItem[i].Bo = kq.Bo;
-                    }
-                    if (!string.IsNullOrWhiteSpace(kq.Lop))
-                    {
-                        listItem[i].Lop = kq.Lop;
-                    }
-                    if (!string.IsNullOrWhiteSpace(kq.Nganh))
-                    {
-                        listItem[i].Nganh = kq.Nganh;
-                    }
+                        // Gán giá trị từ kq vào listItem[i]
+                        string hinhanhloai = anhListItemLoad(kq.ID);
+                        if (!string.IsNullOrWhiteSpace(hinhanhloai))
+                        {
+                            listItem[i].Anh = hinhanhloai;
+                        }
+                        if (!string.IsNullOrWhiteSpace(kq.ID))
+                        {
+                            listItem[i].Id = kq.ID;
+                        }
+                        if (!string.IsNullOrWhiteSpace(kq.TenLoai))
+                        {
+                            listItem[i].Tenloai = kq.TenLoai;
+                        }
+                        if (!string.IsNullOrWhiteSpace(kq.Ho))
+                        {
+                            listItem[i].Ho = kq.Ho;
+                        }
+                        if (!string.IsNullOrWhiteSpace(kq.Bo))
+                        {
+                            listItem[i].Bo = kq.Bo;
+                        }
+                        if (!string.IsNullOrWhiteSpace(kq.Lop))
+                        {
+                            listItem[i].Lop = kq.Lop;
+                        }
+                        if (!string.IsNullOrWhiteSpace(kq.Nganh))
+                        {
+                            listItem[i].Nganh = kq.Nganh;
+                        }
 
-                    // Thêm listItem[i] vào fpnlKetQua.Controls
-                    fpnlKetQua.Controls.Add(listItem[i]);
+                        // Gán sự kiện Click cho mỗi ucListItem
+                        listItem[i].ItemClick += ucListItem_Click;
+
+                        // Thêm listItem[i] vào fpnlKetQua.Controls
+                        fpnlKetQua.Controls.Add(listItem[i]);
+                    }
                 }
+            }
+            else
+                return;
+        }
+
+        private void ucListItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (frmHienThi frm = new frmHienThi())
+                {
+                    // Xác định ucListItem được click
+                    ucListItem clickedItem = sender as ucListItem;
+                    if (clickedItem != null)
+                    {
+                        // Lấy số thứ tự của ucListItem
+                        string itemID = clickedItem.Id;
+                        frm.IdHienThi = itemID;
+                        frm.ShowDialog();
+                    }
+                }
+            }
+            catch (Exception ev)
+            {
+                MessageBox.Show("Lỗi: " + ev.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -317,6 +352,8 @@ namespace DongThucVat
             conn.Close();
             listID.Clear();
             kqList.Clear();
+
+            lbThongBao.Text = "Danh sách có " + dgv.Rows.Count + " loài.";
 
             foreach (DataGridViewRow row in dgv.Rows)
             {

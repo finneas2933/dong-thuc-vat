@@ -17,7 +17,6 @@ namespace DongThucVat
     {
         SqlConnection conn;
         string sql = "";
-        int t;
         string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
         string defaultImagePath = AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png";
 
@@ -111,8 +110,9 @@ namespace DongThucVat
 
         private void InitializeImageTimer()
         {
-            imageTimer.Interval = 1500; // Thời gian chuyển đổi giữa các ảnh
+            imageTimer.Interval = 10000; // Thời gian chuyển đổi giữa các ảnh
             imageTimer.Tick += ImageTimer_Tick;
+            ImageTimer_Tick(this, EventArgs.Empty);
             imageTimer.Start();
         }
 

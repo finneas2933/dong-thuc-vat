@@ -12,10 +12,18 @@ namespace DongThucVat
     {
         public static SqlConnection ConnectDB()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            //string connString = @"Data Source=DESKTOP-I2TNFJD\SQLEXPRESS;Initial Catalog=CSDLDongThucVat;Persist Security Info=True;User ID=sa;Password=123";
-            SqlConnection conn = new SqlConnection(connectionString);
-            return conn;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+                //string connString = @"Data Source=DESKTOP-I2TNFJD\SQLEXPRESS;Initial Catalog=CSDLDongThucVat;Persist Security Info=True;User ID=sa;Password=123";
+                SqlConnection conn = new SqlConnection(connectionString);
+                return conn;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Lỗi kết nối tới cơ sở dữ liệu: " + ex.Message);
+                return null;
+            }
         }
     }
 }
