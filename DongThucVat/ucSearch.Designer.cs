@@ -29,9 +29,11 @@ namespace DongThucVat
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.fpnlKetQua = new System.Windows.Forms.FlowLayoutPanel();
-            this.ucListItem1 = new DongThucVat.ucListItem();
             this.pnlSearch = new System.Windows.Forms.Panel();
+            this.lbThongBao = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btTim = new System.Windows.Forms.Button();
             this.txtTenLatinh = new System.Windows.Forms.TextBox();
@@ -52,6 +54,7 @@ namespace DongThucVat
             this.label1 = new System.Windows.Forms.Label();
             this.pnlDGV = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,18 +63,15 @@ namespace DongThucVat
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbThongBao = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btNextPage = new System.Windows.Forms.Button();
+            this.btPrevPage = new System.Windows.Forms.Button();
+            this.ucListItem1 = new DongThucVat.ucListItem();
             this.fpnlKetQua.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.pnlDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fpnlKetQua
@@ -82,27 +82,8 @@ namespace DongThucVat
             this.fpnlKetQua.Controls.Add(this.ucListItem1);
             this.fpnlKetQua.Location = new System.Drawing.Point(727, 0);
             this.fpnlKetQua.Name = "fpnlKetQua";
-            this.fpnlKetQua.Size = new System.Drawing.Size(390, 628);
+            this.fpnlKetQua.Size = new System.Drawing.Size(390, 589);
             this.fpnlKetQua.TabIndex = 0;
-            // 
-            // ucListItem1
-            // 
-            this.ucListItem1.Anh = null;
-            this.ucListItem1.Bo = "(Bộ)";
-            this.ucListItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucListItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucListItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
-            this.ucListItem1.Ho = "(Họ)";
-            this.ucListItem1.Id = "";
-            this.ucListItem1.Location = new System.Drawing.Point(3, 3);
-            this.ucListItem1.Lop = "(Lớp)";
-            this.ucListItem1.Name = "ucListItem1";
-            this.ucListItem1.Nganh = "(Ngành)";
-            this.ucListItem1.Padding = new System.Windows.Forms.Padding(3);
-            this.ucListItem1.Size = new System.Drawing.Size(498, 172);
-            this.ucListItem1.Stt = 1;
-            this.ucListItem1.TabIndex = 0;
-            this.ucListItem1.Tenloai = "(Loài)";
             // 
             // pnlSearch
             // 
@@ -132,6 +113,15 @@ namespace DongThucVat
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Size = new System.Drawing.Size(727, 288);
             this.pnlSearch.TabIndex = 1;
+            // 
+            // lbThongBao
+            // 
+            this.lbThongBao.Location = new System.Drawing.Point(417, 257);
+            this.lbThongBao.Name = "lbThongBao";
+            this.lbThongBao.Size = new System.Drawing.Size(303, 25);
+            this.lbThongBao.TabIndex = 11;
+            this.lbThongBao.Text = ".";
+            this.lbThongBao.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label5
             // 
@@ -345,6 +335,7 @@ namespace DongThucVat
             this.pnlDGV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlDGV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDGV.Controls.Add(this.dgv);
+            this.pnlDGV.ForeColor = System.Drawing.Color.Black;
             this.pnlDGV.Location = new System.Drawing.Point(0, 284);
             this.pnlDGV.Name = "pnlDGV";
             this.pnlDGV.Size = new System.Drawing.Size(727, 344);
@@ -354,9 +345,12 @@ namespace DongThucVat
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
             this.Column15,
             this.Column1,
             this.Column2,
@@ -364,14 +358,7 @@ namespace DongThucVat
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12,
-            this.Column13,
-            this.Column14});
+            this.Column7});
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(0, 0);
             this.dgv.Name = "dgv";
@@ -381,6 +368,16 @@ namespace DongThucVat
             this.dgv.Size = new System.Drawing.Size(725, 342);
             this.dgv.TabIndex = 0;
             this.dgv.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CellMouseClick);
+            this.dgv.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_DataBindingComplete);
+            // 
+            // STT
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle2;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 40;
             // 
             // Column15
             // 
@@ -446,76 +443,71 @@ namespace DongThucVat
             this.Column7.ReadOnly = true;
             this.Column7.Width = 180;
             // 
-            // Column8
+            // panel1
             // 
-            this.Column8.DataPropertyName = "muc_do_bao_ton_iucn";
-            this.Column8.HeaderText = "IUCN";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 180;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.btNextPage);
+            this.panel1.Controls.Add(this.btPrevPage);
+            this.panel1.Location = new System.Drawing.Point(727, 586);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(390, 42);
+            this.panel1.TabIndex = 11;
             // 
-            // Column9
+            // btNextPage
             // 
-            this.Column9.DataPropertyName = "muc_do_bao_ton_sdvn";
-            this.Column9.HeaderText = "Sách đỏ VN";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 180;
+            this.btNextPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btNextPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btNextPage.FlatAppearance.BorderSize = 0;
+            this.btNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btNextPage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btNextPage.Location = new System.Drawing.Point(230, 6);
+            this.btNextPage.Name = "btNextPage";
+            this.btNextPage.Size = new System.Drawing.Size(133, 30);
+            this.btNextPage.TabIndex = 24;
+            this.btNextPage.Text = ">>";
+            this.btNextPage.UseVisualStyleBackColor = false;
+            this.btNextPage.Click += new System.EventHandler(this.btNextPage_Click);
             // 
-            // Column10
+            // btPrevPage
             // 
-            this.Column10.DataPropertyName = "muc_do_bao_ton_ndcp";
-            this.Column10.HeaderText = "Nghị định 84";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 150;
+            this.btPrevPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btPrevPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btPrevPage.FlatAppearance.BorderSize = 0;
+            this.btPrevPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPrevPage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPrevPage.Location = new System.Drawing.Point(28, 6);
+            this.btPrevPage.Name = "btPrevPage";
+            this.btPrevPage.Size = new System.Drawing.Size(133, 30);
+            this.btPrevPage.TabIndex = 23;
+            this.btPrevPage.Text = "<<";
+            this.btPrevPage.UseVisualStyleBackColor = false;
+            this.btPrevPage.Click += new System.EventHandler(this.btPrevPage_Click);
             // 
-            // Column11
+            // ucListItem1
             // 
-            this.Column11.DataPropertyName = "muc_do_bao_ton_nd64cp";
-            this.Column11.HeaderText = "Nghị định 64";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 150;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "dac_diem";
-            this.Column12.HeaderText = "Đặc điểm";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "gia_tri_su_dung";
-            this.Column13.HeaderText = "Giá trị sử dụng";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Visible = false;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "phan_bo";
-            this.Column14.HeaderText = "Phân bổ";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Visible = false;
-            // 
-            // lbThongBao
-            // 
-            this.lbThongBao.Location = new System.Drawing.Point(417, 257);
-            this.lbThongBao.Name = "lbThongBao";
-            this.lbThongBao.Size = new System.Drawing.Size(303, 25);
-            this.lbThongBao.TabIndex = 11;
-            this.lbThongBao.Text = ".";
-            this.lbThongBao.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.ucListItem1.Anh = null;
+            this.ucListItem1.Bo = "(Bộ)";
+            this.ucListItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucListItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucListItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.ucListItem1.Ho = "(Họ)";
+            this.ucListItem1.Id = "";
+            this.ucListItem1.Location = new System.Drawing.Point(3, 3);
+            this.ucListItem1.Lop = "(Lớp)";
+            this.ucListItem1.Name = "ucListItem1";
+            this.ucListItem1.Nganh = "(Ngành)";
+            this.ucListItem1.Padding = new System.Windows.Forms.Padding(3);
+            this.ucListItem1.Size = new System.Drawing.Size(498, 172);
+            this.ucListItem1.Stt = 1;
+            this.ucListItem1.TabIndex = 0;
+            this.ucListItem1.Tenloai = "(Loài)";
             // 
             // ucSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDGV);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.fpnlKetQua);
@@ -529,6 +521,7 @@ namespace DongThucVat
             this.pnlSearch.PerformLayout();
             this.pnlDGV.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -557,6 +550,9 @@ namespace DongThucVat
         private System.Windows.Forms.Panel pnlDGV;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgv;
+        private ucListItem ucListItem1;
+        private System.Windows.Forms.Label lbThongBao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -565,14 +561,8 @@ namespace DongThucVat
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private ucListItem ucListItem1;
-        private System.Windows.Forms.Label lbThongBao;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btNextPage;
+        private System.Windows.Forms.Button btPrevPage;
     }
 }

@@ -21,6 +21,9 @@ namespace DongThucVat
         string sql = "";
         string hinhanh;
         private int id, loai;
+        private int currentPage = 1;
+        private int rowsPerPage = 20;
+
         public int Loai { get => loai; set => loai = value; }
 
         public class KetQua
@@ -152,13 +155,17 @@ namespace DongThucVat
         public void listItemLoad()
         {
             fpnlKetQua.Controls.Clear();
+
+            int startIndex = (currentPage - 1) * rowsPerPage;
+            int endIndex = Math.Min(startIndex + rowsPerPage, kqList.Count);
+
             if (kqList != null && kqList.Count > 0)
             {
-                ucListItem[] listItem = new ucListItem[kqList.Count];
-                for (int i = 0; i < listItem.Length; i++)
+                ucListItem[] listItem = new ucListItem[endIndex - startIndex];
+                for (int i = startIndex; i < endIndex; i++)
                 {
-                    listItem[i] = new ucListItem();
-                    listItem[i].Stt = i + 1;
+                    listItem[i - startIndex] = new ucListItem();
+                    listItem[i - startIndex].Stt = i + 1;
                     if (i < kqList.Count)
                     {
                         KetQua kq = kqList[i];
@@ -167,38 +174,38 @@ namespace DongThucVat
                         string hinhanhloai = anhListItemLoad(kq.ID);
                         if (!string.IsNullOrWhiteSpace(hinhanhloai))
                         {
-                            listItem[i].Anh = hinhanhloai;
+                            listItem[i - startIndex].Anh = hinhanhloai;
                         }
                         if (!string.IsNullOrWhiteSpace(kq.ID))
                         {
-                            listItem[i].Id = kq.ID;
+                            listItem[i - startIndex].Id = kq.ID;
                         }
                         if (!string.IsNullOrWhiteSpace(kq.TenLoai))
                         {
-                            listItem[i].Tenloai = kq.TenLoai;
+                            listItem[i - startIndex].Tenloai = kq.TenLoai;
                         }
                         if (!string.IsNullOrWhiteSpace(kq.Ho))
                         {
-                            listItem[i].Ho = kq.Ho;
+                            listItem[i - startIndex].Ho = kq.Ho;
                         }
                         if (!string.IsNullOrWhiteSpace(kq.Bo))
                         {
-                            listItem[i].Bo = kq.Bo;
+                            listItem[i - startIndex].Bo = kq.Bo;
                         }
                         if (!string.IsNullOrWhiteSpace(kq.Lop))
                         {
-                            listItem[i].Lop = kq.Lop;
+                            listItem[i - startIndex].Lop = kq.Lop;
                         }
                         if (!string.IsNullOrWhiteSpace(kq.Nganh))
                         {
-                            listItem[i].Nganh = kq.Nganh;
+                            listItem[i - startIndex].Nganh = kq.Nganh;
                         }
 
                         // Gán sự kiện Click cho mỗi ucListItem
-                        listItem[i].ItemClick += ucListItem_Click;
+                        listItem[i - startIndex].ItemClick += ucListItem_Click;
 
                         // Thêm listItem[i] vào fpnlKetQua.Controls
-                        fpnlKetQua.Controls.Add(listItem[i]);
+                        fpnlKetQua.Controls.Add(listItem[i - startIndex]);
                     }
                 }
             }
@@ -308,7 +315,7 @@ namespace DongThucVat
                         using (frmHienThi frm = new frmHienThi())
                         {
                            DataGridViewRow row = dgv.Rows[e.RowIndex];
-                            frm.IdHienThi = row.Cells[0].Value.ToString();
+                            frm.IdHienThi = row.Cells[1].Value.ToString();
                             frm.ShowDialog();
                         }
                     }
@@ -365,18 +372,49 @@ namespace DongThucVat
                 {
                     KetQua kq = new KetQua();
 
-                    kq.ID = row.Cells[0].Value.ToString();
-                    kq.TenLoai = row.Cells[1].Value.ToString();
-                    kq.Ho = row.Cells[4].Value.ToString();
-                    kq.Bo = row.Cells[5].Value.ToString();
-                    kq.Lop = row.Cells[6].Value.ToString();
-                    kq.Nganh = row.Cells[7].Value.ToString();
+                    kq.ID = row.Cells[1].Value.ToString();
+                    kq.TenLoai = row.Cells[2].Value.ToString();
+                    kq.Ho = row.Cells[5].Value.ToString();
+                    kq.Bo = row.Cells[6].Value.ToString();
+                    kq.Lop = row.Cells[7].Value.ToString();
+                    kq.Nganh = row.Cells[8].Value.ToString();
 
                     kqList.Add(kq);
                 }
             }
 
             listItemLoad();
+        }
+
+        private void dgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            SetRowNumber(dgv);
+        }
+
+        private void btPrevPage_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                listItemLoad();
+            }
+        }
+
+        private void btNextPage_Click(object sender, EventArgs e)
+        {
+            if (currentPage < Math.Ceiling((double)kqList.Count / rowsPerPage))
+            {
+                currentPage++;
+                listItemLoad();
+            }
+        }
+
+        private void SetRowNumber(DataGridView dataGridView)
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                row.Cells["STT"].Value = row.Index + 1;
+            }
         }
     }
 }
