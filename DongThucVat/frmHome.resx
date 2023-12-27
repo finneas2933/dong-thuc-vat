@@ -118,16 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAPdJREFUSEvV
-        ljsKAjEURWcJKggWFuOn0D3pji39gYX4AUUXMZ47voAGtcmL4oHbZB7nkjBxLP6CqqoGZEdmpGnLviDu
-        kQMJLIhvGcI+OcoeMbGRdJBpJ/ta+8ya+OwIUUkejyuwIR0bSwNRl7wq2RLXEgljtNa1sTQkMmGMdpe9
-        5ERKG0sD0aeSoY2lgehdyYX4lAhkuuUxVzKyER8QLmv1Myoa24gPCDtElzDG9+gEQpXlfRkCCPO/3gGE
-        +S9sQELyqkxrWcry/qgGEH76TLRtzAeE78pW5Guf8qmN+IFUZedaf2dOGvbYF8RDomPU362WLf+SorgB
-        JtWPkhZyumkAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btMini.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -155,6 +145,16 @@
         a3gp4ybZjNw+/ntWP0EtcK1qDBSfIJr5Vx1lzQZr83vJmuVDQ8gvGDkimn8Zc7Ums5VdAiO3kLAFL8+M
         OcrN3FtWgwmeV8AiP4g14lvBa2rjDcj0JgNIZBvzmbXCNfV2PQML2HP+upYNmcPct6fVQAGeAQtxovjJ
         YvCaWsN7t1j8A1ESPgj30OdFAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAPdJREFUSEvV
+        ljsKAjEURWcJKggWFuOn0D3pji39gYX4AUUXMZ47voAGtcmL4oHbZB7nkjBxLP6CqqoGZEdmpGnLviDu
+        kQMJLIhvGcI+OcoeMbGRdJBpJ/ta+8ya+OwIUUkejyuwIR0bSwNRl7wq2RLXEgljtNa1sTQkMmGMdpe9
+        5ERKG0sD0aeSoY2lgehdyYX4lAhkuuUxVzKyER8QLmv1Myoa24gPCDtElzDG9+gEQpXlfRkCCPO/3gGE
+        +S9sQELyqkxrWcry/qgGEH76TLRtzAeE78pW5Guf8qmN+IFUZedaf2dOGvbYF8RDomPU362WLf+SorgB
+        JtWPkhZyumkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

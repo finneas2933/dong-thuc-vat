@@ -32,6 +32,10 @@ namespace DongThucVat
         private void ucLoai_Load(object sender, EventArgs e)
         {
             conn = Connect.ConnectDB();
+            if (loai == 0)
+                lbTieuDe.Text = "LOÀI ĐỘNG VẬT";
+            else
+                lbTieuDe.Text = "LOÀI THỰC VẬT";
             cbLoad();
             dgvLoad();
             vitri = null;
@@ -158,8 +162,8 @@ namespace DongThucVat
                     {
                         vitri = e;
                         DataGridViewRow row = dgv.Rows[e.RowIndex];
-                        id = Int32.Parse(row.Cells[0].Value.ToString());
-                        tenTiengViet = row.Cells[1].Value.ToString();
+                        id = Int32.Parse(row.Cells[1].Value.ToString());
+                        tenTiengViet = row.Cells[2].Value.ToString();
                     }
                 }
             }
@@ -167,6 +171,19 @@ namespace DongThucVat
             {
                 MessageBox.Show("Lỗi" + ex.Message, "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            SetRowNumber(dgv);
+        }
+
+        private void SetRowNumber(DataGridView dataGridView)
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                row.Cells["STT"].Value = row.Index + 1;
             }
         }
 

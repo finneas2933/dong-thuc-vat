@@ -30,7 +30,7 @@ namespace DongThucVat
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucHo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btRefresh = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
@@ -40,6 +40,7 @@ namespace DongThucVat
             this.btThem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,20 +52,23 @@ namespace DongThucVat
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbTieuDe = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btRefresh
             // 
-            this.btRefresh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btRefresh.FlatAppearance.BorderSize = 0;
             this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRefresh.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRefresh.ForeColor = System.Drawing.Color.White;
             this.btRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btRefresh.Image")));
-            this.btRefresh.Location = new System.Drawing.Point(450, 0);
+            this.btRefresh.Location = new System.Drawing.Point(450, 54);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(169, 67);
             this.btRefresh.TabIndex = 3;
@@ -75,13 +79,13 @@ namespace DongThucVat
             // 
             // btXoa
             // 
-            this.btXoa.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btXoa.FlatAppearance.BorderSize = 0;
             this.btXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btXoa.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btXoa.ForeColor = System.Drawing.Color.White;
             this.btXoa.Image = ((System.Drawing.Image)(resources.GetObject("btXoa.Image")));
-            this.btXoa.Location = new System.Drawing.Point(300, 0);
+            this.btXoa.Location = new System.Drawing.Point(300, 54);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(150, 67);
             this.btXoa.TabIndex = 2;
@@ -92,13 +96,13 @@ namespace DongThucVat
             // 
             // btSua
             // 
-            this.btSua.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btSua.FlatAppearance.BorderSize = 0;
             this.btSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSua.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSua.ForeColor = System.Drawing.Color.White;
             this.btSua.Image = ((System.Drawing.Image)(resources.GetObject("btSua.Image")));
-            this.btSua.Location = new System.Drawing.Point(150, 0);
+            this.btSua.Location = new System.Drawing.Point(150, 54);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(150, 67);
             this.btSua.TabIndex = 1;
@@ -110,6 +114,7 @@ namespace DongThucVat
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(24)))));
+            this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.cb);
             this.panel5.Controls.Add(this.btRefresh);
@@ -119,7 +124,7 @@ namespace DongThucVat
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(5, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1107, 67);
+            this.panel5.Size = new System.Drawing.Size(1107, 121);
             this.panel5.TabIndex = 0;
             // 
             // label1
@@ -128,7 +133,7 @@ namespace DongThucVat
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(645, 21);
+            this.label1.Location = new System.Drawing.Point(646, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 25);
             this.label1.TabIndex = 19;
@@ -139,7 +144,7 @@ namespace DongThucVat
             this.cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb.FormattingEnabled = true;
-            this.cb.Location = new System.Drawing.Point(688, 18);
+            this.cb.Location = new System.Drawing.Point(689, 72);
             this.cb.Name = "cb";
             this.cb.Size = new System.Drawing.Size(400, 33);
             this.cb.TabIndex = 4;
@@ -147,13 +152,13 @@ namespace DongThucVat
             // 
             // btThem
             // 
-            this.btThem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btThem.FlatAppearance.BorderSize = 0;
             this.btThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btThem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ForeColor = System.Drawing.Color.White;
             this.btThem.Image = ((System.Drawing.Image)(resources.GetObject("btThem.Image")));
-            this.btThem.Location = new System.Drawing.Point(0, 0);
+            this.btThem.Location = new System.Drawing.Point(0, 54);
             this.btThem.Name = "btThem";
             this.btThem.Size = new System.Drawing.Size(150, 67);
             this.btThem.TabIndex = 0;
@@ -166,20 +171,21 @@ namespace DongThucVat
             // 
             this.panel1.Controls.Add(this.dgv);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 72);
+            this.panel1.Location = new System.Drawing.Point(5, 126);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1107, 551);
+            this.panel1.Size = new System.Drawing.Size(1107, 497);
             this.panel1.TabIndex = 18;
             // 
             // dgv
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -197,9 +203,17 @@ namespace DongThucVat
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1107, 551);
+            this.dgv.Size = new System.Drawing.Size(1107, 497);
             this.dgv.TabIndex = 0;
             this.dgv.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CellMouseClick);
+            this.dgv.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_DataBindingComplete);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 40;
             // 
             // Column1
             // 
@@ -290,6 +304,28 @@ namespace DongThucVat
             this.Column11.ReadOnly = true;
             this.Column11.Width = 300;
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.lbTieuDe);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1107, 45);
+            this.panel2.TabIndex = 20;
+            // 
+            // lbTieuDe
+            // 
+            this.lbTieuDe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbTieuDe.AutoSize = true;
+            this.lbTieuDe.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTieuDe.ForeColor = System.Drawing.Color.White;
+            this.lbTieuDe.Location = new System.Drawing.Point(461, 4);
+            this.lbTieuDe.Name = "lbTieuDe";
+            this.lbTieuDe.Size = new System.Drawing.Size(184, 32);
+            this.lbTieuDe.TabIndex = 15;
+            this.lbTieuDe.Text = "HỌ ĐỘNG VẬT";
+            // 
             // ucHo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -305,6 +341,8 @@ namespace DongThucVat
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -319,6 +357,7 @@ namespace DongThucVat
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -330,5 +369,7 @@ namespace DongThucVat
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbTieuDe;
     }
 }
