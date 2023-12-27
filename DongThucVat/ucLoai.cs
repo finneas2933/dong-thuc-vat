@@ -41,25 +41,36 @@ namespace DongThucVat
             vitri = null;
         }
 
-        public void dgvLoad()
+        public async void dgvLoad()
         {
-            if (conn.State != ConnectionState.Open)
+            if (this.InvokeRequired)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    dgvLoad(); // Gọi lại phương thức từ luồng UI chính
+                });
+                return;
+            }
+            using (SqlConnection conn = Connect.ConnectDB())
+            {
                 conn.Open();
-            if (idFK == 0)
-                sql = "SELECT l.*, h.name AS namefk FROM Loai l JOIN Ho h ON l.id_dtv_ho = h.id WHERE l.loai = " + loai;
-            else
-                sql = "SELECT l.*, h.name AS namefk FROM Loai l JOIN Ho h ON l.id_dtv_ho = h.id WHERE l.loai = " + loai + " AND l.id_dtv_ho = " + cb.SelectedValue;
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataAdapter daGRV = new SqlDataAdapter();
-            daGRV.SelectCommand = cmd;
-            cmd.Dispose();
-            conn.Close();
+                if (idFK == 0)
+                    sql = "SELECT l.*, h.name AS namefk FROM Loai l JOIN Ho h ON l.id_dtv_ho = h.id WHERE l.loai = " + loai;
+                else
+                    sql = "SELECT l.*, h.name AS namefk FROM Loai l JOIN Ho h ON l.id_dtv_ho = h.id WHERE l.loai = " + loai + " AND l.id_dtv_ho = " + cb.SelectedValue;
 
-            DataTable dtGRV = new DataTable();
-            daGRV.Fill(dtGRV);
-
-            dgv.DataSource = dtGRV;
-            dgv.Refresh();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    using (SqlDataAdapter daGRV = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dtGRV = new DataTable();
+                        daGRV.Fill(dtGRV);
+                        await Task.Delay(500);
+                        dgv.DataSource = dtGRV;
+                        dgv.Refresh();
+                    }
+                }
+            }
         }
 
         public void cbLoad()
@@ -86,10 +97,11 @@ namespace DongThucVat
             cb.ValueMember = "id";
         }
 
-        private void btRefresh_Click(object sender, EventArgs e)
+        private async void btRefresh_Click(object sender, EventArgs e)
         {
             cbLoad();
-            dgvLoad();
+            // Load dữ liệu từ cơ sở dữ liệu không làm lag ứng dụng
+            await Task.Run(() => dgvLoad());
             vitri = null;
         }
 

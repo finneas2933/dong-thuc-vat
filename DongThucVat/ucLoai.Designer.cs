@@ -40,7 +40,6 @@ namespace DongThucVat
             this.btRefresh = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +64,6 @@ namespace DongThucVat
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,15 +196,6 @@ namespace DongThucVat
             this.btSua.UseVisualStyleBackColor = true;
             this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dgv);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 126);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1107, 497);
-            this.panel1.TabIndex = 20;
-            // 
             // dgv
             // 
             this.dgv.AllowUserToAddRows = false;
@@ -238,7 +227,7 @@ namespace DongThucVat
             this.Column10,
             this.Column11});
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv.Location = new System.Drawing.Point(0, 0);
+            this.dgv.Location = new System.Drawing.Point(5, 126);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
@@ -420,7 +409,7 @@ namespace DongThucVat
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dgv);
             this.Controls.Add(this.panel5);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ucLoai";
@@ -431,7 +420,6 @@ namespace DongThucVat
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
@@ -445,7 +433,6 @@ namespace DongThucVat
         private System.Windows.Forms.Button btRefresh;
         private System.Windows.Forms.Button btXoa;
         private System.Windows.Forms.Button btSua;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
