@@ -35,6 +35,7 @@ namespace DongThucVat
 
         private void btLop_Click(object sender, EventArgs e)
         {
+            frmHome.Instance.tieuDe.Visible = false;
             if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucLop"))
             {
                 ucLop uc = new ucLop();
@@ -46,11 +47,11 @@ namespace DongThucVat
             }
             frmHome.Instance.pnlControl.Controls["ucLop"].BringToFront();
             frmHome.Instance.buttonBack.Visible = true;
-            frmHome.Instance.tieuDe.Visible = false;
         }
 
         private void btBo_Click(object sender, EventArgs e)
         {
+            frmHome.Instance.tieuDe.Visible = false;
             if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucBo"))
             {
                 ucBo uc = new ucBo();
@@ -62,11 +63,11 @@ namespace DongThucVat
             }
             frmHome.Instance.pnlControl.Controls["ucBo"].BringToFront();
             frmHome.Instance.buttonBack.Visible = true;
-            frmHome.Instance.tieuDe.Visible = false;
         }
 
         private void btHo_Click(object sender, EventArgs e)
         {
+            frmHome.Instance.tieuDe.Visible = false;
             if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucHo"))
             {
                 ucHo uc = new ucHo();
@@ -78,11 +79,11 @@ namespace DongThucVat
             }
             frmHome.Instance.pnlControl.Controls["ucHo"].BringToFront();
             frmHome.Instance.buttonBack.Visible = true;
-            frmHome.Instance.tieuDe.Visible = false;
         }
 
         private void btLoai_Click(object sender, EventArgs e)
         {
+            frmHome.Instance.tieuDe.Visible = false;
             if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucLoai"))
             {
                 ucLoai uc = new ucLoai();
@@ -94,11 +95,11 @@ namespace DongThucVat
             }
             frmHome.Instance.pnlControl.Controls["ucLoai"].BringToFront();
             frmHome.Instance.buttonBack.Visible = true;
-            frmHome.Instance.tieuDe.Visible = false;
         }
 
         private void btNganh_Click(object sender, EventArgs e)
         {
+            frmHome.Instance.tieuDe.Visible = false;
             if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucNganh"))
             {
                 ucNganh uc = new ucNganh();
@@ -110,7 +111,7 @@ namespace DongThucVat
             }
             frmHome.Instance.pnlControl.Controls["ucNganh"].BringToFront();
             frmHome.Instance.buttonBack.Visible = true;
-            frmHome.Instance.tieuDe.Visible = false;
+            //await Task.Delay(300);
         }
 
         private void ucChon_Load(object sender, EventArgs e)
@@ -149,6 +150,7 @@ namespace DongThucVat
 
         private void btSearch_Click(object sender, EventArgs e)
         {
+            frmHome.Instance.tieuDe.Visible = false;
             if (!frmHome.Instance.pnlControl.Controls.ContainsKey("ucSearch"))
             {
                 ucSearch uc = new ucSearch();
@@ -159,7 +161,6 @@ namespace DongThucVat
             }
             frmHome.Instance.pnlControl.Controls["ucSearch"].BringToFront();
             frmHome.Instance.buttonBack.Visible = true;
-            frmHome.Instance.tieuDe.Visible = false;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,6 +19,7 @@ namespace DongThucVat
         SqlConnection conn;
         string sql = "";
         public event Action loadDGV;
+        bool imageDel;
 
         // Tạo một đối tượng của lớp ConfigurationManager để đọc thông tin cấu hình từ file app.config
         string pictureFolder = ConfigurationManager.AppSettings["PictureFolder"];
@@ -114,32 +116,61 @@ namespace DongThucVat
 
         public void LoadImages()
         {
+            string loaiFolderPath = pictureFolder + "\\" + id.ToString();
             try
             {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                string sql = "SELECT hinhanh FROM HinhAnhLoai WHERE id_dtv_loai = @loaiId";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@loaiId", id);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                if (Directory.Exists(loaiFolderPath))
                 {
-                    string imageName = reader["hinhanh"].ToString();
-                    if (!string.IsNullOrEmpty(imageName))
+                    // Lấy tất cả các đường dẫn file trong thư mục
+                    string[] allFiles = Directory.GetFiles(loaiFolderPath);
+                    // Lọc ra các file ảnh (có thể thêm các định dạng file ảnh khác vào đây)
+                    string[] imageExtensions = { ".jpg", ".jpeg", ".png" };
+                    //string[] imageFiles = Directory.GetFiles(loaiFolderPath, "*.jpg;*.jpeg;*.png");
+                    foreach (string filePath in allFiles)
                     {
-                        selectedImages.Add(imageName);
+                        string extension = Path.GetExtension(filePath).ToLower();
+
+                        if (Array.Exists(imageExtensions, e => e == extension))
+                        {
+                            selectedImages.Add(filePath);
+                        }
                     }
                 }
-                reader.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+        //public void LoadImages()
+        //{
+        //    try
+        //    {
+        //        if (conn.State != ConnectionState.Open)
+        //            conn.Open();
+
+        //        string sql = "SELECT hinhanh FROM HinhAnhLoai WHERE id_dtv_loai = @loaiId";
+        //        SqlCommand cmd = new SqlCommand(sql, conn);
+        //        cmd.Parameters.AddWithValue("@loaiId", id);
+
+        //        SqlDataReader reader = cmd.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            string imageName = pictureFolder + "\\" + id.ToString() + "\\" + reader["hinhanh"].ToString();
+        //            if (!string.IsNullOrEmpty(imageName))
+        //            {
+        //                selectedImages.Add(imageName);
+        //            }
+        //        }
+        //        reader.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi: " + ex.Message);
+        //    }
+        //}
 
         private void DisplayImages()
         {
@@ -149,9 +180,9 @@ namespace DongThucVat
             {
                 try
                 {
-                    string imagePath = pictureFolder + "\\" + imageName;
+                    //string imagePath = pictureFolder + "\\" + imageName;
                     PictureBox pictureBox = new PictureBox();
-                    pictureBox.Image = Image.FromFile(imagePath);
+                    pictureBox.Image = Image.FromFile(imageName);
                     pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox.Width = 50;
                     pictureBox.Height = 50;
@@ -224,6 +255,7 @@ namespace DongThucVat
                 lbNganh.Text = "LOÀI ĐỘNG VẬT";
             if (loai == 1)
                 lbNganh.Text = "LOÀI THỰC VẬT";
+            imageDel = false;
             if (ktThem == false)
             {
                 layNguonControls();
@@ -263,119 +295,192 @@ namespace DongThucVat
 
         private void btLuu_Click(object sender, EventArgs e)
         {
-            if (txtTenTiengViet.Text == "" && txtTenLatinh.Text == "")
+            try
             {
-                MessageBox.Show("Bạn chưa nhập tên loài!", "Thông báo",
-                    MessageBoxButtons.OK);
-                txtTenTiengViet.Focus();
-                return;
+                if (txtTenTiengViet.Text == "" && txtTenLatinh.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập tên loài!", "Thông báo",
+                        MessageBoxButtons.OK);
+                    txtTenTiengViet.Focus();
+                    return;
+                }
+                if (cbFK.SelectedIndex <= 0 || cbFK.SelectedValue == null)
+                {
+                    MessageBox.Show("Bạn chưa chọn họ!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cbFK.Focus();
+                    return;
+                }
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+                try
+                {
+                    if (ktThem == true)
+                    {
+                        if (MessageBox.Show("Bạn có muốn thêm loài " + txtTenTiengViet.Text + " không?", "Thông báo",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                            return;
+                        DateTime createdAt = DateTime.Now;
+                        SqlCommand cmd = new SqlCommand("InsertLoai", conn, transaction);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = txtTenTiengViet.Text.Trim();
+                        cmd.Parameters.Add("@name_latinh", SqlDbType.NVarChar).Value = txtTenLatinh.Text.Trim();
+                        cmd.Parameters.Add("@loai", SqlDbType.Bit).Value = loai;
+                        cmd.Parameters.Add("@id_dtv_ho", SqlDbType.Int).Value = cbFK.SelectedValue;
+                        cmd.Parameters.Add("@ten_khac", SqlDbType.NVarChar).Value = txtTenKhac.Text.Trim();
+                        cmd.Parameters.Add("@dac_diem", SqlDbType.NVarChar).Value = rtxtDacDiem.Text;
+                        cmd.Parameters.Add("@gia_tri_su_dung", SqlDbType.NVarChar).Value = rtxtCongDung.Text;
+                        cmd.Parameters.Add("@phan_bo", SqlDbType.NVarChar).Value = txtPhanBo.Text.Trim();
+                        cmd.Parameters.Add("@nguon_tai_lieu", SqlDbType.NVarChar).Value = txtNguonTaiLieu.Text.Trim();
+                        cmd.Parameters.Add("@muc_do_bao_ton_iucn", SqlDbType.NVarChar).Value = cbIUCN.SelectedIndex == 0 ? "" : cbIUCN.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@muc_do_bao_ton_sdvn", SqlDbType.NVarChar).Value = cbSDVN.SelectedIndex == 0 ? "" : cbSDVN.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@muc_do_bao_ton_ndcp", SqlDbType.NVarChar).Value = cbNDCP.SelectedIndex == 0 ? "" : cbNDCP.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@muc_do_bao_ton_nd64cp  ", SqlDbType.NVarChar).Value = cbND64CP.SelectedIndex == 0 ? "" : cbND64CP.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
+                        cmd.Parameters.Add("@created_at", SqlDbType.DateTime).Value = createdAt;
+                        cmd.Parameters.Add("@created_by", SqlDbType.Int).Value = Int32.Parse(idUser);
+
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        // Lấy id của loài vừa thêm
+                        int insertedLoaiId = GetInsertedLoaiId(transaction);
+                        // Kiểm tra và tạo thư mục cho loài
+                        CreateFolderIfNotExists(insertedLoaiId);
+                        // Lưu ảnh vào thư mục của loài
+                        SaveImagesToFolder(insertedLoaiId);
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Bạn có muốn sửa loài " + tenTiengViet + " không?", "Thông báo",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                            return;
+                        DateTime updatedAt = DateTime.Now;
+                        SqlCommand cmd = new SqlCommand("UpdateLoai", conn, transaction);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                        cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = txtTenTiengViet.Text.Trim();
+                        cmd.Parameters.Add("@name_latinh", SqlDbType.NVarChar).Value = txtTenLatinh.Text.Trim();
+                        cmd.Parameters.Add("@id_dtv_ho", SqlDbType.Int).Value = cbFK.SelectedValue;
+                        cmd.Parameters.Add("@ten_khac", SqlDbType.NVarChar).Value = txtTenKhac.Text.Trim();
+                        cmd.Parameters.Add("@dac_diem", SqlDbType.NVarChar).Value = rtxtDacDiem.Text;
+                        cmd.Parameters.Add("@gia_tri_su_dung", SqlDbType.NVarChar).Value = rtxtCongDung.Text;
+                        cmd.Parameters.Add("@phan_bo", SqlDbType.NVarChar).Value = txtPhanBo.Text.Trim();
+                        cmd.Parameters.Add("@nguon_tai_lieu", SqlDbType.NVarChar).Value = txtNguonTaiLieu.Text.Trim();
+                        cmd.Parameters.Add("@muc_do_bao_ton_iucn", SqlDbType.NVarChar).Value = cbIUCN.SelectedIndex == 0 ? "" : cbIUCN.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@muc_do_bao_ton_sdvn", SqlDbType.NVarChar).Value = cbSDVN.SelectedIndex == 0 ? "" : cbSDVN.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@muc_do_bao_ton_ndcp", SqlDbType.NVarChar).Value = cbNDCP.SelectedIndex == 0 ? "" : cbNDCP.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@muc_do_bao_ton_nd64cp  ", SqlDbType.NVarChar).Value = cbND64CP.SelectedIndex == 0 ? "" : cbND64CP.SelectedItem?.ToString();
+                        cmd.Parameters.Add("@status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
+                        cmd.Parameters.Add("@updated_at", SqlDbType.DateTime).Value = updatedAt;
+                        cmd.Parameters.Add("@updated_by", SqlDbType.Int).Value = Int32.Parse(idUser);
+
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        // Lấy id của loài
+                        int updatedLoaiId = id;
+                        // Kiểm tra và tạo thư mục cho loài
+                        CreateFolderIfNotExists(updatedLoaiId);
+                        // Lưu ảnh vào thư mục của loài
+                        SaveImagesToFolder(updatedLoaiId);
+                    }
+                    //if (ktThem == true && selectedImages.Count > 0)
+                    //{
+                    //    foreach (string imageName in selectedImages)
+                    //    {
+                    //        string sql = "INSERT INTO HinhAnhLoai (id_dtv_loai, hinhanh) VALUES((SELECT MAX(id) FROM Loai), @hinhanh)";
+                    //        SqlCommand cmd = new SqlCommand(sql, conn);
+                    //        cmd.Parameters.Add("@hinhanh", SqlDbType.NVarChar).Value = imageName;
+
+                    //        cmd.ExecuteNonQuery();
+                    //        cmd.Dispose();
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    sql = "DELETE FROM HinhAnhLoai WHERE id_dtv_loai = @id_dtv_loai";
+                    //    SqlCommand deleteCmd = new SqlCommand(sql, conn);
+                    //    deleteCmd.Parameters.AddWithValue("@id_dtv_loai", id);
+                    //    deleteCmd.ExecuteNonQuery();
+                    //    deleteCmd.Dispose();
+
+                    //    foreach (string imageName in selectedImages)
+                    //    {
+                    //        // Thực hiện việc lưu imageData vào cơ sở dữ liệu cho loài tương ứng
+                    //        sql = "INSERT INTO HinhAnhLoai (id_dtv_loai, hinhanh) VALUES (@id_dtv_loai, @hinhanh)";
+                    //        SqlCommand cmd = new SqlCommand(sql, conn);
+                    //        cmd.Parameters.AddWithValue("@id_dtv_loai", id);
+                    //        cmd.Parameters.AddWithValue("@hinhanh", imageName);
+
+                    //        cmd.ExecuteNonQuery();
+                    //        cmd.Dispose();
+                    //    }
+                    //}
+                    transaction.Commit();
+
+                    selectedImages.Clear();
+                    xoaTrang(true);
+                    loadDGV?.Invoke();
+                    this.Dispose();
+                    if (imageDel == true)
+                        xoaAnh();
+                }
+                catch (Exception ex)
+                {
+                    // Nếu có lỗi
+                    transaction.Rollback();
+                    throw new Exception("Lỗi trong quá trình thực hiện truy vấn: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
-            if (cbFK.SelectedIndex <= 0 || cbFK.SelectedValue == null)
+            catch (Exception ex)
             {
-                MessageBox.Show("Bạn chưa chọn họ!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cbFK.Focus();
-                return;
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
+        }
+
+        private int GetInsertedLoaiId(SqlTransaction transaction)
+        {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-            if (ktThem == true)
+            string sql = "SELECT MAX(id) FROM Loai";
+            SqlCommand cmd = new SqlCommand(sql, conn, transaction);
+            int insertedLoaiId = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Dispose();
+            return insertedLoaiId;
+        }
+
+        private void CreateFolderIfNotExists(int loaiId)
+        {
+            string loaiFolderPath = pictureFolder + "\\" + loaiId.ToString();
+
+            // Kiểm tra và tạo thư mục nếu chưa tồn tại
+            if (!Directory.Exists(loaiFolderPath))
             {
-                if (MessageBox.Show("Bạn có muốn thêm loài " + txtTenTiengViet.Text + " không?", "Thông báo",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                    return;
-                DateTime createdAt = DateTime.Now;
-                SqlCommand cmd = new SqlCommand("InsertLoai", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = txtTenTiengViet.Text.Trim();
-                cmd.Parameters.Add("@name_latinh", SqlDbType.NVarChar).Value = txtTenLatinh.Text.Trim();
-                cmd.Parameters.Add("@loai", SqlDbType.Bit).Value = loai;
-                cmd.Parameters.Add("@id_dtv_ho", SqlDbType.Int).Value = cbFK.SelectedValue;
-                cmd.Parameters.Add("@ten_khac", SqlDbType.NVarChar).Value = txtTenKhac.Text.Trim();
-                cmd.Parameters.Add("@dac_diem", SqlDbType.NVarChar).Value = rtxtDacDiem.Text;
-                cmd.Parameters.Add("@gia_tri_su_dung", SqlDbType.NVarChar).Value = rtxtCongDung.Text;
-                cmd.Parameters.Add("@phan_bo", SqlDbType.NVarChar).Value = txtPhanBo.Text.Trim();
-                cmd.Parameters.Add("@nguon_tai_lieu", SqlDbType.NVarChar).Value = txtNguonTaiLieu.Text.Trim();
-                cmd.Parameters.Add("@muc_do_bao_ton_iucn", SqlDbType.NVarChar).Value = cbIUCN.SelectedIndex == 0 ? "" : cbIUCN.SelectedItem?.ToString();
-                cmd.Parameters.Add("@muc_do_bao_ton_sdvn", SqlDbType.NVarChar).Value = cbSDVN.SelectedIndex == 0 ? "" : cbSDVN.SelectedItem?.ToString();
-                cmd.Parameters.Add("@muc_do_bao_ton_ndcp", SqlDbType.NVarChar).Value = cbNDCP.SelectedIndex == 0 ? "" : cbNDCP.SelectedItem?.ToString();
-                cmd.Parameters.Add("@muc_do_bao_ton_nd64cp  ", SqlDbType.NVarChar).Value = cbND64CP.SelectedIndex == 0 ? "" : cbND64CP.SelectedItem?.ToString();
-                cmd.Parameters.Add("@status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
-                cmd.Parameters.Add("@created_at", SqlDbType.DateTime).Value = createdAt;
-                cmd.Parameters.Add("@created_by", SqlDbType.Int).Value = Int32.Parse(idUser);
-
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
+                Directory.CreateDirectory(loaiFolderPath);
             }
-            else
-            {
-                if (MessageBox.Show("Bạn có muốn sửa loài " + tenTiengViet + " không?", "Thông báo",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                    return;
-                DateTime updatedAt = DateTime.Now;
-                SqlCommand cmd = new SqlCommand("UpdateLoai", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+        }
 
-                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = txtTenTiengViet.Text.Trim();
-                cmd.Parameters.Add("@name_latinh", SqlDbType.NVarChar).Value = txtTenLatinh.Text.Trim();
-                cmd.Parameters.Add("@id_dtv_ho", SqlDbType.Int).Value = cbFK.SelectedValue;
-                cmd.Parameters.Add("@ten_khac", SqlDbType.NVarChar).Value = txtTenKhac.Text.Trim();
-                cmd.Parameters.Add("@dac_diem", SqlDbType.NVarChar).Value = rtxtDacDiem.Text;
-                cmd.Parameters.Add("@gia_tri_su_dung", SqlDbType.NVarChar).Value = rtxtCongDung.Text;
-                cmd.Parameters.Add("@phan_bo", SqlDbType.NVarChar).Value = txtPhanBo.Text.Trim();
-                cmd.Parameters.Add("@nguon_tai_lieu", SqlDbType.NVarChar).Value = txtNguonTaiLieu.Text.Trim();
-                cmd.Parameters.Add("@muc_do_bao_ton_iucn", SqlDbType.NVarChar).Value = cbIUCN.SelectedIndex == 0 ? "" : cbIUCN.SelectedItem?.ToString();
-                cmd.Parameters.Add("@muc_do_bao_ton_sdvn", SqlDbType.NVarChar).Value = cbSDVN.SelectedIndex == 0 ? "" : cbSDVN.SelectedItem?.ToString();
-                cmd.Parameters.Add("@muc_do_bao_ton_ndcp", SqlDbType.NVarChar).Value = cbNDCP.SelectedIndex == 0 ? "" : cbNDCP.SelectedItem?.ToString();
-                cmd.Parameters.Add("@muc_do_bao_ton_nd64cp  ", SqlDbType.NVarChar).Value = cbND64CP.SelectedIndex == 0 ? "" : cbND64CP.SelectedItem?.ToString();
-                cmd.Parameters.Add("@status", SqlDbType.Bit).Value = rbtOn.Checked ? 1 : 0;
-                cmd.Parameters.Add("@updated_at", SqlDbType.DateTime).Value = updatedAt;
-                cmd.Parameters.Add("@updated_by", SqlDbType.Int).Value = Int32.Parse(idUser);
-
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-            }
-            if (ktThem == true && selectedImages.Count > 0)
+        private void SaveImagesToFolder(int loaiId)
+        {
+            foreach (string sourceImagePath in selectedImages)
             {
-                foreach (string imageName in selectedImages)
+                // Lấy tên của ảnh từ đường dẫn
+                string imageName = Path.GetFileName(sourceImagePath);
+                //string sourceImagePath = pictureFolder + "\\" + imageName;
+                string destinationImagePath = pictureFolder + "\\" + loaiId.ToString() + "\\" + imageName;
+
+                // Kiểm tra và chuyển ảnh vào thư mục của loài
+                if (!File.Exists(destinationImagePath))
                 {
-                    string sql = "INSERT INTO HinhAnhLoai (id_dtv_loai, hinhanh) VALUES((SELECT MAX(id) FROM Loai), @hinhanh)";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.Add("@hinhanh", SqlDbType.NVarChar).Value = imageName;
-
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
+                    File.Copy(sourceImagePath, destinationImagePath);
                 }
             }
-            else
-            {
-                sql = "DELETE FROM HinhAnhLoai WHERE id_dtv_loai = @id_dtv_loai";
-                SqlCommand deleteCmd = new SqlCommand(sql, conn);
-                deleteCmd.Parameters.AddWithValue("@id_dtv_loai", id);
-                deleteCmd.ExecuteNonQuery();
-                deleteCmd.Dispose();
-
-                foreach (string imageName in selectedImages)
-                {
-                    // Thực hiện việc lưu imageData vào cơ sở dữ liệu cho loài tương ứng
-                    sql = "INSERT INTO HinhAnhLoai (id_dtv_loai, hinhanh) VALUES (@id_dtv_loai, @hinhanh)";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@id_dtv_loai", id);
-                    cmd.Parameters.AddWithValue("@hinhanh", imageName);
-
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-                }
-
-            }
-            conn.Close();
-            loadDGV?.Invoke();
-
-            selectedImages.Clear();
-            xoaTrang(true);
-            this.Dispose();
         }
 
         private void btHuy_Click(object sender, EventArgs e)
@@ -391,25 +496,25 @@ namespace DongThucVat
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Kiểm tra và tạo thư mục nếu chưa tồn tại
-                if (!Directory.Exists(pictureFolder))
-                {
-                    Directory.CreateDirectory(pictureFolder);
-                }
+                //// Kiểm tra và tạo thư mục nếu chưa tồn tại
+                //if (!Directory.Exists(pictureFolder))
+                //{
+                //    Directory.CreateDirectory(pictureFolder);
+                //}
 
                 foreach (string fileName in openFileDialog.FileNames)
                 {
-                    // Lấy tên của ảnh từ đường dẫn
-                    string imageName = Path.GetFileName(fileName);
-                    // Kiểm tra xem ảnh đã tồn tại trong thư mục cấu hình chưa
-                    string imagePath = pictureFolder + "\\" + imageName;
-                    if (!File.Exists(imagePath))
-                    {
-                        // Nếu chưa tồn tại thì copy ảnh vào thư mục cấu hình
-                        File.Copy(fileName, imagePath);
-                    }
+                    //// Lấy tên của ảnh từ đường dẫn
+                    //string imageName = Path.GetFileName(fileName);
+                    //// Kiểm tra xem ảnh đã tồn tại trong thư mục cấu hình chưa
+                    //string imagePath = pictureFolder + "\\" + imageName;
+                    //if (!File.Exists(imagePath))
+                    //{
+                    //    // Nếu chưa tồn tại thì copy ảnh vào thư mục cấu hình
+                    //    File.Copy(fileName, imagePath);
+                    //}
                     // Thêm đường dẫn của ảnh đã chọn vào danh sách
-                    selectedImages.Add(imageName);
+                    selectedImages.Add(fileName);
                 }
 
                 DisplayImages();
@@ -441,6 +546,56 @@ namespace DongThucVat
             fpnlHinhAnh.Controls.Clear();
             selectedImages.Clear();
             DisplayImages();
+            imageDel = true;
+        }
+
+        private async void xoaAnh()
+        {
+            await Task.Delay(5000); // Chờ 3 giây trước khi thực hiện xóa
+
+            try
+            {
+                if (ktThem == false)
+                {
+                    // Lấy tất cả các đường dẫn file trong thư mục
+                    string[] allFiles = Directory.GetFiles(pictureFolder + "\\" + id.ToString());
+                    // Lọc ra các file ảnh
+                    string[] imageExtensions = { ".jpg", ".jpeg", ".png" };
+
+                    foreach (string filePath in allFiles)
+                    {
+                        string extension = Path.GetExtension(filePath).ToLower();
+
+                        if (Array.Exists(imageExtensions, ie => ie == extension))
+                        {
+                            // Thử lại việc xóa nếu gặp lỗi
+                            int retryCount = 0;
+                            const int maxRetries = 3;
+                            const int delayMilliseconds = 1000;
+
+                            while (retryCount < maxRetries)
+                            {
+                                try
+                                {
+                                    File.Delete(filePath); // Xóa file ảnh
+                                    break; // Thoát khỏi vòng lặp nếu xóa thành công
+                                }
+                                catch (IOException ex)
+                                {
+                                    // Nếu xảy ra lỗi, hiển thị thông báo và chờ một khoảng thời gian trước khi thử lại
+                                    //MessageBox.Show($"Lỗi khi xóa file (lần thử {retryCount + 1}/{maxRetries}): {ex.Message}");
+                                    retryCount++;
+                                    Thread.Sleep(delayMilliseconds);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa file: " + ex.Message);
+            }
         }
     }
 }
