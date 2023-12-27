@@ -19,7 +19,6 @@ namespace DongThucVat
 
         SqlConnection conn;
         private List<string> hinhAnhList = new List<string>();
-        string sql = "";
         private string id;
         public string IdHienThi { get => id; set => id = value; }
 
@@ -38,32 +37,37 @@ namespace DongThucVat
         {
             try
             {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                sql = "SELECT hinhanh FROM HinhAnhLoai WHERE id_dtv_loai = @loaiId";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Add("@loaiId", SqlDbType.Int).Value = Int32.Parse(id);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                string loaiFolderPath = pictureFolder + "\\" + id.ToString();
+                try
                 {
-                    string imageName = reader["hinhanh"].ToString();
-                    if (!string.IsNullOrEmpty(imageName))
+                    if (Directory.Exists(loaiFolderPath))
                     {
-                        hinhAnhList.Add(imageName);
+                        // Lấy tất cả các đường dẫn file trong thư mục
+                        string[] allFiles = Directory.GetFiles(loaiFolderPath);
+                        // Lọc ra các file ảnh (có thể thêm các định dạng file ảnh khác vào đây)
+                        string[] imageExtensions = { ".jpg", ".jpeg", ".png" };
+                        //string[] imageFiles = Directory.GetFiles(loaiFolderPath, "*.jpg;*.jpeg;*.png");
+                        foreach (string filePath in allFiles)
+                        {
+                            string extension = Path.GetExtension(filePath).ToLower();
+
+                            if (Array.Exists(imageExtensions, e => e == extension))
+                            {
+                                hinhAnhList.Add(filePath);
+                            }
+                        }
                     }
                 }
-                reader.Close();
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
                 foreach (string imageName in hinhAnhList)
                 {
-                    string imagePath = pictureFolder + "\\" + imageName;
-                    if (File.Exists(imagePath))
+                    if (File.Exists(imageName))
                     {
                         PictureBox pictureBox = new PictureBox();
-                        pictureBox.Image = Image.FromFile(imagePath);
+                        pictureBox.Image = Image.FromFile(imageName);
                         pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox.Width = 200;
                         pictureBox.Height = 200;

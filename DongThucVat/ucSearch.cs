@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -239,20 +240,36 @@ namespace DongThucVat
         public string anhListItemLoad(string idloai)
         {
             hinhanh = "";
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-
+            string loaiFolderPath = pictureFolder + "\\" + idloai.ToString();
             try
             {
-                string query = "SELECT TOP 1 hinhanh FROM HinhAnhLoai WHERE id_dtv_loai = @Id ORDER BY id DESC; ";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                if (Directory.Exists(loaiFolderPath))
                 {
-                    cmd.Parameters.AddWithValue("@Id", Int32.Parse(idloai));
-                    object result = cmd.ExecuteScalar();
+                    // Lấy tất cả các đường dẫn file trong thư mục và sắp xếp theo thời gian sửa đổi giảm dần
+                    string[] allFiles = Directory.GetFiles(loaiFolderPath)
+                        .OrderByDescending(f => new FileInfo(f).LastWriteTime)
+                        .ToArray();
 
-                    if (result is string hinhanhValue)
+                    // Lọc ra các file ảnh (có thể thêm các định dạng file ảnh khác vào đây)
+                    string[] imageExtensions = { ".jpg", ".jpeg", ".png" };
+
+                    foreach (string filePath in allFiles)
                     {
-                        hinhanh = pictureFolder + "\\" + hinhanhValue;
+                        string extension = Path.GetExtension(filePath).ToLower();
+
+                        if (Array.Exists(imageExtensions, e => e == extension))
+                        {
+                            // Lấy hình ảnh mới nhất và thoát khỏi vòng lặp
+                            hinhanh = filePath;
+                            break;
+                        }
+                    }
+
+                    // Khi kết thúc vòng lặp, kiểm tra nếu đã tìm thấy hình ảnh mới nhất
+                    if (hinhanh == null)
+                    {
+                        string anhmacdinh = AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png";
+                        return anhmacdinh;
                     }
                 }
             }
@@ -261,11 +278,6 @@ namespace DongThucVat
                 string anhmacdinh = AppDomain.CurrentDomain.BaseDirectory + "\\picture\\Image File.png";
                 return anhmacdinh;
             }
-            finally
-            {
-                conn.Close();
-            }
-
             return hinhanh;
         }
 
